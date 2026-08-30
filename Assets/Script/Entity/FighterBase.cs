@@ -58,7 +58,17 @@ public abstract class FighterBase : MonoBehaviour
         }
     }
 
+    // ==========================================
+    // ALUR SERANGAN — DEFAULT-NYA MELEE DASH
+    // Karakter projectile (Elf/Dragon/ShadowMaster) override ini
+    // dan cukup delegasikan ke ProjectileAttackFlow()
+    // ==========================================
     protected virtual IEnumerator AttackFlow()
+    {
+        return MeleeAttackFlow();
+    }
+
+    protected IEnumerator MeleeAttackFlow()
     {
         isAttacking = true;
 
@@ -150,9 +160,58 @@ public abstract class FighterBase : MonoBehaviour
         anim.Play(animIdle);
     }
 
+    // ==========================================
+    // ALUR SERANGAN PROJECTILE (REUSABLE)
+    // Dipakai oleh Elf, Dragon, ShadowMaster — tinggal:
+    //   protected override IEnumerator AttackFlow() => ProjectileAttackFlow();
+    // Gak perlu dash, cuma wind-up di tempat lalu tembak.
+    // ==========================================
+    protected IEnumerator ProjectileAttackFlow()
+    {
+        isAttacking = true;
+
+        while (true)
+        {
+            // STATE 1: WIND-UP
+            anim.Play(animAttack);
+            yield return new WaitForSeconds(attackWindUpTime);
+
+            // STATE 2: TEMBAK (delegasi ke ApplyImpactEffect via OnHitImpact)
+            OnHitImpact();
+            yield return new WaitForSeconds(hitStopTime);
+
+            // STATE 3: CEK BUFFER
+            if (attackBuffer > 0)
+            {
+                attackBuffer--;
+                continue;
+            }
+
+            break;
+        }
+
+        // STATE 4: RESET
+        isAttacking = false;
+        anim.Play(animIdle);
+    }
+
+    // ==========================================
+    // IMPACT — dipanggil di titik "kena" tiap AttackFlow
+    // Enemy override ini buat nyisipin cek miss-chance,
+    // lalu tetap panggil ApplyImpactEffect() lewat base.OnHitImpact()
+    // ==========================================
     protected virtual void OnHitImpact()
     {
-        // Berikan damage ke lawan
+        ApplyImpactEffect();
+    }
+
+    // ==========================================
+    // EFEK SERANGAN — INI YANG BEDA PER TIPE SERANGAN
+    // Default: kasih damage langsung ke opponent (melee).
+    // Karakter projectile override ini buat spawn projectile.
+    // ==========================================
+    protected virtual void ApplyImpactEffect()
+    {
         if (opponent != null)
         {
             FighterBase target = opponent.GetComponent<FighterBase>();
@@ -165,6 +224,8 @@ public abstract class FighterBase : MonoBehaviour
         if (isDead) return;
 
         currHP -= damage;
+        Debug.Log($"[{name}] kena damage {damage} -> HP {currHP}/{maxHP}");
+
         if (currHP <= 0)
         {
             currHP = 0;
@@ -176,5 +237,6 @@ public abstract class FighterBase : MonoBehaviour
     {
         isDead = true;
         StopAllCoroutines();
+        Debug.Log($"[{name}] MATI");
     }
 }
