@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 08091d2a641589b48b1a03ff0de1cf00, type: 3}
+  m_Name: TypingTheme
+  m_EditorClassIdentifier: Assembly-CSharp::TypeForward.TypingTheme
+  pendingColor: {r: 0.29, g: 0.32, b: 0.39, a: 1}
+  correctColor: {r: 0.83, g: 0.84, b: 0.87, a: 1}
+  incorrectColor: {r: 0.89, g: 0.36, b: 0.36, a: 1}
+  cursorColor: {r: 0.89, g: 0.72, b: 0.08, a: 1}
+  backgroundColor: {r: 0.06, g: 0.07, b: 0.09, a: 1}
+  panelColor: {r: 0.09, g: 0.11, b: 0.15, a: 1}
+  mistakeFlashDuration: 0.15
+  shakeMagnitude: 6
