@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using System;
 
 public abstract class EnemyFighterBase : FighterBase
 {
@@ -16,6 +17,7 @@ public abstract class EnemyFighterBase : FighterBase
 
     // -- CACHE ANIMATION SPECIAL ATTACK (Eksklusif Enemy) --
     private readonly int animSpecialAttack = Animator.StringToHash("SpecialAttack");
+    public event Action<Transform> OnAttackMissed; // Event murni C# untuk HUD
 
     private bool nextAttackIsMiss = false;
     private bool[] specialAttackFired;
@@ -31,14 +33,15 @@ public abstract class EnemyFighterBase : FighterBase
     {
         while (!isDead)
         {
-            float waitTime = Random.Range(minAttackInterval, maxAttackInterval);
+            float waitTime = UnityEngine.Random.Range(minAttackInterval, maxAttackInterval);
             yield return new WaitForSeconds(waitTime);
 
             if (isDead) yield break;
             if (isAttacking) continue;
 
-            float missRoll = Random.value;
+            float missRoll = UnityEngine.Random.value;
             nextAttackIsMiss = missRoll < missChance;
+            Debug.Log($"[{name}] roll miss = {missRoll:F2} (ambang missChance = {missChance}) -> {(nextAttackIsMiss ? "AKAN MELESET" : "AKAN KENA")}");
 
             TriggerAttack();
         }
@@ -49,6 +52,10 @@ public abstract class EnemyFighterBase : FighterBase
         if (nextAttackIsMiss)
         {
             Debug.Log($"[{name}] serangan MELESET");
+
+            // Cara memanggilnya saat serangan meleset:
+            OnAttackMissed?.Invoke(this.transform);
+
             nextAttackIsMiss = false;
             return;
         }
@@ -90,9 +97,8 @@ public abstract class EnemyFighterBase : FighterBase
     private IEnumerator SpecialAttackFlow()
     {
         isAttacking = true; // Blok AIRoutine & TriggerAttack biasa selama special attack jalan
+        CombatFreezeSignal.Begin(); // Semua enemy lain & minigame ketik ikut berhenti
 
-        // Cari target sendiri — bukan lewat TriggerAttack() biasa, jadi
-        // currentTarget yang lama (kalau ada) gak dipakai di sini.
         Transform target = AcquireTarget();
         anim.Play(animSpecialAttack);
 
@@ -103,6 +109,8 @@ public abstract class EnemyFighterBase : FighterBase
 
         bool parried = playerTarget != null && playerTarget.ResolveParryChallenge();
         Debug.Log($"[{name}] window parry abis -> hasil: {(parried ? "PLAYER BERHASIL PARRY" : "PLAYER GAGAL PARRY")}");
+
+        CombatFreezeSignal.End(); // Lepas freeze SEBELUM damage diterapkan, biar reaksi kena damage keliatan normal (gak ke-freeze)
 
         if (!parried && playerTarget != null)
         {

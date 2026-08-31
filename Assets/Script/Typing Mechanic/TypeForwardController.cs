@@ -52,6 +52,11 @@ namespace TypeForward
         {
             if (_transitioning) return;
 
+            // Lagi ada enemy nge-special-attack (parry QTE aktif) -> minigame ketik
+            // ikut berhenti total. Kita cuma nengok bridge, gak perlu tau apa-apa
+            // soal FighterBase/CombatFreezeSignal di sini.
+            if (combatBridge != null && combatBridge.IsPaused) return;
+
             if (_input.WasBackspacePressedThisFrame())
             {
                 view.PlayBackspaceRejectedFeedback();
@@ -105,7 +110,19 @@ namespace TypeForward
         {
             if (c == ' ')
             {
-                CommitWord();
+                // Ambil kata target saat ini
+                string targetWord = _sentences[_sentenceIndex][_wordIndex];
+
+                // Cek apakah jumlah karakter yang diketik sudah minimal sama dengan panjang kata target
+                if (_currentTyped.Length >= targetWord.Length)
+                {
+                    CommitWord();
+                }
+                else
+                {
+                    // Opsional: Mainkan efek visual/audio jika pemain mencoba skip terlalu cepat
+                    view.PlayBackspaceRejectedFeedback();
+                }
             }
             else
             {
