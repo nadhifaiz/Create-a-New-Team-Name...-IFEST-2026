@@ -39,7 +39,6 @@ public abstract class EnemyFighterBase : FighterBase
 
             float missRoll = Random.value;
             nextAttackIsMiss = missRoll < missChance;
-            Debug.Log($"[{name}] roll miss = {missRoll:F2} (ambang missChance = {missChance}) -> {(nextAttackIsMiss ? "AKAN MELESET" : "AKAN KENA")}");
 
             TriggerAttack();
         }

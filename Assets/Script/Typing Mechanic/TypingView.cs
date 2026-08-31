@@ -1,3 +1,5 @@
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Text;
 using TMPro;
@@ -6,53 +8,49 @@ using UnityEngine;
 namespace TypeForward
 {
     /// <summary>
-    /// Pure presentation: turns CharCells / results into TMP rich text.
-    /// Has zero game-rule knowledge — it only knows how to draw what it's told.
-    /// Swap this class out entirely (e.g. for a per-word highlight renderer,
-    /// or a non-TMP UI toolkit view) without touching TypingSession.
+    /// Pure presentation: turns CharCells into TMP rich text and plays the
+    /// fade-out-up / fade-in-from-below transition between sentences.
+    /// Has zero game-rule knowledge — Controller decides WHAT and WHEN,
+    /// this class only knows HOW to draw and animate it.
     /// </summary>
     public class TypingView : MonoBehaviour
     {
         [Header("UI References")]
-        [SerializeField] private TMP_Text wordDisplay;
-        [SerializeField] private TMP_Text timerDisplay;
-        [SerializeField] private TMP_Text resultsDisplay;
-        [SerializeField] private GameObject resultsPanel;
+        [SerializeField] private TMP_Text sentenceDisplay;
+        [Tooltip("Optional. Parent RectTransform that slides/fades. If empty, sentenceDisplay's own RectTransform is used.")]
+        [SerializeField] private RectTransform sentenceRoot;
+        [Tooltip("Optional but required for fading. Put a CanvasGroup on the same object as sentenceRoot.")]
+        [SerializeField] private CanvasGroup sentenceCanvasGroup;
 
         [Header("Theme")]
         [SerializeField] private TypingTheme theme;
 
-        [Header("Scrolling")]
-        [Tooltip("How many lines of text stay visible inside the masked viewport.")]
-        [SerializeField] private int visibleLines = 3;
-        [Tooltip("Optional: overrides auto-detected line height (world px). Leave 0 to auto-detect from TMP.")]
-        [SerializeField] private float lineHeightOverride = 0f;
+        private readonly StringBuilder _sb = new StringBuilder(1024);
+        private Vector2 _basePosition;
+        private bool _basePositionCaptured;
 
-        private readonly StringBuilder _sb = new StringBuilder(4096);
-        private int _lastCursorIndex = -1;
-
-        public void ShowGameplay()
+        private void Awake()
         {
-            if (resultsPanel != null) resultsPanel.SetActive(false);
-            _lastCursorIndex = -1;
-            if (wordDisplay != null)
-            {
-                var pos = wordDisplay.rectTransform.anchoredPosition;
-                pos.y = 0f;
-                wordDisplay.rectTransform.anchoredPosition = pos;
-            }
+            if (sentenceRoot == null && sentenceDisplay != null) sentenceRoot = sentenceDisplay.rectTransform;
+            CaptureBasePosition();
         }
 
-        public void RenderText(IReadOnlyList<CharCell> cells)
+        private void CaptureBasePosition()
         {
-            if (wordDisplay == null) return;
+            if (_basePositionCaptured || sentenceRoot == null) return;
+            _basePosition = sentenceRoot.anchoredPosition;
+            _basePositionCaptured = true;
+        }
+
+        public void RenderSentence(IReadOnlyList<CharCell> cells)
+        {
+            if (sentenceDisplay == null) return;
 
             _sb.Clear();
             string pending = theme.ColorHex(theme.pendingColor);
             string correct = theme.ColorHex(theme.correctColor);
             string incorrect = theme.ColorHex(theme.incorrectColor);
             string cursor = theme.ColorHex(theme.cursorColor);
-            string extra = theme.ColorHex(theme.incorrectColor); // overtyped chars use the same "wrong" color
 
             foreach (var cell in cells)
             {
@@ -67,8 +65,7 @@ namespace TypeForward
                            .Append("</u></color>");
                         break;
                     case CharState.Extra:
-                        // typed past the end of the word — show with strikethrough so it reads as "shouldn't be here"
-                        _sb.Append("<color=").Append(extra).Append("><s>").Append(glyph).Append("</s></color>");
+                        _sb.Append("<color=").Append(incorrect).Append("><s>").Append(glyph).Append("</s></color>");
                         break;
                     case CharState.Cursor:
                         _sb.Append("<color=").Append(cursor).Append("><u>").Append(glyph).Append("</u></color>");
@@ -79,74 +76,70 @@ namespace TypeForward
                 }
             }
 
-            wordDisplay.text = _sb.ToString();
-            ScrollToCursor(cells);
+            sentenceDisplay.text = _sb.ToString();
         }
 
         /// <summary>
-        /// Keeps the current typing line inside the visible window by shifting
-        /// wordDisplay upward inside its masked viewport parent, Monkeytype-style.
-        /// wordDisplay's RectTransform must be top-anchored/top-pivoted and sit
-        /// inside a parent with a Mask or RectMask2D of fixed height.
+        /// Plays: current sentence fades out while sliding up -> onMidpoint (Controller swaps
+        /// the text to the next sentence here) -> new sentence starts below and fades/slides
+        /// up into its resting position -> onComplete.
         /// </summary>
-        private void ScrollToCursor(IReadOnlyList<CharCell> cells)
+        public void PlaySentenceTransition(Action onMidpoint, Action onComplete)
         {
-            // Find the index of the cursor character. If the current word is exactly full
-            // (just-typed the last letter, space not pressed yet), there's no Cursor cell —
-            // fall back to the first Pending cell instead of the very end of the whole text,
-            // otherwise the view briefly scrolls to the last generated line.
-            int cursorIndex = -1;
-            int firstPending = -1;
-            for (int i = 0; i < cells.Count; i++)
+            StartCoroutine(TransitionRoutine(onMidpoint, onComplete));
+        }
+
+        private IEnumerator TransitionRoutine(Action onMidpoint, Action onComplete)
+        {
+            CaptureBasePosition();
+            float slide = theme != null ? theme.slideDistance : 60f;
+            float outDur = theme != null ? theme.fadeOutDuration : 0.25f;
+            float inDur = theme != null ? theme.fadeInDuration : 0.3f;
+
+            // --- FADE OUT + SLIDE UP ---
+            yield return Animate(
+                fromPos: _basePosition,
+                toPos: _basePosition + Vector2.up * slide,
+                fromAlpha: 1f,
+                toAlpha: 0f,
+                duration: outDur);
+
+            onMidpoint?.Invoke(); // Controller swaps to the next sentence and calls RenderSentence here
+
+            // --- FADE IN FROM BELOW ---
+            yield return Animate(
+                fromPos: _basePosition - Vector2.up * slide,
+                toPos: _basePosition,
+                fromAlpha: 0f,
+                toAlpha: 1f,
+                duration: inDur);
+
+            onComplete?.Invoke();
+        }
+
+        private IEnumerator Animate(Vector2 fromPos, Vector2 toPos, float fromAlpha, float toAlpha, float duration)
+        {
+            if (sentenceRoot != null) sentenceRoot.anchoredPosition = fromPos;
+            if (sentenceCanvasGroup != null) sentenceCanvasGroup.alpha = fromAlpha;
+
+            float t = 0f;
+            while (t < duration)
             {
-                if (cells[i].State == CharState.Cursor) { cursorIndex = i; break; }
-                if (firstPending == -1 && cells[i].State == CharState.Pending) firstPending = i;
+                t += Time.deltaTime;
+                float k = duration <= 0f ? 1f : Mathf.Clamp01(t / duration);
+                float eased = 1f - Mathf.Pow(1f - k, 2f); // ease-out, feels snappier than linear
+
+                if (sentenceRoot != null) sentenceRoot.anchoredPosition = Vector2.LerpUnclamped(fromPos, toPos, eased);
+                if (sentenceCanvasGroup != null) sentenceCanvasGroup.alpha = Mathf.LerpUnclamped(fromAlpha, toAlpha, eased);
+
+                yield return null;
             }
-            if (cursorIndex == -1) cursorIndex = firstPending != -1 ? firstPending : cells.Count - 1;
-            if (cursorIndex == _lastCursorIndex) return; // avoid redundant mesh work
-            _lastCursorIndex = cursorIndex;
 
-            wordDisplay.ForceMeshUpdate();
-            var textInfo = wordDisplay.textInfo;
-            if (textInfo.lineCount == 0) return;
-
-            int cursorLine = 0;
-            if (cursorIndex >= 0 && cursorIndex < textInfo.characterCount)
-                cursorLine = textInfo.characterInfo[cursorIndex].lineNumber;
-            else
-                cursorLine = textInfo.lineCount - 1;
-
-            float lineHeight = lineHeightOverride > 0f
-                ? lineHeightOverride
-                : textInfo.lineInfo[0].lineHeight;
-
-            // Keep the cursor's line as the 2nd visible line (one line of context above, one below).
-            int scrollLine = Mathf.Max(0, cursorLine - (visibleLines - 2));
-
-            var rt = wordDisplay.rectTransform;
-            Vector2 pos = rt.anchoredPosition;
-            pos.y = scrollLine * lineHeight;
-            rt.anchoredPosition = pos;
+            if (sentenceRoot != null) sentenceRoot.anchoredPosition = toPos;
+            if (sentenceCanvasGroup != null) sentenceCanvasGroup.alpha = toAlpha;
         }
 
-        public void RenderTime(float timeLeft)
-        {
-            if (timerDisplay != null)
-                timerDisplay.text = Mathf.CeilToInt(timeLeft).ToString();
-        }
-
-        public void RenderResults(SessionResult result)
-        {
-            if (resultsDisplay != null)
-            {
-                resultsDisplay.text =
-                    $"WPM: {result.Wpm}\nAccuracy: {result.Accuracy}%\nCorrect: {result.CorrectChars}\nMistakes: {result.IncorrectChars}";
-            }
-            if (resultsPanel != null) resultsPanel.SetActive(true);
-        }
-
-        /// <summary>Hook for mistake/backspace feedback (shake, flash, sound). Override or extend as needed.</summary>
-        public virtual void PlayMistakeFeedback() { }
+        /// <summary>Hook for backspace-rejected feedback (shake, sound). Override or extend as needed.</summary>
         public virtual void PlayBackspaceRejectedFeedback() { }
     }
 }

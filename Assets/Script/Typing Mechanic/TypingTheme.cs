@@ -13,16 +13,16 @@ namespace TypeForward
         [Header("Text Colors")]
         public Color pendingColor = new Color(0.29f, 0.32f, 0.39f);   // untyped chars
         public Color correctColor = new Color(0.83f, 0.84f, 0.87f);  // typed correctly
-        public Color incorrectColor = new Color(0.89f, 0.36f, 0.36f); // typed wrong
+        public Color incorrectColor = new Color(0.89f, 0.36f, 0.36f); // typed wrong / overtyped
         public Color cursorColor = new Color(0.89f, 0.72f, 0.08f);   // caret / active char
 
-        [Header("Accent")]
-        public Color backgroundColor = new Color(0.06f, 0.07f, 0.09f);
-        public Color panelColor = new Color(0.09f, 0.11f, 0.15f);
-
-        [Header("Feedback")]
-        public float mistakeFlashDuration = 0.15f;
-        public float shakeMagnitude = 6f;
+        [Header("Sentence Transition Animation")]
+        [Tooltip("How far (in UI pixels) the sentence slides in from below / out to above.")]
+        public float slideDistance = 60f;
+        [Tooltip("Duration of the fade-out + slide-up when a sentence finishes.")]
+        public float fadeOutDuration = 0.25f;
+        [Tooltip("Duration of the fade-in + slide-into-place for the next sentence.")]
+        public float fadeInDuration = 0.3f;
 
         public string ColorHex(Color c) => "#" + ColorUtility.ToHtmlStringRGB(c);
     }
