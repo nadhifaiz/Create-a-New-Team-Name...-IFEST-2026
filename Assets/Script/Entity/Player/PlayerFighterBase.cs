@@ -1,12 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
-// ==========================================
-// SEMUA KARAKTER PLAYER (Knight, Flail, Elf) TURUN DARI SINI
-// Isinya: input keyboard, sistem combo ketik, parry.
-// Cara serang (melee/projectile) DIATUR DI FighterBase,
-// jadi kelas ini gak perlu tau bedanya sama sekali.
-// ==========================================
 public abstract class PlayerFighterBase : FighterBase
 {
     [Header("Player Specifics")]
@@ -14,20 +8,21 @@ public abstract class PlayerFighterBase : FighterBase
     [SerializeField] protected GameObject comboAura;
 
     [Header("Combo Tuning")]
-    // Beda-in nilai ini per karakter lewat Inspector.
-    // Knight/Flail: firstBonus 5, repeatBonus 1 (progresif).
-    // Elf: firstBonus 5, repeatBonus 5 (flat tiap combo).
     [SerializeField] protected int comboFirstBonus = 5;
     [SerializeField] protected int comboRepeatBonus = 1;
 
     [Header("Parry QTE (respon Special Attack musuh)")]
-    // Berapa kali huruf harus di-spam sebelum window QTE abis
     [SerializeField] protected int parryRequiredTaps = 8;
 
-    // -- CACHE ANIMATION PARRY (Eksklusif Player) --
+    // -- CACHE ANIMATION (Eksklusif Player) --
+    // Parry: TRANSISI 1 = Idle -> Parry (BeginParryChallenge),
+    //        TRANSISI 2 = Parry -> Idle (ResolveParryChallenge, pakai animIdle
+    //        yang udah ada di FighterBase — gak perlu hash baru buat exit-nya)
     private readonly int animParry = Animator.StringToHash("Parry");
 
-    // Huruf A-Z buat dipilih random tiap QTE muncul
+    // Reaksi KHUSUS kena special attack — beda dari animHit biasa (global) di FighterBase
+    private readonly int animHitSpecial = Animator.StringToHash("HitSpecial");
+
     private static readonly Key[] letterKeys =
     {
         Key.A, Key.B, Key.C, Key.D, Key.E, Key.F, Key.G, Key.H, Key.I, Key.J,
@@ -45,12 +40,12 @@ public abstract class PlayerFighterBase : FighterBase
     private int parryTapCount = 0;
     private Key parryTargetKey;
 
-    public Key CurrentParryKey => parryTargetKey; // buat ditampilkan di UI ("Spam tombol X!")
+    public Key CurrentParryKey => parryTargetKey;
     public float ParryProgress01 => parryRequiredTaps <= 0 ? 1f : Mathf.Clamp01((float)parryTapCount / parryRequiredTaps);
 
     protected override void Start()
     {
-        base.Start(); // Memanggil setup dasar (HP, StartPos) dari FighterBase
+        base.Start();
 
         if (comboAura != null) comboAura.SetActive(false);
     }
@@ -61,8 +56,6 @@ public abstract class PlayerFighterBase : FighterBase
 
         if (isParryChallengeActive)
         {
-            // Selama QTE aktif, kunci input serang/parry manual —
-            // fokus cuma nampung spam tombol huruf
             HandleParryChallengeInput();
             return;
         }
@@ -88,7 +81,6 @@ public abstract class PlayerFighterBase : FighterBase
 
     protected virtual void HandleCombatInput()
     {
-        // Pastikan New Input System terbaca
         if (Keyboard.current == null) return;
 
         // Tombol Serang (J)
@@ -96,19 +88,15 @@ public abstract class PlayerFighterBase : FighterBase
         {
             TriggerAttack();
         }
-
-        // Parry manual (K) DIHAPUS — satu-satunya cara parry sekarang lewat
-        // QTE yang dipicu enemy pas special attack (lihat BeginParryChallenge).
     }
 
     // ==========================================
-    // PARRY QTE — DIPANGGIL DARI EnemyFighterBase.SpecialAttackFlow()
+    // PARRY QTE — dipanggil dari EnemyFighterBase.SpecialAttackFlow()
     // ==========================================
 
-    // Dipanggil pas musuh mulai mainin animasi special attack.
-    // Karakter ganti state jadi parry (anim: berdiri -> tancep pedang -> hold idle,
-    // diatur di Animator Controller sendiri lewat transition/exit time)
-    // dan mulai nampung spam tombol huruf random sampai durasi ini abis.
+    // TRANSISI 1: Idle normal -> Parry.
+    // Karakter hold di state ini (berdiri -> tancep pedang -> idle-hold,
+    // diatur sendiri di Animator Controller) sampai ResolveParryChallenge dipanggil.
     public void BeginParryChallenge(float duration)
     {
         if (isDead) return;
@@ -123,8 +111,7 @@ public abstract class PlayerFighterBase : FighterBase
         anim.Play(animParry);
     }
 
-    // Dipanggil enemy pas durasi special attack-nya abis.
-    // Balikin true kalau player berhasil ngumpulin tap sebelum waktu habis.
+    // TRANSISI 2: Parry -> Idle normal. Dipanggil enemy pas durasi special attack-nya abis.
     public bool ResolveParryChallenge()
     {
         isParryChallengeActive = false;
@@ -132,6 +119,23 @@ public abstract class PlayerFighterBase : FighterBase
         anim.Play(animIdle);
 
         return parryChallengeSuccess;
+    }
+
+    // ==========================================
+    // TERKENA DAMAGE SPECIAL ATTACK (KHUSUS PLAYER)
+    // Beda dari TakeDamage() biasa di FighterBase: animasi reaksinya beda
+    // (animHitSpecial), dan cuma dipanggil enemy pas parry gagal.
+    // ==========================================
+    public void TakeSpecialDamage(int damage)
+    {
+        if (isDead) return;
+
+        ApplyDamage(damage);
+
+        if (!isDead)
+        {
+            anim.Play(animHitSpecial);
+        }
     }
 
     protected override void Die()
@@ -167,10 +171,9 @@ public abstract class PlayerFighterBase : FighterBase
         }
         else
         {
-            // Salah ngetik = Combo Hangus
             comboCount = 0;
             if (comboAura != null) comboAura.SetActive(false);
-            currDamage = baseDamage; // Reset ke damage awal
+            currDamage = baseDamage;
             Debug.Log($"[{name}] combo hangus -> damage kembali ke {currDamage}");
         }
     }
@@ -178,8 +181,6 @@ public abstract class PlayerFighterBase : FighterBase
     private void IncreaseDamage(int amount)
     {
         int temp = currDamage + amount;
-
-        // Memastikan damage mentok di angka maxDamage
         currDamage = temp > maxDamage ? maxDamage : temp;
     }
 }

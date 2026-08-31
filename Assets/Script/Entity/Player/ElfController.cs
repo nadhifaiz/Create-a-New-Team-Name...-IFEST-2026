@@ -21,8 +21,8 @@ public class ElfController : PlayerFighterBase
         {
             GameObject petir = Instantiate(lightningPrefab, castPoint.position, Quaternion.identity);
 
-            // Panggil script di projectile-nya agar meluncur ke arah opponent
-            // petir.GetComponent<ProjectileController>().SetTarget(opponent, currDamage);
+            ProjectileController controller = petir.GetComponent<ProjectileController>();
+            if (controller != null) controller.SetTarget(currentTarget, currDamage);
         }
     }
 }

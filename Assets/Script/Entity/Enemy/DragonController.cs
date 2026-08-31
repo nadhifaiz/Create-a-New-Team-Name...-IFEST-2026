@@ -21,8 +21,8 @@ public class DragonController : EnemyFighterBase
         {
             GameObject api = Instantiate(fireballPrefab, shootPoint.position, Quaternion.identity);
 
-            // Panggil script di projectile-nya agar meluncur ke arah opponent
-            // api.GetComponent<ProjectileController>().SetTarget(opponent, currDamage);
+            ProjectileController controller = api.GetComponent<ProjectileController>();
+            if (controller != null) controller.SetTarget(currentTarget, currDamage);
         }
     }
 }

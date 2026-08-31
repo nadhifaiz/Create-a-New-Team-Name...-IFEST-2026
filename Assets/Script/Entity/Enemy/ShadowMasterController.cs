@@ -21,8 +21,8 @@ public class ShadowMasterController : EnemyFighterBase
         {
             GameObject bola = Instantiate(shadowBoltPrefab, castPoint.position, Quaternion.identity);
 
-            // Panggil script di projectile-nya agar meluncur ke arah opponent
-            // bola.GetComponent<ProjectileController>().SetTarget(opponent, currDamage);
+            ProjectileController controller = bola.GetComponent<ProjectileController>();
+            if (controller != null) controller.SetTarget(currentTarget, currDamage);
         }
     }
 }

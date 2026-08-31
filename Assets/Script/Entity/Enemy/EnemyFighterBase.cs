@@ -1,12 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-// ==========================================
-// SEMUA KARAKTER ENEMY (Goblin, Dragon, ShadowMaster) TURUN DARI SINI
-// Isinya: AI nyerang interval random + chance gagal.
-// Cara serang (melee/projectile) DIATUR DI FighterBase / leaf class,
-// jadi kelas ini gak perlu tau bedanya sama sekali.
-// ==========================================
 public abstract class EnemyFighterBase : FighterBase
 {
     [Header("AI Settings")]
@@ -16,19 +10,14 @@ public abstract class EnemyFighterBase : FighterBase
     [SerializeField] private float missChance = 0.2f;
 
     [Header("Special Attack (Phase Trigger)")]
-    // Urutin dari besar ke kecil. Tiap angka = persentase HP yang begitu
-    // ditembus (turun ke bawahnya) langsung mancing special attack sekali.
     [SerializeField] private float[] specialAttackHpThresholds = { 0.75f, 0.5f, 0.25f };
-    [SerializeField] private float specialAttackDuration = 1.5f; // durasi animasi = durasi window QTE player
+    [SerializeField] private float specialAttackDuration = 1.5f;
     [SerializeField] private float specialDamageMultiplier = 2f;
 
     // -- CACHE ANIMATION SPECIAL ATTACK (Eksklusif Enemy) --
     private readonly int animSpecialAttack = Animator.StringToHash("SpecialAttack");
 
-    // Flag internal buat nandain apakah serangan berikutnya meleset
     private bool nextAttackIsMiss = false;
-
-    // Nandain threshold mana aja yang udah pernah kepake, biar gak nembak berkali-kali
     private bool[] specialAttackFired;
 
     protected override void Start()
@@ -42,25 +31,20 @@ public abstract class EnemyFighterBase : FighterBase
     {
         while (!isDead)
         {
-            // Tunggu interval random sebelum nyoba nyerang lagi
             float waitTime = Random.Range(minAttackInterval, maxAttackInterval);
             yield return new WaitForSeconds(waitTime);
 
             if (isDead) yield break;
-
-            // Kalau masih di tengah AttackFlow, skip dulu (gak buffer serangan
-            // kayak player combo — AI nyerang satu-satu aja)
             if (isAttacking) continue;
 
-            // Tentukan apakah serangan kali ini bakal gagal/meleset
-            nextAttackIsMiss = Random.value < missChance;
+            float missRoll = Random.value;
+            nextAttackIsMiss = missRoll < missChance;
+            Debug.Log($"[{name}] roll miss = {missRoll:F2} (ambang missChance = {missChance}) -> {(nextAttackIsMiss ? "AKAN MELESET" : "AKAN KENA")}");
 
             TriggerAttack();
         }
     }
 
-    // Override impact: kalau lagi "miss", ApplyImpactEffect (damage/projectile)
-    // di-skip, tapi animasi & flow attack tetap jalan normal
     protected override void OnHitImpact()
     {
         if (nextAttackIsMiss)
@@ -86,8 +70,6 @@ public abstract class EnemyFighterBase : FighterBase
 
     private void CheckSpecialAttackThreshold()
     {
-        // Kalau lagi sibuk (dash/attack/special lain), tunda dulu —
-        // TakeDamage berikutnya bakal cek ulang.
         if (isAttacking) return;
 
         float hpRatio = (float)currHP / maxHP;
@@ -101,7 +83,7 @@ public abstract class EnemyFighterBase : FighterBase
                 specialAttackFired[i] = true;
                 Debug.Log($"[{name}] HP nembus {specialAttackHpThresholds[i] * 100}% -> SPECIAL ATTACK!");
                 StartCoroutine(SpecialAttackFlow());
-                break; // Satu special attack per hit, biar gak numpuk kalau damage-nya gede
+                break;
             }
         }
     }
@@ -109,10 +91,13 @@ public abstract class EnemyFighterBase : FighterBase
     private IEnumerator SpecialAttackFlow()
     {
         isAttacking = true; // Blok AIRoutine & TriggerAttack biasa selama special attack jalan
+
+        // Cari target sendiri — bukan lewat TriggerAttack() biasa, jadi
+        // currentTarget yang lama (kalau ada) gak dipakai di sini.
+        Transform target = AcquireTarget();
         anim.Play(animSpecialAttack);
 
-        // Kasih tau player buat mulai QTE parry, BARENGAN sama animasi enemy jalan
-        PlayerFighterBase playerTarget = opponent != null ? opponent.GetComponent<PlayerFighterBase>() : null;
+        PlayerFighterBase playerTarget = target != null ? target.GetComponent<PlayerFighterBase>() : null;
         playerTarget?.BeginParryChallenge(specialAttackDuration);
 
         yield return new WaitForSeconds(specialAttackDuration);
@@ -123,7 +108,7 @@ public abstract class EnemyFighterBase : FighterBase
         if (!parried && playerTarget != null)
         {
             int specialDamage = Mathf.RoundToInt(currDamage * specialDamageMultiplier);
-            playerTarget.TakeDamage(specialDamage);
+            playerTarget.TakeSpecialDamage(specialDamage);
         }
 
         anim.Play(animIdle);
