@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using System;
 
 public abstract class PlayerFighterBase : FighterBase
 {
@@ -13,6 +14,18 @@ public abstract class PlayerFighterBase : FighterBase
 
     [Header("Parry QTE (respon Special Attack musuh)")]
     [SerializeField] protected int parryRequiredTaps = 8;
+
+    public event Action<int, int> OnHpChanged;
+    public event Action<int> OnDamageChanged;
+    public event Action<int> OnComboChanged;
+    public event Action<string, float> OnParryUpdated;
+    public event Action OnParryEnded;
+
+    // Getter untuk nilai awal saat Start
+    public int CurrentHP => currHP;
+    public int MaxHP => maxHP;
+    public int CurrentDamage => currDamage;
+    public int CurrentCombo => comboCount;
 
     // -- CACHE ANIMATION (Eksklusif Player) --
     // Parry: TRANSISI 1 = Idle -> Parry (BeginParryChallenge),
@@ -59,8 +72,6 @@ public abstract class PlayerFighterBase : FighterBase
             HandleParryChallengeInput();
             return;
         }
-
-        HandleCombatInput();
     }
 
     private void HandleParryChallengeInput()
@@ -70,23 +81,11 @@ public abstract class PlayerFighterBase : FighterBase
         if (Keyboard.current[parryTargetKey].wasPressedThisFrame)
         {
             parryTapCount++;
-            Debug.Log($"[{name}] tap {parryTargetKey} -> {parryTapCount}/{parryRequiredTaps}");
 
-            if (parryTapCount >= parryRequiredTaps)
-            {
-                parryChallengeSuccess = true;
-            }
-        }
-    }
+            // Panggil event update progress bar parry
+            OnParryUpdated?.Invoke(parryTargetKey.ToString(), ParryProgress01);
 
-    protected virtual void HandleCombatInput()
-    {
-        if (Keyboard.current == null) return;
-
-        // Tombol Serang (J)
-        if (Keyboard.current.jKey.wasPressedThisFrame && !isParrying)
-        {
-            TriggerAttack();
+            if (parryTapCount >= parryRequiredTaps) parryChallengeSuccess = true;
         }
     }
 
@@ -95,8 +94,6 @@ public abstract class PlayerFighterBase : FighterBase
     // ==========================================
 
     // TRANSISI 1: Idle normal -> Parry.
-    // Karakter hold di state ini (berdiri -> tancep pedang -> idle-hold,
-    // diatur sendiri di Animator Controller) sampai ResolveParryChallenge dipanggil.
     public void BeginParryChallenge(float duration)
     {
         if (isDead) return;
@@ -105,10 +102,11 @@ public abstract class PlayerFighterBase : FighterBase
         isParryChallengeActive = true;
         parryChallengeSuccess = false;
         parryTapCount = 0;
-        parryTargetKey = letterKeys[Random.Range(0, letterKeys.Length)];
+        parryTargetKey = letterKeys[UnityEngine.Random.Range(0, letterKeys.Length)];
         Debug.Log($"[{name}] PARRY QTE DIMULAI — spam tombol {parryTargetKey} sebanyak {parryRequiredTaps}x, waktu {duration}s");
 
         anim.Play(animParry);
+        OnParryUpdated?.Invoke(parryTargetKey.ToString(), 0f);
     }
 
     // TRANSISI 2: Parry -> Idle normal. Dipanggil enemy pas durasi special attack-nya abis.
@@ -117,20 +115,26 @@ public abstract class PlayerFighterBase : FighterBase
         isParryChallengeActive = false;
         isParrying = false;
         anim.Play(animIdle);
+        OnParryEnded?.Invoke(); // Picu event untuk tutup UI parry
 
         return parryChallengeSuccess;
     }
 
     // ==========================================
     // TERKENA DAMAGE SPECIAL ATTACK (KHUSUS PLAYER)
-    // Beda dari TakeDamage() biasa di FighterBase: animasi reaksinya beda
-    // (animHitSpecial), dan cuma dipanggil enemy pas parry gagal.
     // ==========================================
+    public override void TakeDamage(int damage)
+    {
+        base.TakeDamage(damage);
+        OnHpChanged?.Invoke(currHP, maxHP); // Picu event HP berubah
+    }
     public void TakeSpecialDamage(int damage)
     {
         if (isDead) return;
 
         ApplyDamage(damage);
+
+        OnHpChanged?.Invoke(currHP, maxHP); // Picu event HP berubah
 
         if (!isDead)
         {
@@ -176,6 +180,9 @@ public abstract class PlayerFighterBase : FighterBase
             currDamage = baseDamage;
             Debug.Log($"[{name}] combo hangus -> damage kembali ke {currDamage}");
         }
+
+        OnComboChanged?.Invoke(comboCount); // Picu event Combo
+        OnDamageChanged?.Invoke(currDamage); // Picu event Damage
     }
 
     private void IncreaseDamage(int amount)

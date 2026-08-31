@@ -8,9 +8,6 @@ public abstract class FighterBase : MonoBehaviour
     [SerializeField] protected int baseDamage = 10;
 
     [Header("Combat Setting")]
-    // Bisa diisi lebih dari satu (misal 1 player vs 3 goblin).
-    // Target aktual yang diserang ditentukan otomatis lewat AcquireTarget()
-    // (yang terdekat & masih hidup).
     public Transform[] opponent;
     public float strikeDistance = 1.2f;
     public float dashSpeed = 25f;
@@ -34,8 +31,6 @@ public abstract class FighterBase : MonoBehaviour
 
     protected int attackBuffer = 0;
 
-    // Target yang lagi diincer di attack cycle yang sedang jalan.
-    // Di-set ulang tiap kali TriggerAttack() mulai serangan baru.
     protected Transform currentTarget;
 
     // State Flags 
@@ -64,6 +59,9 @@ public abstract class FighterBase : MonoBehaviour
         }
         else
         {
+            // Lagi ada special attack QTE di tempat lain -> semua serangan baru ditahan dulu
+            if (CombatFreezeSignal.IsFrozen) return;
+
             // Cari target terdekat yang masih hidup dari daftar opponent
             currentTarget = AcquireTarget();
             if (currentTarget == null) return; // gak ada target hidup, batal nyerang
@@ -129,6 +127,12 @@ public abstract class FighterBase : MonoBehaviour
             {
                 if (isDead || currentTarget == null) yield break;
 
+                if (CombatFreezeSignal.IsFrozen)
+                {
+                    yield return null; // ada special attack lagi jalan -> tahan di tempat
+                    continue;
+                }
+
                 Vector2 direction = (currentTarget.position - transform.position).normalized;
                 Vector2 targetPos = (Vector2)currentTarget.position - (direction * strikeDistance);
 
@@ -145,6 +149,13 @@ public abstract class FighterBase : MonoBehaviour
             while (timer > 0)
             {
                 if (isDead || currentTarget == null) yield break;
+
+                if (CombatFreezeSignal.IsFrozen)
+                {
+                    yield return null; // timer gak jalan selama freeze
+                    continue;
+                }
+
                 timer -= Time.deltaTime;
 
                 // Terus menempel mengikuti pergerakan musuh
@@ -180,6 +191,12 @@ public abstract class FighterBase : MonoBehaviour
             {
                 if (isDead) yield break;
 
+                if (CombatFreezeSignal.IsFrozen)
+                {
+                    yield return null;
+                    continue;
+                }
+
                 // Ngerem mendadak jika tiba-tiba ada input baru
                 if (attackBuffer > 0)
                 {
@@ -208,8 +225,6 @@ public abstract class FighterBase : MonoBehaviour
 
     // ==========================================
     // ALUR SERANGAN PROJECTILE (REUSABLE)
-    // Dipakai oleh Elf, Dragon, ShadowMaster — tinggal:
-    //   protected override IEnumerator AttackFlow() => ProjectileAttackFlow();
     // ==========================================
     protected IEnumerator ProjectileAttackFlow()
     {
@@ -222,6 +237,8 @@ public abstract class FighterBase : MonoBehaviour
             // STATE 1: WIND-UP
             anim.Play(animAttack);
             yield return new WaitForSeconds(attackWindUpTime);
+
+            while (CombatFreezeSignal.IsFrozen) yield return null;
 
             // STATE 2: TEMBAK (delegasi ke ApplyImpactEffect via OnHitImpact)
             OnHitImpact();
@@ -265,8 +282,6 @@ public abstract class FighterBase : MonoBehaviour
 
     // ==========================================
     // TERKENA DAMAGE NORMAL (GLOBAL — dipakai player & enemy)
-    // Damage KHUSUS special attack punya jalur sendiri:
-    // PlayerFighterBase.TakeSpecialDamage()
     // ==========================================
     public virtual void TakeDamage(int damage)
     {
