@@ -24,6 +24,7 @@ public abstract class PlayerFighterBase : FighterBase
     // Getter untuk nilai awal saat Start
     public int CurrentHP => currHP;
     public int MaxHP => maxHP;
+    public int MaxDamage => maxDamage;
     public int CurrentDamage => currDamage;
     public int CurrentCombo => comboCount;
 
