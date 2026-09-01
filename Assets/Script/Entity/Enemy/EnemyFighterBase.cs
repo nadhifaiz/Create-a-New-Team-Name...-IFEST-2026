@@ -17,7 +17,11 @@ public abstract class EnemyFighterBase : FighterBase
 
     // -- CACHE ANIMATION SPECIAL ATTACK (Eksklusif Enemy) --
     private readonly int animSpecialAttack = Animator.StringToHash("SpecialAttack");
-    public event Action<Transform> OnAttackMissed; // Event murni C# untuk HUD
+    public event Action<Transform> OnAttackMissed;
+    public event Action<EnemyFighterBase, int, int> OnHpChanged;
+
+    public int CurrentHP => currHP;
+    public int MaxHP => maxHP;
 
     private bool nextAttackIsMiss = false;
     private bool[] specialAttackFired;
@@ -53,7 +57,6 @@ public abstract class EnemyFighterBase : FighterBase
         {
             Debug.Log($"[{name}] serangan MELESET");
 
-            // Cara memanggilnya saat serangan meleset:
             OnAttackMissed?.Invoke(this.transform);
 
             nextAttackIsMiss = false;
@@ -70,6 +73,7 @@ public abstract class EnemyFighterBase : FighterBase
     {
         base.TakeDamage(damage);
         if (isDead) return;
+        OnHpChanged?.Invoke(this, currHP, maxHP);
 
         CheckSpecialAttackThreshold();
     }
