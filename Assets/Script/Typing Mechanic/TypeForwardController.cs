@@ -12,29 +12,31 @@ namespace TypeForward
         [SerializeField] private TypingView view;
 
         [Header("Combat Hook (WAJIB diisi)")]
-        [Tooltip("Drag GameObject yang punya komponen TypingCombatBridge. " +
-                 "Attack() dan SetCombo() dipanggil langsung dari kode — tidak perlu wiring UnityEvent.")]
+        [Tooltip("Drag GameObject yang punya komponen TypingCombatBridge.")]
         [SerializeField] private TypingCombatBridge combatBridge;
 
-        // Optional feedback hooks — plain C# events, BUKAN UnityEvent, jadi tidak
-        // muncul di Inspector (aman dari salah setting Dynamic/Static Parameters).
-        // Subscribe dari script lain kalau perlu, misal buat SFX/VFX kecil.
         public event Action OnWordCorrect;
         public event Action OnWordMistake;
         public event Action<int> OnComboChanged;
         public event Action OnSentenceComplete;
 
-        private IInputProvider _input; // baca input
-        private List<string[]> _sentences; // Kalimat yang disimpan Perkata
+        private IInputProvider _input;
+        private List<string[]> _sentences;
 
-        private int _sentenceIndex; // Track kalimat ke berapa
-        private int _wordIndex; // Track kata ke berapa
+        private int _sentenceIndex;
+        private int _wordIndex;
         private readonly System.Text.StringBuilder _currentTyped = new System.Text.StringBuilder();
-        private string[] _committedWords; // Kata kata yang sudah diketik
+        private string[] _committedWords;
 
         private int _consecutiveCorrectWords;
         private int _combo;
         private bool _transitioning;
+
+        // --- STATS TRACKER ---
+        private int _totalKeystrokes;
+        private int _correctKeystrokes;
+        private float _typingActiveTime;
+        private bool _isSessionActive;
 
         private void Awake()
         {
@@ -44,6 +46,7 @@ namespace TypeForward
 
         private void OnEnable()
         {
+            ResetStats();
             BuildSentenceList();
             StartSentence(0);
         }
@@ -51,13 +54,14 @@ namespace TypeForward
         private void Update()
         {
             if (_transitioning) return;
-
             if (GameManager.Instance.isGameOver || GameManager.Instance.isPaused) return;
-
-            // Lagi ada enemy nge-special-attack (parry QTE aktif) -> minigame ketik
-            // ikut berhenti total. Kita cuma nengok bridge, gak perlu tau apa-apa
-            // soal FighterBase/CombatFreezeSignal di sini.
             if (combatBridge != null && combatBridge.IsPaused) return;
+
+            // Timer hanya berjalan saat pemain sedang aktif mengetik di fase normal
+            if (_isSessionActive)
+            {
+                _typingActiveTime += Time.deltaTime;
+            }
 
             if (_input.WasBackspacePressedThisFrame())
             {
@@ -80,14 +84,20 @@ namespace TypeForward
         // CONTENT SETUP
         // ============================================================
 
+        private void ResetStats()
+        {
+            _totalKeystrokes = 0;
+            _correctKeystrokes = 0;
+            _typingActiveTime = 0f;
+            _isSessionActive = false;
+        }
+
         private void BuildSentenceList()
         {
-            // 1. Jadikan Setiap kalimat ke dalam bentuk Per Kata
             var source = (config != null && config.sentences.Count > 0)
                 ? config.sentences
                 : new List<string>(TypingConfig.DefaultSentences);
 
-            // 2. Jadikan Per Kalimat
             _sentences = new List<string[]>(source.Count);
             foreach (string sentence in source)
                 _sentences.Add(sentence.Split(' '));
@@ -105,34 +115,64 @@ namespace TypeForward
         }
 
         // ============================================================
-        // INPUT HANDLING
+        // INPUT HANDLING & STATS CALCULATION
         // ============================================================
 
         private void HandleChar(char c)
         {
+            // Mulai timer WPM tepat saat pemain menekan tombol pertama
+            if (!_isSessionActive) _isSessionActive = true;
+
+            _totalKeystrokes++;
+            string targetWord = _sentences[_sentenceIndex][_wordIndex];
+
             if (c == ' ')
             {
-                // Ambil kata target saat ini
-                string targetWord = _sentences[_sentenceIndex][_wordIndex];
-
-                // Cek apakah jumlah karakter yang diketik sudah minimal sama dengan panjang kata target
                 if (_currentTyped.Length >= targetWord.Length)
                 {
+                    // Anggap spasi sebagai karakter benar jika seluruh kata sebelumnya benar
+                    if (_currentTyped.ToString() == targetWord) _correctKeystrokes++;
                     CommitWord();
                 }
                 else
                 {
-                    // Opsional: Mainkan efek visual/audio jika pemain mencoba skip terlalu cepat
                     view.PlayBackspaceRejectedFeedback();
                 }
             }
             else
             {
+                int currentIndex = _currentTyped.Length;
+
+                // Cek apakah huruf yang diketik sama dengan huruf target di posisi saat ini
+                if (currentIndex < targetWord.Length && c == targetWord[currentIndex])
+                {
+                    _correctKeystrokes++;
+                }
+
                 _currentTyped.Append(c);
                 RenderCurrentState();
             }
+
+            CalculateAndFireStats();
         }
 
+        private void CalculateAndFireStats()
+        {
+            // Ubah detik menjadi menit
+            float minutesElapsed = _typingActiveTime / 60f;
+
+            // Rumus WPM Internasional: (Total Karakter Benar / 5) / Menit
+            int wpm = minutesElapsed > 0 ? Mathf.RoundToInt((_correctKeystrokes / 5f) / minutesElapsed) : 0;
+
+            // Rumus Akurasi: (Karakter Benar / Total Ketikan) * 100
+            float accuracy = _totalKeystrokes > 0 ? ((float)_correctKeystrokes / _totalKeystrokes) * 100f : 100f;
+
+            // Langsung kirim dan simpan ke GameManager
+            if (GameManager.Instance != null)
+            {
+                GameManager.Instance.UpdateTypingStats(wpm, accuracy);
+            }
+        }
         private void CommitWord()
         {
             string[] words = _sentences[_sentenceIndex];
@@ -166,9 +206,7 @@ namespace TypeForward
                 int threshold = Mathf.Max(1, config != null ? config.comboStartsAfterWords : 2);
                 _combo = Mathf.Max(0, _consecutiveCorrectWords - (threshold - 1));
 
-                Debug.Log("Kata Benar!!!, KOMBO SAAT INI: " + _combo);
-
-                OnWordCorrect?.Invoke(); // Untuk Efek SFX
+                OnWordCorrect?.Invoke();
                 OnComboChanged?.Invoke(_combo);
                 if (combatBridge != null) combatBridge.SetCombo(_combo);
             }
@@ -184,11 +222,14 @@ namespace TypeForward
         }
 
         // ============================================================
-        // SENTENCE TRANSITION
+        // SENTENCE TRANSITION & RENDERING (TETAP SAMA)
         // ============================================================
 
         private void AdvanceSentence()
         {
+            // Pause timer sementara saat ada animasi pergantian kalimat
+            _isSessionActive = false;
+
             OnSentenceComplete?.Invoke();
             if (combatBridge != null) combatBridge.Attack();
 
@@ -204,10 +245,6 @@ namespace TypeForward
                 _transitioning = false;
             });
         }
-
-        // ============================================================
-        // RENDERING
-        // ============================================================
 
         private void RenderCurrentState()
         {
@@ -241,15 +278,11 @@ namespace TypeForward
                     {
                         if (wi == _wordIndex)
                         {
-                            // active word: p == typed.Length is the exact next char (cursor),
-                            // anything further right just hasn't been reached yet (pending)
                             bool isCursor = p == typed.Length;
                             cells.Add(new CharCell(word[p], isCursor ? CharState.Cursor : CharState.Pending));
                         }
                         else
                         {
-                            // a PAST word (space was pressed early) with a letter that was never
-                            // typed at all — it's a miss, not "still pending"
                             cells.Add(new CharCell(word[p], CharState.Incorrect));
                         }
                     }

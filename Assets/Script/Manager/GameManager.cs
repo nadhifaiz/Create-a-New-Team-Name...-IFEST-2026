@@ -1,17 +1,25 @@
 using System;
-using System.Collections.Generic; // Wajib ditambahkan untuk List
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
     public static GameManager Instance { get; private set; }
 
+    [Header("Level Info")]
+    public int currentLevelIndex = 1;
+
     [Header("Game State Flags")]
     public bool isPaused { get; private set; }
     public bool isGameOver { get; private set; }
 
-    // Ubah Array menjadi List agar dinamis
+    [Header("Match Results")]
+    public float matchTimer { get; private set; }
+    public int finalWPM { get; private set; }
+    public float finalAccuracy { get; private set; }
+
     public List<EnemyFighterBase> activeEnemies = new List<EnemyFighterBase>();
 
     public event Action<bool> OnPauseToggled;
@@ -37,6 +45,11 @@ public class GameManager : MonoBehaviour
         {
             TogglePause();
         }
+
+        if (!isPaused && !isGameOver)
+        {
+            matchTimer += Time.deltaTime;
+        }
     }
 
     public void TogglePause()
@@ -45,44 +58,86 @@ public class GameManager : MonoBehaviour
 
         isPaused = !isPaused;
         Time.timeScale = isPaused ? 0f : 1f;
-
         OnPauseToggled?.Invoke(isPaused);
     }
 
-    // Fungsi baru untuk mengecek apakah semua musuh sudah mati
     public void CheckWinCondition(EnemyFighterBase deadEnemy)
     {
         if (isGameOver) return;
-
-        // Hapus musuh yang baru saja mati dari daftar
         activeEnemies.Remove(deadEnemy);
-
-        // Jika daftar kosong (semua musuh habis), picu Level Complete
-        if (activeEnemies.Count == 0)
-        {
-            TriggerLevelComplete();
-        }
+        if (activeEnemies.Count == 0) TriggerLevelComplete();
     }
 
     private void TriggerLevelComplete()
     {
         if (isGameOver) return;
-
-        Debug.Log("Semua musuh kalah! LEVEL COMPLETE!");
         isGameOver = true;
         isPaused = true;
         Time.timeScale = 0f;
+
+        if (DataManager.Instance != null)
+        {
+            DataManager.Instance.SaveLevelResult(currentLevelIndex, finalWPM, finalAccuracy, matchTimer);
+        }
+
         OnLevelComplete?.Invoke();
     }
 
     public void TriggerGameOver()
     {
         if (isGameOver) return;
-
-        Debug.Log("Player mati! GAME OVER!");
         isGameOver = true;
         isPaused = true;
         Time.timeScale = 0f;
         OnGameOver?.Invoke();
+    }
+
+    public void UpdateTypingStats(int wpm, float accuracy)
+    {
+        finalWPM = wpm;
+        finalAccuracy = accuracy;
+    }
+
+    // =============================
+    // SCENE MANAGEMENT
+    // =============================
+
+    private void ResetStateForNewScene()
+    {
+        Time.timeScale = 1f;
+        isPaused = false;
+        isGameOver = false;
+        matchTimer = 0f;
+        activeEnemies.Clear();
+    }
+
+    public void RestartLevel()
+    {
+        ResetStateForNewScene();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void LoadNextLevel()
+    {
+        ResetStateForNewScene();
+        currentLevelIndex++;
+
+        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+
+        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
+        {
+            SceneManager.LoadScene(nextSceneIndex);
+        }
+        else
+        {
+            Debug.LogWarning("Tidak ada scene selanjutnya! Kembali ke Main Menu.");
+            LoadMainMenu();
+        }
+    }
+
+    public void LoadMainMenu()
+    {
+        ResetStateForNewScene();
+        SceneManager.LoadScene(0);
     }
 }

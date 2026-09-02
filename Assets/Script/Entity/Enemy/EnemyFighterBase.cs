@@ -10,26 +10,22 @@ public abstract class EnemyFighterBase : FighterBase
     [Range(0f, 1f)]
     [SerializeField] private float missChance = 0.2f;
 
-    [Header("Special Attack (Phase Trigger)")]
-    [SerializeField] private float[] specialAttackHpThresholds = { 0.75f, 0.5f, 0.25f };
-    [SerializeField] private float specialAttackDuration = 1.5f;
+    [Header("Special Attack Settings")]
     [SerializeField] private float specialDamageMultiplier = 2f;
 
     // -- CACHE ANIMATION SPECIAL ATTACK (Eksklusif Enemy) --
     private readonly int animSpecialAttack = Animator.StringToHash("SpecialAttack");
     public event Action OnAttackMissed;
-    public event Action<EnemyFighterBase, int, int> OnHpChanged;
 
     public int CurrentHP => currHP;
     public int MaxHP => maxHP;
 
     private bool nextAttackIsMiss = false;
-    private bool[] specialAttackFired;
 
     protected override void Start()
     {
         base.Start();
-        specialAttackFired = new bool[specialAttackHpThresholds.Length];
+
         StartCoroutine(AIRoutine());
 
         // Daftarkan musuh ini ke dalam List milik GameManager saat game mulai
@@ -62,9 +58,7 @@ public abstract class EnemyFighterBase : FighterBase
         if (nextAttackIsMiss)
         {
             Debug.Log($"[{name}] serangan MELESET");
-
             OnAttackMissed?.Invoke();
-
             nextAttackIsMiss = false;
             return;
         }
@@ -73,56 +67,72 @@ public abstract class EnemyFighterBase : FighterBase
     }
 
     // ==========================================
-    // SPECIAL ATTACK — DIPICU OTOMATIS SAAT HP NEMBUS FASE TERTENTU
+    // PENANGANAN DAMAGE & LAPORAN KE TEAM MANAGER
     // ==========================================
     public override void TakeDamage(int damage)
     {
-        base.TakeDamage(damage);
+        // Jangan panggil TakeDamage base jika sudah mati
         if (isDead) return;
-        OnHpChanged?.Invoke(this, currHP, maxHP);
 
-        CheckSpecialAttackThreshold();
-    }
+        int oldHP = currHP;
+        base.TakeDamage(damage);
 
-    private void CheckSpecialAttackThreshold()
-    {
-        if (isAttacking) return;
+        int damageTaken = oldHP - currHP;
 
-        float hpRatio = (float)currHP / maxHP;
-
-        for (int i = 0; i < specialAttackHpThresholds.Length; i++)
+        // Laporkan damage yang masuk ke Sutradara (Team Manager)
+        if (damageTaken > 0 && EnemyTeamManager.Instance != null)
         {
-            if (specialAttackFired[i]) continue;
-
-            if (hpRatio <= specialAttackHpThresholds[i])
-            {
-                specialAttackFired[i] = true;
-                Debug.Log($"[{name}] HP nembus {specialAttackHpThresholds[i] * 100}% -> SPECIAL ATTACK!");
-                StartCoroutine(SpecialAttackFlow());
-                break;
-            }
+            EnemyTeamManager.Instance.ReportDamage(damageTaken);
         }
     }
 
-    private IEnumerator SpecialAttackFlow()
+    // ==========================================
+    // EKSEKUSI CINEMATIC QTE (Dipanggil secara eksklusif oleh EnemyTeamManager)
+    // ==========================================
+    public IEnumerator ExecuteCinematicSpecialAttack(PlayerFighterBase playerTarget)
     {
-        isAttacking = true; // Blok AIRoutine & TriggerAttack biasa selama special attack jalan
-        CombatFreezeSignal.Begin(); // Semua enemy lain & minigame ketik ikut berhenti
-
-        Transform target = AcquireTarget();
+        isAttacking = true;
         anim.Play(animSpecialAttack);
 
-        PlayerFighterBase playerTarget = target != null ? target.GetComponent<PlayerFighterBase>() : null;
-        playerTarget?.BeginParryChallenge(specialAttackDuration);
+        // === FASE 1: WIND-UP ===
+        // Tunggu sampai tangan musuh terangkat di tengah animasi (misal 0.4 detik)
+        // Sesuaikan angka ini dengan momen tepat sebelum impact animasi kamu
+        yield return new WaitForSeconds(0.4f);
 
-        yield return new WaitForSeconds(specialAttackDuration);
+        // === FASE 2: SLOW MOTION QTE ===
+        Time.timeScale = 0.05f; // Melambat sangat drastis
+        Time.fixedDeltaTime = 0.02f * Time.timeScale; // Sesuaikan fisika Unity agar tidak glitch
 
-        bool parried = playerTarget != null && playerTarget.ResolveParryChallenge();
-        Debug.Log($"[{name}] window parry abis -> hasil: {(parried ? "PLAYER BERHASIL PARRY" : "PLAYER GAGAL PARRY")}");
+        float qteDurationRealtime = 5f; // Waktu yang diberikan: 5 detik asli
+        playerTarget.BeginParryChallenge(qteDurationRealtime);
 
-        CombatFreezeSignal.End(); // Lepas freeze SEBELUM damage diterapkan, biar reaksi kena damage keliatan normal (gak ke-freeze)
+        float timer = 0f;
+        bool parried = false;
 
-        if (!parried && playerTarget != null)
+        // Loop mengecek input parry tanpa terpengaruh efek slow motion (unscaledDeltaTime)
+        while (timer < qteDurationRealtime)
+        {
+            timer += Time.unscaledDeltaTime;
+
+            if (playerTarget.HasFinishedParry)
+            {
+                parried = playerTarget.IsParrySuccess;
+                break; // Jika pemain selesai nekan sebelum 5 detik, langsung keluar dari loop slow-mo!
+            }
+            yield return null;
+        }
+
+        // === FASE 3: KEMBALIKAN WAKTU & IMPACT ===
+        Time.timeScale = 1f;
+        Time.fixedDeltaTime = 0.02f;
+
+        // Tutup UI Parry
+        playerTarget.ResolveParryUI(parried);
+
+        // Beri sisa waktu animasi pukulan (misal 0.2 detik)
+        yield return new WaitForSeconds(0.2f);
+
+        if (!parried)
         {
             int specialDamage = Mathf.RoundToInt(currDamage * specialDamageMultiplier);
             playerTarget.TakeSpecialDamage(specialDamage);

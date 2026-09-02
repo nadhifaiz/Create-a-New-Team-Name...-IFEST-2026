@@ -26,7 +26,7 @@ public abstract class FighterBase : MonoBehaviour
     protected readonly int animIdle = Animator.StringToHash("Idle");
     protected readonly int animMove = Animator.StringToHash("Move");
     protected readonly int animAttack = Animator.StringToHash("Attack");
-    protected readonly int animHit = Animator.StringToHash("Hit");   // reaksi kena damage NORMAL (global)
+    protected readonly int animHit = Animator.StringToHash("Hit");
     protected readonly int animDie = Animator.StringToHash("Die");
 
     protected int currHP;
@@ -36,13 +36,13 @@ public abstract class FighterBase : MonoBehaviour
     protected int attackBuffer = 0;
 
     protected Transform currentTarget;
+    protected Coroutine currentAttackCoroutine;
 
     // State Flags 
     protected bool isDead = false;
     public bool isAttacking = false;
 
-    public bool IsDead => isDead; // dipakai AcquireTarget buat skip target yang udah mati
-
+    public bool IsDead => isDead;
     protected virtual void Start()
     {
         currHP = maxHP;
@@ -58,21 +58,41 @@ public abstract class FighterBase : MonoBehaviour
 
         if (isAttacking)
         {
-            // Tambah antrean jika sedang sibuk memukul
             attackBuffer++;
         }
         else
         {
-            // Lagi ada special attack QTE di tempat lain -> semua serangan baru ditahan dulu
-            if (CombatFreezeSignal.IsFrozen) return;
+            if (CombatFreezeSignal.IsFrozen)
+            {
+                // Jika sedang fase spesial, jangan hiraukan atau simpan saja inputnya
+                attackBuffer++;
+                return;
+            }
 
-            // Cari target terdekat yang masih hidup dari daftar opponent
             currentTarget = AcquireTarget();
-            if (currentTarget == null) return; // gak ada target hidup, batal nyerang
+            if (currentTarget == null) return;
 
-            // Mulai serangan jika sedang nganggur
-            StartCoroutine(AttackFlow());
+            // Simpan referensi coroutine yang sedang berjalan
+            currentAttackCoroutine = StartCoroutine(AttackFlow());
         }
+    }
+
+    public void ForceIdleAndBuffer()
+    {
+        if (isDead) return;
+
+        if (isAttacking)
+        {
+            if (currentAttackCoroutine != null) StopCoroutine(currentAttackCoroutine);
+
+            isAttacking = false;
+            attackBuffer++; // Serangan yang terputus disimpan ke buffer untuk dibalas nanti
+
+            // Langsung teleport/kembalikan ke posisi awal
+            transform.position = startPosition;
+        }
+
+        anim.Play(animIdle);
     }
 
     // ==========================================
