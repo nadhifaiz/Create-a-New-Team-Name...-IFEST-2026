@@ -28,7 +28,6 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
     public SoundID sfx_Kebakar;
     public SoundID sfx_Hantu;
     public SoundID sfx_HantuMakanPlayer;
-    public SoundID sfx_HantuMakanFlail;
     public SoundID sfx_IceShield;
 
 
