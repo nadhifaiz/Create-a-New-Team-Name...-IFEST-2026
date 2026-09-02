@@ -18,6 +18,10 @@ public abstract class FighterBase : MonoBehaviour
     [Header("Components")]
     [SerializeField] protected Animator anim;
 
+    [Header("Death")]
+    [SerializeField] protected bool destroyOnDeath = false;
+    [SerializeField] protected float destroyDelay = 2f;
+
     // -- CACHE ANIMATION HASH (GLOBAL — dipakai player & enemy) --
     protected readonly int animIdle = Animator.StringToHash("Idle");
     protected readonly int animMove = Animator.StringToHash("Move");
@@ -308,10 +312,6 @@ public abstract class FighterBase : MonoBehaviour
             Die();
         }
     }
-
-    [Header("Death")]
-    [SerializeField] protected bool destroyOnDeath = false;
-    [SerializeField] protected float destroyDelay = 2f; // kasih waktu animasi Die keliatan dulu
 
     protected virtual void Die()
     {

@@ -34,7 +34,7 @@ namespace TypeForward
 
         private int _consecutiveCorrectWords;
         private int _combo;
-        private bool _transitioning; // true while the View is mid fade-out/fade-in, input is ignored
+        private bool _transitioning;
 
         private void Awake()
         {
@@ -52,6 +52,8 @@ namespace TypeForward
         {
             if (_transitioning) return;
 
+            if (GameManager.Instance.isGameOver || GameManager.Instance.isPaused) return;
+
             // Lagi ada enemy nge-special-attack (parry QTE aktif) -> minigame ketik
             // ikut berhenti total. Kita cuma nengok bridge, gak perlu tau apa-apa
             // soal FighterBase/CombatFreezeSignal di sini.
@@ -68,9 +70,9 @@ namespace TypeForward
 
             foreach (char c in frame)
             {
-                if (c == '\b') continue; // backspace handled above
+                if (c == '\b') continue;
                 HandleChar(c);
-                if (_transitioning) break; // a sentence completed mid-loop; stop consuming this frame's input
+                if (_transitioning) break;
             }
         }
 
@@ -147,7 +149,7 @@ namespace TypeForward
             bool sentenceDone = _wordIndex >= words.Length;
             if (sentenceDone)
             {
-                RenderCurrentState(); // show the finished sentence fully colored for a beat before it animates out
+                RenderCurrentState();
                 AdvanceSentence();
             }
             else
@@ -161,7 +163,6 @@ namespace TypeForward
             if (isCorrect)
             {
                 _consecutiveCorrectWords++;
-                // comboStartsAfterWords consecutive correct words needed before combo becomes 1
                 int threshold = Mathf.Max(1, config != null ? config.comboStartsAfterWords : 2);
                 _combo = Mathf.Max(0, _consecutiveCorrectWords - (threshold - 1));
 
@@ -195,7 +196,7 @@ namespace TypeForward
             view.PlaySentenceTransition(onMidpoint: () =>
             {
                 int next = _sentenceIndex + 1;
-                if (next >= _sentences.Count) next = 0; // loop back to the start of the "gudang kalimat"
+                if (next >= _sentences.Count) next = 0;
                 StartSentence(next);
             },
             onComplete: () =>

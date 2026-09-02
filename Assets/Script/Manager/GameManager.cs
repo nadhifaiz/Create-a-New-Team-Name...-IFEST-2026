@@ -1,70 +1,77 @@
 using System;
+using System.Collections.Generic; // Wajib ditambahkan untuk List
 using UnityEngine;
 using UnityEngine.InputSystem;
 
 public class GameManager : MonoBehaviour
 {
-    // Singleton Instance
     public static GameManager Instance { get; private set; }
 
     [Header("Game State Flags")]
     public bool isPaused { get; private set; }
-    public bool isGameOver { get; private set; } // Menandakan game sudah berakhir (menang/kalah)
+    public bool isGameOver { get; private set; }
 
-    // Events untuk mendrive UIManager
+    // Ubah Array menjadi List agar dinamis
+    public List<EnemyFighterBase> activeEnemies = new List<EnemyFighterBase>();
+
     public event Action<bool> OnPauseToggled;
     public event Action OnLevelComplete;
     public event Action OnGameOver;
 
     private void Awake()
     {
-        // Setup Singleton & DontDestroyOnLoad
         if (Instance == null)
         {
             Instance = this;
-            DontDestroyOnLoad(gameObject); // Jangan hancurkan saat pindah scene
+            DontDestroyOnLoad(gameObject);
         }
         else
         {
-            Destroy(gameObject); // Cegah ada GameManager ganda
+            Destroy(gameObject);
         }
     }
 
     private void Update()
     {
-        // Contoh menggunakan keyboard standar (ESC) untuk pause.
-        // Jika pakai New Input System untuk UI, bisa disesuaikan.
         if (Keyboard.current != null && Keyboard.current.escapeKey.wasPressedThisFrame)
         {
             TogglePause();
         }
     }
 
-    // =============================
-    // LOGIKA STATE GAME
-    // =============================
-
     public void TogglePause()
     {
-        // Jangan izinkan pause/unpause jika game sudah menang/kalah
         if (isGameOver) return;
 
         isPaused = !isPaused;
-
-        // Kita tetap set timeScale ke 0 agar AI musuh, fisika, dan partikel berhenti
         Time.timeScale = isPaused ? 0f : 1f;
 
-        // Beritahu UI (UIManager) untuk memunculkan/menyembunyikan panel
         OnPauseToggled?.Invoke(isPaused);
     }
 
-    public void TriggerLevelComplete()
+    // Fungsi baru untuk mengecek apakah semua musuh sudah mati
+    public void CheckWinCondition(EnemyFighterBase deadEnemy)
     {
         if (isGameOver) return;
 
+        // Hapus musuh yang baru saja mati dari daftar
+        activeEnemies.Remove(deadEnemy);
+
+        // Jika daftar kosong (semua musuh habis), picu Level Complete
+        if (activeEnemies.Count == 0)
+        {
+            TriggerLevelComplete();
+        }
+    }
+
+    private void TriggerLevelComplete()
+    {
+        if (isGameOver) return;
+
+        Debug.Log("Semua musuh kalah! LEVEL COMPLETE!");
         isGameOver = true;
         isPaused = true;
-        Time.timeScale = 0f; // Hentikan dunia
+        Time.timeScale = 0f;
         OnLevelComplete?.Invoke();
     }
 
@@ -72,9 +79,10 @@ public class GameManager : MonoBehaviour
     {
         if (isGameOver) return;
 
+        Debug.Log("Player mati! GAME OVER!");
         isGameOver = true;
         isPaused = true;
-        Time.timeScale = 0f; // Hentikan dunia
+        Time.timeScale = 0f;
         OnGameOver?.Invoke();
     }
 }

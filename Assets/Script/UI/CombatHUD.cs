@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class CombatHUD : MonoBehaviour
 {
@@ -23,6 +24,7 @@ public class CombatHUD : MonoBehaviour
 
     [Header("Floating Miss Text")]
     [SerializeField] private GameObject missTextPrefab;
+    [SerializeField] private RectTransform missTextSpawnPoint;
 
     private void OnEnable()
     {
@@ -72,8 +74,10 @@ public class CombatHUD : MonoBehaviour
         }
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null;
+
         if (player != null)
         {
             UpdateHP(player.CurrentHP, player.MaxHP);
@@ -116,7 +120,7 @@ public class CombatHUD : MonoBehaviour
 
     private void UpdateCombo(int currentCombo)
     {
-        if (comboText != null) comboText.text = $"+ {currentCombo}";
+        if (comboText != null) comboText.text = $"+{currentCombo}";
     }
 
     // --- FUNGSI UPDATE HP MUSUH ---
@@ -147,13 +151,11 @@ public class CombatHUD : MonoBehaviour
         if (parryPanel != null) parryPanel.SetActive(false);
     }
 
-    private void SpawnMissText(Transform enemy)
+    private void SpawnMissText()
     {
-        if (missTextPrefab != null && Camera.main != null && enemy != null)
+        if (missTextPrefab != null && missTextSpawnPoint != null)
         {
-            Vector3 worldPosition = enemy.position + new Vector3(0f, 2f, 0f);
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
-            Instantiate(missTextPrefab, screenPosition, Quaternion.identity, transform);
+            Instantiate(missTextPrefab, missTextSpawnPoint.position, Quaternion.identity, transform);
         }
     }
 }

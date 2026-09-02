@@ -148,6 +148,12 @@ public abstract class PlayerFighterBase : FighterBase
         base.Die();
         if (comboAura != null) comboAura.SetActive(false);
         Debug.Log("Player Mati!");
+
+        // Tambahkan baris ini untuk memicu layar kalah
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.TriggerGameOver();
+        }
     }
 
     // ==========================================

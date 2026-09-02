@@ -17,7 +17,7 @@ public abstract class EnemyFighterBase : FighterBase
 
     // -- CACHE ANIMATION SPECIAL ATTACK (Eksklusif Enemy) --
     private readonly int animSpecialAttack = Animator.StringToHash("SpecialAttack");
-    public event Action<Transform> OnAttackMissed;
+    public event Action OnAttackMissed;
     public event Action<EnemyFighterBase, int, int> OnHpChanged;
 
     public int CurrentHP => currHP;
@@ -31,6 +31,12 @@ public abstract class EnemyFighterBase : FighterBase
         base.Start();
         specialAttackFired = new bool[specialAttackHpThresholds.Length];
         StartCoroutine(AIRoutine());
+
+        // Daftarkan musuh ini ke dalam List milik GameManager saat game mulai
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.activeEnemies.Add(this);
+        }
     }
 
     private IEnumerator AIRoutine()
@@ -57,7 +63,7 @@ public abstract class EnemyFighterBase : FighterBase
         {
             Debug.Log($"[{name}] serangan MELESET");
 
-            OnAttackMissed?.Invoke(this.transform);
+            OnAttackMissed?.Invoke();
 
             nextAttackIsMiss = false;
             return;
@@ -124,5 +130,16 @@ public abstract class EnemyFighterBase : FighterBase
 
         anim.Play(animIdle);
         isAttacking = false;
+    }
+
+    protected override void Die()
+    {
+        base.Die();
+
+        // Beritahu GameManager bahwa musuh ini mati agar dicek sisa musuhnya
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.CheckWinCondition(this);
+        }
     }
 }
