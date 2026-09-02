@@ -27,14 +27,7 @@ public abstract class PlayerFighterBase : FighterBase
     public int MaxDamage => maxDamage;
     public int CurrentDamage => currDamage;
     public int CurrentCombo => comboCount;
-
-    // -- CACHE ANIMATION (Eksklusif Player) --
-    // Parry: TRANSISI 1 = Idle -> Parry (BeginParryChallenge),
-    //        TRANSISI 2 = Parry -> Idle (ResolveParryChallenge, pakai animIdle
-    //        yang udah ada di FighterBase — gak perlu hash baru buat exit-nya)
     private readonly int animParry = Animator.StringToHash("Parry");
-
-    // Reaksi KHUSUS kena special attack — beda dari animHit biasa (global) di FighterBase
     private readonly int animHitSpecial = Animator.StringToHash("HitSpecial");
 
     private static readonly Key[] letterKeys =
@@ -48,11 +41,13 @@ public abstract class PlayerFighterBase : FighterBase
     public bool isTypingComboActive = false;
     public bool isParrying = false;
 
-    // State QTE parry — di-drive dari luar lewat BeginParryChallenge/ResolveParryChallenge
+    // State QTE parry
     private bool isParryChallengeActive = false;
     private bool parryChallengeSuccess = false;
     private int parryTapCount = 0;
     private Key parryTargetKey;
+    public bool HasFinishedParry => parryChallengeSuccess;
+    public bool IsParrySuccess => parryChallengeSuccess;
 
     public Key CurrentParryKey => parryTargetKey;
     public float ParryProgress01 => parryRequiredTaps <= 0 ? 1f : Mathf.Clamp01((float)parryTapCount / parryRequiredTaps);
@@ -104,21 +99,22 @@ public abstract class PlayerFighterBase : FighterBase
         parryChallengeSuccess = false;
         parryTapCount = 0;
         parryTargetKey = letterKeys[UnityEngine.Random.Range(0, letterKeys.Length)];
-        Debug.Log($"[{name}] PARRY QTE DIMULAI — spam tombol {parryTargetKey} sebanyak {parryRequiredTaps}x, waktu {duration}s");
 
         anim.Play(animParry);
         OnParryUpdated?.Invoke(parryTargetKey.ToString(), 0f);
     }
 
-    // TRANSISI 2: Parry -> Idle normal. Dipanggil enemy pas durasi special attack-nya abis.
-    public bool ResolveParryChallenge()
+    // Fungsi ini hanya membereskan UI dan reset state (dipanggil enemy saat slow-mo selesai)
+    public void ResolveParryUI(bool successResult)
     {
         isParryChallengeActive = false;
         isParrying = false;
-        anim.Play(animIdle);
-        OnParryEnded?.Invoke(); // Picu event untuk tutup UI parry
 
-        return parryChallengeSuccess;
+        // Cek jika pemain gagal, animasi animHitSpecial akan tertimpa di fungsi TakeSpecialDamage
+        // Tapi jika berhasil, kembali ke Idle
+        if (successResult) anim.Play(animIdle);
+
+        OnParryEnded?.Invoke();
     }
 
     // ==========================================
@@ -127,8 +123,9 @@ public abstract class PlayerFighterBase : FighterBase
     public override void TakeDamage(int damage)
     {
         base.TakeDamage(damage);
-        OnHpChanged?.Invoke(currHP, maxHP); // Picu event HP berubah
+        OnHpChanged?.Invoke(currHP, maxHP);
     }
+
     public void TakeSpecialDamage(int damage)
     {
         if (isDead) return;
@@ -148,6 +145,12 @@ public abstract class PlayerFighterBase : FighterBase
         base.Die();
         if (comboAura != null) comboAura.SetActive(false);
         Debug.Log("Player Mati!");
+
+        // Tambahkan baris ini untuk memicu layar kalah
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.TriggerGameOver();
+        }
     }
 
     // ==========================================

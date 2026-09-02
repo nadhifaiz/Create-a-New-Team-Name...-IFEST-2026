@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
+using System.Collections;
 
 public class CombatHUD : MonoBehaviour
 {
@@ -14,7 +15,7 @@ public class CombatHUD : MonoBehaviour
     [SerializeField] private TMP_Text comboText;
 
     [Header("Enemy Stats")]
-    [SerializeField] private Image[] enemyHPBars;
+    [SerializeField] private Image totalEnemyHPBar;
 
     [Header("Parry QTE HUD")]
     [SerializeField] private GameObject parryPanel;
@@ -23,6 +24,7 @@ public class CombatHUD : MonoBehaviour
 
     [Header("Floating Miss Text")]
     [SerializeField] private GameObject missTextPrefab;
+    [SerializeField] private RectTransform missTextSpawnPoint;
 
     private void OnEnable()
     {
@@ -35,15 +37,17 @@ public class CombatHUD : MonoBehaviour
             player.OnParryEnded += HideParry;
         }
 
+        if (EnemyTeamManager.Instance != null)
+        {
+            EnemyTeamManager.Instance.OnTotalHpChanged += UpdateTotalEnemyHP;
+        }
+
+        // Pendaftaran teks miss untuk musuh tetap via array musuh
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.Length; i++)
+            foreach (var enemy in enemies)
             {
-                if (enemies[i] != null)
-                {
-                    enemies[i].OnAttackMissed += SpawnMissText;
-                    enemies[i].OnHpChanged += UpdateEnemyHP;
-                }
+                if (enemy != null) enemy.OnAttackMissed += SpawnMissText;
             }
         }
     }
@@ -59,21 +63,24 @@ public class CombatHUD : MonoBehaviour
             player.OnParryEnded -= HideParry;
         }
 
+        if (EnemyTeamManager.Instance != null)
+        {
+            EnemyTeamManager.Instance.OnTotalHpChanged -= UpdateTotalEnemyHP;
+        }
+
         if (enemies != null)
         {
-            for (int i = 0; i < enemies.Length; i++)
+            foreach (var enemy in enemies)
             {
-                if (enemies[i] != null)
-                {
-                    enemies[i].OnAttackMissed -= SpawnMissText;
-                    enemies[i].OnHpChanged -= UpdateEnemyHP;
-                }
+                if (enemy != null) enemy.OnAttackMissed -= SpawnMissText;
             }
         }
     }
 
-    private void Start()
+    private IEnumerator Start()
     {
+        yield return null; // Tunggu 1 frame agar sistem inisialisasi selesai
+
         if (player != null)
         {
             UpdateHP(player.CurrentHP, player.MaxHP);
@@ -82,16 +89,10 @@ public class CombatHUD : MonoBehaviour
             HideParry();
         }
 
-        if (enemies != null)
-        {
-            for (int i = 0; i < enemies.Length; i++)
-            {
-                if (enemies[i] != null)
-                {
-                    UpdateEnemyHP(enemies[i], enemies[i].CurrentHP, enemies[i].MaxHP);
-                }
-            }
-        }
+        // HAPUS looping update musuh di sini!
+        // Kamu tidak perlu inisialisasi total bar musuh secara manual di sini, 
+        // karena EnemyTeamManager secara otomatis akan memicu event "OnTotalHpChanged" 
+        // di script-nya sendiri saat game mulai, dan HUD ini akan otomatis menangkapnya.
     }
 
     private void UpdateHP(int currentHp, int maxHp)
@@ -116,21 +117,16 @@ public class CombatHUD : MonoBehaviour
 
     private void UpdateCombo(int currentCombo)
     {
-        if (comboText != null) comboText.text = $"+ {currentCombo}";
+        if (comboText != null) comboText.text = $"+{currentCombo}";
     }
 
-    // --- FUNGSI UPDATE HP MUSUH ---
-    private void UpdateEnemyHP(EnemyFighterBase enemy, int currentHp, int maxHp)
+    // --- FUNGSI UPDATE HP TOTAL MUSUH ---
+    private void UpdateTotalEnemyHP(int currentTotal, int maxTotal)
     {
-        int index = System.Array.IndexOf(enemies, enemy);
-
-        if (index >= 0 && index < enemyHPBars.Length && enemyHPBars[index] != null)
+        if (totalEnemyHPBar != null && maxTotal > 0)
         {
-            if (maxHp > 0)
-            {
-                float progress = Mathf.Clamp01((float)currentHp / maxHp);
-                enemyHPBars[index].fillAmount = progress;
-            }
+            float progress = Mathf.Clamp01((float)currentTotal / maxTotal);
+            totalEnemyHPBar.fillAmount = progress;
         }
     }
 
@@ -147,13 +143,11 @@ public class CombatHUD : MonoBehaviour
         if (parryPanel != null) parryPanel.SetActive(false);
     }
 
-    private void SpawnMissText(Transform enemy)
+    private void SpawnMissText()
     {
-        if (missTextPrefab != null && Camera.main != null && enemy != null)
+        if (missTextPrefab != null && missTextSpawnPoint != null)
         {
-            Vector3 worldPosition = enemy.position + new Vector3(0f, 2f, 0f);
-            Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
-            Instantiate(missTextPrefab, screenPosition, Quaternion.identity, transform);
+            Instantiate(missTextPrefab, missTextSpawnPoint.position, Quaternion.identity, transform);
         }
     }
 }

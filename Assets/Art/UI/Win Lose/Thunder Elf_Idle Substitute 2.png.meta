@@ -1,0 +1,5369 @@
+fileFormatVersion: 2
+guid: da037d87ca58bff41b6445f752ee8d83
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8977088938591847955
+    second: Thunder Elf_Idle Substitute 2_0
+  - first:
+      213: -5239244711042056691
+    second: Thunder Elf_Idle Substitute 2_1
+  - first:
+      213: -8095079016957462150
+    second: Thunder Elf_Idle Substitute 2_2
+  - first:
+      213: -1261210031076420356
+    second: Thunder Elf_Idle Substitute 2_3
+  - first:
+      213: 2839307732620064094
+    second: Thunder Elf_Idle Substitute 2_4
+  - first:
+      213: 2510779320790136356
+    second: Thunder Elf_Idle Substitute 2_5
+  - first:
+      213: -3913668409868979749
+    second: Thunder Elf_Idle Substitute 2_6
+  - first:
+      213: 7607610902605738532
+    second: Thunder Elf_Idle Substitute 2_7
+  - first:
+      213: -8231031150675416458
+    second: Thunder Elf_Idle Substitute 2_8
+  - first:
+      213: 2607839529204420936
+    second: Thunder Elf_Idle Substitute 2_9
+  - first:
+      213: 3143189424241706213
+    second: Thunder Elf_Idle Substitute 2_10
+  - first:
+      213: 4352261911867502523
+    second: Thunder Elf_Idle Substitute 2_11
+  - first:
+      213: -3443737580982750569
+    second: Thunder Elf_Idle Substitute 2_12
+  - first:
+      213: 6601249895382857266
+    second: Thunder Elf_Idle Substitute 2_13
+  - first:
+      213: -5581152016042472846
+    second: Thunder Elf_Idle Substitute 2_14
+  - first:
+      213: 718473772127180497
+    second: Thunder Elf_Idle Substitute 2_15
+  - first:
+      213: -7475670575070605530
+    second: Thunder Elf_Idle Substitute 2_16
+  - first:
+      213: 1650740801056224664
+    second: Thunder Elf_Idle Substitute 2_17
+  - first:
+      213: 7140555969996278624
+    second: Thunder Elf_Idle Substitute 2_18
+  - first:
+      213: 897216595381933646
+    second: Thunder Elf_Idle Substitute 2_19
+  - first:
+      213: -1750192585274276598
+    second: Thunder Elf_Idle Substitute 2_20
+  - first:
+      213: 12950597978332170
+    second: Thunder Elf_Idle Substitute 2_21
+  - first:
+      213: 947280498917161069
+    second: Thunder Elf_Idle Substitute 2_22
+  - first:
+      213: 649787595035360694
+    second: Thunder Elf_Idle Substitute 2_23
+  - first:
+      213: 4690642234666325301
+    second: Thunder Elf_Idle Substitute 2_24
+  - first:
+      213: -231063871555202507
+    second: Thunder Elf_Idle Substitute 2_25
+  - first:
+      213: 288617329533651322
+    second: Thunder Elf_Idle Substitute 2_26
+  - first:
+      213: 8437293246555400970
+    second: Thunder Elf_Idle Substitute 2_27
+  - first:
+      213: 2244676774884934469
+    second: Thunder Elf_Idle Substitute 2_28
+  - first:
+      213: 7283159667437176143
+    second: Thunder Elf_Idle Substitute 2_29
+  - first:
+      213: -4306288558309997994
+    second: Thunder Elf_Idle Substitute 2_30
+  - first:
+      213: 2390802841557680489
+    second: Thunder Elf_Idle Substitute 2_31
+  - first:
+      213: 2415550090473503049
+    second: Thunder Elf_Idle Substitute 2_32
+  - first:
+      213: 8780004928544042647
+    second: Thunder Elf_Idle Substitute 2_33
+  - first:
+      213: 8059749318565109319
+    second: Thunder Elf_Idle Substitute 2_34
+  - first:
+      213: -8012104163941880399
+    second: Thunder Elf_Idle Substitute 2_35
+  - first:
+      213: 2820667617075066776
+    second: Thunder Elf_Idle Substitute 2_36
+  - first:
+      213: 4311149257750965510
+    second: Thunder Elf_Idle Substitute 2_37
+  - first:
+      213: -3700001243697843318
+    second: Thunder Elf_Idle Substitute 2_38
+  - first:
+      213: 7154044824254573836
+    second: Thunder Elf_Idle Substitute 2_39
+  - first:
+      213: 7638818503093705672
+    second: Thunder Elf_Idle Substitute 2_40
+  - first:
+      213: 9105182427259350394
+    second: Thunder Elf_Idle Substitute 2_41
+  - first:
+      213: 5005787418189897359
+    second: Thunder Elf_Idle Substitute 2_42
+  - first:
+      213: 420298087797809459
+    second: Thunder Elf_Idle Substitute 2_43
+  - first:
+      213: 5108225968803530316
+    second: Thunder Elf_Idle Substitute 2_44
+  - first:
+      213: -4331298482491424742
+    second: Thunder Elf_Idle Substitute 2_45
+  - first:
+      213: -7094284619512668853
+    second: Thunder Elf_Idle Substitute 2_46
+  - first:
+      213: 8446253038891987417
+    second: Thunder Elf_Idle Substitute 2_47
+  - first:
+      213: 8608231464501478427
+    second: Thunder Elf_Idle Substitute 2_48
+  - first:
+      213: 718300323554120204
+    second: Thunder Elf_Idle Substitute 2_49
+  - first:
+      213: 8928388695820259339
+    second: Thunder Elf_Idle Substitute 2_50
+  - first:
+      213: -3608948569118716663
+    second: Thunder Elf_Idle Substitute 2_51
+  - first:
+      213: -1238430164746899237
+    second: Thunder Elf_Idle Substitute 2_52
+  - first:
+      213: 8026714098211917534
+    second: Thunder Elf_Idle Substitute 2_53
+  - first:
+      213: 835534305067627808
+    second: Thunder Elf_Idle Substitute 2_54
+  - first:
+      213: 1652500451046951293
+    second: Thunder Elf_Idle Substitute 2_55
+  - first:
+      213: -7462011944591876290
+    second: Thunder Elf_Idle Substitute 2_56
+  - first:
+      213: -7262284775360412741
+    second: Thunder Elf_Idle Substitute 2_57
+  - first:
+      213: -608060554389793103
+    second: Thunder Elf_Idle Substitute 2_58
+  - first:
+      213: 4104077720311393155
+    second: Thunder Elf_Idle Substitute 2_59
+  - first:
+      213: -6068966049235188112
+    second: Thunder Elf_Idle Substitute 2_60
+  - first:
+      213: 3310385951064257875
+    second: Thunder Elf_Idle Substitute 2_61
+  - first:
+      213: 8212651793552958992
+    second: Thunder Elf_Idle Substitute 2_62
+  - first:
+      213: -1296482714751452741
+    second: Thunder Elf_Idle Substitute 2_63
+  - first:
+      213: -6998274650809220314
+    second: Thunder Elf_Idle Substitute 2_64
+  - first:
+      213: 8846417851183019748
+    second: Thunder Elf_Idle Substitute 2_65
+  - first:
+      213: 1145741207090031954
+    second: Thunder Elf_Idle Substitute 2_66
+  - first:
+      213: 3299059303041298885
+    second: Thunder Elf_Idle Substitute 2_67
+  - first:
+      213: -6119111227996943575
+    second: Thunder Elf_Idle Substitute 2_68
+  - first:
+      213: 3528725119503161200
+    second: Thunder Elf_Idle Substitute 2_69
+  - first:
+      213: -233121407691705050
+    second: Thunder Elf_Idle Substitute 2_70
+  - first:
+      213: 3634608542038524160
+    second: Thunder Elf_Idle Substitute 2_71
+  - first:
+      213: 1630297175584534830
+    second: Thunder Elf_Idle Substitute 2_72
+  - first:
+      213: 7878036749484466104
+    second: Thunder Elf_Idle Substitute 2_73
+  - first:
+      213: 9207030740681208545
+    second: Thunder Elf_Idle Substitute 2_74
+  - first:
+      213: 982841264896558892
+    second: Thunder Elf_Idle Substitute 2_75
+  - first:
+      213: -7585253482405692951
+    second: Thunder Elf_Idle Substitute 2_76
+  - first:
+      213: 5529278038994472290
+    second: Thunder Elf_Idle Substitute 2_77
+  - first:
+      213: -2863839116245639069
+    second: Thunder Elf_Idle Substitute 2_78
+  - first:
+      213: 4439189387837767658
+    second: Thunder Elf_Idle Substitute 2_79
+  - first:
+      213: 2540591654900158045
+    second: Thunder Elf_Idle Substitute 2_80
+  - first:
+      213: -1517870275935848291
+    second: Thunder Elf_Idle Substitute 2_81
+  - first:
+      213: -497636451358346420
+    second: Thunder Elf_Idle Substitute 2_82
+  - first:
+      213: 1862318070751407518
+    second: Thunder Elf_Idle Substitute 2_83
+  - first:
+      213: -7926020634324127383
+    second: Thunder Elf_Idle Substitute 2_84
+  - first:
+      213: 7351204668461426201
+    second: Thunder Elf_Idle Substitute 2_85
+  - first:
+      213: 1139389556595835636
+    second: Thunder Elf_Idle Substitute 2_86
+  - first:
+      213: -5331047151538182331
+    second: Thunder Elf_Idle Substitute 2_87
+  - first:
+      213: -8500876201886782849
+    second: Thunder Elf_Idle Substitute 2_88
+  - first:
+      213: 5618593649431675527
+    second: Thunder Elf_Idle Substitute 2_89
+  - first:
+      213: 6769219660148237189
+    second: Thunder Elf_Idle Substitute 2_90
+  - first:
+      213: 3567699880603174072
+    second: Thunder Elf_Idle Substitute 2_91
+  - first:
+      213: 5346551428365956898
+    second: Thunder Elf_Idle Substitute 2_92
+  - first:
+      213: 3589430155189623085
+    second: Thunder Elf_Idle Substitute 2_93
+  - first:
+      213: -3974154632344329328
+    second: Thunder Elf_Idle Substitute 2_94
+  - first:
+      213: 1857078087065402269
+    second: Thunder Elf_Idle Substitute 2_95
+  - first:
+      213: 3162024945722018353
+    second: Thunder Elf_Idle Substitute 2_96
+  - first:
+      213: -1662231896056507785
+    second: Thunder Elf_Idle Substitute 2_97
+  - first:
+      213: 8618155523019697885
+    second: Thunder Elf_Idle Substitute 2_98
+  - first:
+      213: 2978771691124024011
+    second: Thunder Elf_Idle Substitute 2_99
+  - first:
+      213: -5114429526580561149
+    second: Thunder Elf_Idle Substitute 2_100
+  - first:
+      213: 5978957404990747855
+    second: Thunder Elf_Idle Substitute 2_101
+  - first:
+      213: 8137343558966103921
+    second: Thunder Elf_Idle Substitute 2_102
+  - first:
+      213: -8115820197675519975
+    second: Thunder Elf_Idle Substitute 2_103
+  - first:
+      213: -1218413309405450629
+    second: Thunder Elf_Idle Substitute 2_104
+  - first:
+      213: 9009700246905584844
+    second: Thunder Elf_Idle Substitute 2_105
+  - first:
+      213: 6277110979613994668
+    second: Thunder Elf_Idle Substitute 2_106
+  - first:
+      213: -6887540932309479006
+    second: Thunder Elf_Idle Substitute 2_107
+  - first:
+      213: 3268959809565309567
+    second: Thunder Elf_Idle Substitute 2_108
+  - first:
+      213: -1455503981617993544
+    second: Thunder Elf_Idle Substitute 2_109
+  - first:
+      213: -800729450105206368
+    second: Thunder Elf_Idle Substitute 2_110
+  - first:
+      213: -3323132132181346095
+    second: Thunder Elf_Idle Substitute 2_111
+  - first:
+      213: -284238820653297237
+    second: Thunder Elf_Idle Substitute 2_112
+  - first:
+      213: 764498106897030527
+    second: Thunder Elf_Idle Substitute 2_113
+  - first:
+      213: 523809742786921822
+    second: Thunder Elf_Idle Substitute 2_114
+  - first:
+      213: -6686228350710797465
+    second: Thunder Elf_Idle Substitute 2_115
+  - first:
+      213: 4229781728263518170
+    second: Thunder Elf_Idle Substitute 2_116
+  - first:
+      213: 2107870211841704301
+    second: Thunder Elf_Idle Substitute 2_117
+  - first:
+      213: 3301771610508824131
+    second: Thunder Elf_Idle Substitute 2_118
+  - first:
+      213: -6438306033830976253
+    second: Thunder Elf_Idle Substitute 2_119
+  - first:
+      213: -1861776094796052939
+    second: Thunder Elf_Idle Substitute 2_120
+  - first:
+      213: -2953193005989080295
+    second: Thunder Elf_Idle Substitute 2_121
+  - first:
+      213: -1004344704108511828
+    second: Thunder Elf_Idle Substitute 2_122
+  - first:
+      213: 4327362907803043849
+    second: Thunder Elf_Idle Substitute 2_123
+  - first:
+      213: -1056781759147297669
+    second: Thunder Elf_Idle Substitute 2_124
+  - first:
+      213: 6759389196647757866
+    second: Thunder Elf_Idle Substitute 2_125
+  - first:
+      213: -1114626413221112043
+    second: Thunder Elf_Idle Substitute 2_126
+  - first:
+      213: 4147630289282865252
+    second: Thunder Elf_Idle Substitute 2_127
+  - first:
+      213: 519883856915372586
+    second: Thunder Elf_Idle Substitute 2_128
+  - first:
+      213: 2505306315102172696
+    second: Thunder Elf_Idle Substitute 2_129
+  - first:
+      213: 2014111764971691974
+    second: Thunder Elf_Idle Substitute 2_130
+  - first:
+      213: 6032265560608197963
+    second: Thunder Elf_Idle Substitute 2_131
+  - first:
+      213: 2587335973358858245
+    second: Thunder Elf_Idle Substitute 2_132
+  - first:
+      213: 6058696912515220393
+    second: Thunder Elf_Idle Substitute 2_133
+  - first:
+      213: -7106741905998502804
+    second: Thunder Elf_Idle Substitute 2_134
+  - first:
+      213: -8528352152915749423
+    second: Thunder Elf_Idle Substitute 2_135
+  - first:
+      213: -8572232543864148714
+    second: Thunder Elf_Idle Substitute 2_136
+  - first:
+      213: -7848459974800266137
+    second: Thunder Elf_Idle Substitute 2_137
+  - first:
+      213: 923785696308117960
+    second: Thunder Elf_Idle Substitute 2_138
+  - first:
+      213: 806569432796614085
+    second: Thunder Elf_Idle Substitute 2_139
+  - first:
+      213: 940131206758795261
+    second: Thunder Elf_Idle Substitute 2_140
+  - first:
+      213: -2510944514949859997
+    second: Thunder Elf_Idle Substitute 2_141
+  - first:
+      213: 4754099124600428779
+    second: Thunder Elf_Idle Substitute 2_142
+  - first:
+      213: 5387007403680325990
+    second: Thunder Elf_Idle Substitute 2_143
+  - first:
+      213: 5289995136621152501
+    second: Thunder Elf_Idle Substitute 2_144
+  - first:
+      213: 1791662512217618121
+    second: Thunder Elf_Idle Substitute 2_145
+  - first:
+      213: -5940665965173187038
+    second: Thunder Elf_Idle Substitute 2_146
+  - first:
+      213: 1649912429988961735
+    second: Thunder Elf_Idle Substitute 2_147
+  - first:
+      213: -1433742262324570306
+    second: Thunder Elf_Idle Substitute 2_148
+  - first:
+      213: 5352108434769110054
+    second: Thunder Elf_Idle Substitute 2_149
+  - first:
+      213: 78420627020117714
+    second: Thunder Elf_Idle Substitute 2_150
+  - first:
+      213: 7292550607460285446
+    second: Thunder Elf_Idle Substitute 2_151
+  - first:
+      213: 7957272482244759917
+    second: Thunder Elf_Idle Substitute 2_152
+  - first:
+      213: 2079700370720783549
+    second: Thunder Elf_Idle Substitute 2_153
+  - first:
+      213: 1385724650775380710
+    second: Thunder Elf_Idle Substitute 2_154
+  - first:
+      213: -3672423909732871241
+    second: Thunder Elf_Idle Substitute 2_155
+  - first:
+      213: -1528513524054410232
+    second: Thunder Elf_Idle Substitute 2_156
+  - first:
+      213: -8129049949813761078
+    second: Thunder Elf_Idle Substitute 2_157
+  - first:
+      213: 4512251312518520796
+    second: Thunder Elf_Idle Substitute 2_158
+  - first:
+      213: -755979238950419685
+    second: Thunder Elf_Idle Substitute 2_159
+  - first:
+      213: -539771355739497279
+    second: Thunder Elf_Idle Substitute 2_160
+  - first:
+      213: -733308206331576712
+    second: Thunder Elf_Idle Substitute 2_161
+  - first:
+      213: 9069370732830797661
+    second: Thunder Elf_Idle Substitute 2_162
+  - first:
+      213: -8248464599112605596
+    second: Thunder Elf_Idle Substitute 2_163
+  - first:
+      213: -8794853162427633851
+    second: Thunder Elf_Idle Substitute 2_164
+  - first:
+      213: -7958175769543908881
+    second: Thunder Elf_Idle Substitute 2_165
+  - first:
+      213: 5730032820658778661
+    second: Thunder Elf_Idle Substitute 2_166
+  - first:
+      213: -2720432403327424350
+    second: Thunder Elf_Idle Substitute 2_167
+  - first:
+      213: -7904571383139799284
+    second: Thunder Elf_Idle Substitute 2_168
+  - first:
+      213: 9150735649662469819
+    second: Thunder Elf_Idle Substitute 2_169
+  - first:
+      213: 5725803843316193688
+    second: Thunder Elf_Idle Substitute 2_170
+  - first:
+      213: 1453829312923948340
+    second: Thunder Elf_Idle Substitute 2_171
+  - first:
+      213: 840138553896624301
+    second: Thunder Elf_Idle Substitute 2_172
+  - first:
+      213: -6579122527970091979
+    second: Thunder Elf_Idle Substitute 2_173
+  - first:
+      213: -610893039307032023
+    second: Thunder Elf_Idle Substitute 2_174
+  - first:
+      213: -1092186657471933853
+    second: Thunder Elf_Idle Substitute 2_175
+  - first:
+      213: -4719240820190711964
+    second: Thunder Elf_Idle Substitute 2_176
+  - first:
+      213: 5356061302177828352
+    second: Thunder Elf_Idle Substitute 2_177
+  - first:
+      213: 7338143067054335255
+    second: Thunder Elf_Idle Substitute 2_178
+  - first:
+      213: 3804892343130037933
+    second: Thunder Elf_Idle Substitute 2_179
+  - first:
+      213: 1843563225861335596
+    second: Thunder Elf_Idle Substitute 2_180
+  - first:
+      213: 2782164479056209797
+    second: Thunder Elf_Idle Substitute 2_181
+  - first:
+      213: 4592899139946452989
+    second: Thunder Elf_Idle Substitute 2_182
+  - first:
+      213: 5605253901927062025
+    second: Thunder Elf_Idle Substitute 2_183
+  - first:
+      213: 1836989356787750068
+    second: Thunder Elf_Idle Substitute 2_184
+  - first:
+      213: 1996112844773628364
+    second: Thunder Elf_Idle Substitute 2_185
+  - first:
+      213: -5702956895970919256
+    second: Thunder Elf_Idle Substitute 2_186
+  - first:
+      213: 2312337033976625782
+    second: Thunder Elf_Idle Substitute 2_187
+  - first:
+      213: 2596547234860938689
+    second: Thunder Elf_Idle Substitute 2_188
+  - first:
+      213: -604292676673209064
+    second: Thunder Elf_Idle Substitute 2_189
+  - first:
+      213: 8749257803319086763
+    second: Thunder Elf_Idle Substitute 2_190
+  - first:
+      213: -6724749210228627835
+    second: Thunder Elf_Idle Substitute 2_191
+  - first:
+      213: 2191025607921548416
+    second: Thunder Elf_Idle Substitute 2_192
+  - first:
+      213: 5999876181537617665
+    second: Thunder Elf_Idle Substitute 2_193
+  - first:
+      213: -9189840387787625106
+    second: Thunder Elf_Idle Substitute 2_194
+  - first:
+      213: 514604160589517234
+    second: Thunder Elf_Idle Substitute 2_195
+  - first:
+      213: -4366546824559008935
+    second: Thunder Elf_Idle Substitute 2_196
+  - first:
+      213: 6568255138236315202
+    second: Thunder Elf_Idle Substitute 2_197
+  - first:
+      213: 641660898835040007
+    second: Thunder Elf_Idle Substitute 2_198
+  - first:
+      213: 8907707237765939732
+    second: Thunder Elf_Idle Substitute 2_199
+  - first:
+      213: -3805130468768852735
+    second: Thunder Elf_Idle Substitute 2_200
+  - first:
+      213: 2213641985199208450
+    second: Thunder Elf_Idle Substitute 2_201
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 16
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_0
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 227
+        width: 2210
+        height: 2370
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de9f42a4c29fa6380800000000000000
+      internalID: -8977088938591847955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_1
+      rect:
+        serializedVersion: 2
+        x: 1104
+        y: 2589
+        width: 9
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0e7efaa1b67a47b0800000000000000
+      internalID: -5239244711042056691
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_2
+      rect:
+        serializedVersion: 2
+        x: 1139
+        y: 2591
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a79388d068088af80800000000000000
+      internalID: -8095079016957462150
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_3
+      rect:
+        serializedVersion: 2
+        x: 1167
+        y: 2590
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cf4d78ea8284f7ee0800000000000000
+      internalID: -1261210031076420356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_4
+      rect:
+        serializedVersion: 2
+        x: 1186
+        y: 2581
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e55b6dae65f376720800000000000000
+      internalID: 2839307732620064094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_5
+      rect:
+        serializedVersion: 2
+        x: 1205
+        y: 2591
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 426b7155d7418d220800000000000000
+      internalID: 2510779320790136356
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_6
+      rect:
+        serializedVersion: 2
+        x: 1215
+        y: 2586
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd17715115bdfa9c0800000000000000
+      internalID: -3913668409868979749
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_7
+      rect:
+        serializedVersion: 2
+        x: 1230
+        y: 2586
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 422343f1fc9a39960800000000000000
+      internalID: 7607610902605738532
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_8
+      rect:
+        serializedVersion: 2
+        x: 1242
+        y: 2587
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a21d047c085cd80800000000000000
+      internalID: -8231031150675416458
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_9
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 2591
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 84193712c38e03420800000000000000
+      internalID: 2607839529204420936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_10
+      rect:
+        serializedVersion: 2
+        x: 1297
+        y: 2591
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5e401b5c02ade9b20800000000000000
+      internalID: 3143189424241706213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_11
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 2584
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bbf235a4627566c30800000000000000
+      internalID: 4352261911867502523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_12
+      rect:
+        serializedVersion: 2
+        x: 1314
+        y: 2591
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7923cd17ae26530d0800000000000000
+      internalID: -3443737580982750569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_13
+      rect:
+        serializedVersion: 2
+        x: 1319
+        y: 2585
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23631ef0ec95c9b50800000000000000
+      internalID: 6601249895382857266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_14
+      rect:
+        serializedVersion: 2
+        x: 1333
+        y: 2587
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 27a4556cfc3cb82b0800000000000000
+      internalID: -5581152016042472846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_15
+      rect:
+        serializedVersion: 2
+        x: 1357
+        y: 2590
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d65310d61888f900800000000000000
+      internalID: 718473772127180497
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_16
+      rect:
+        serializedVersion: 2
+        x: 1395
+        y: 2591
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62f83134835114890800000000000000
+      internalID: -7475670575070605530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_17
+      rect:
+        serializedVersion: 2
+        x: 1423
+        y: 2590
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8953337330c98e610800000000000000
+      internalID: 1650740801056224664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_18
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 2581
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 06b4c6a82d9581360800000000000000
+      internalID: 7140555969996278624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_19
+      rect:
+        serializedVersion: 2
+        x: 1461
+        y: 2591
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4653566dbd837c00800000000000000
+      internalID: 897216595381933646
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_20
+      rect:
+        serializedVersion: 2
+        x: 1471
+        y: 2586
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a05443add1116b7e0800000000000000
+      internalID: -1750192585274276598
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_21
+      rect:
+        serializedVersion: 2
+        x: 1486
+        y: 2586
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0c902010820e2000800000000000000
+      internalID: 12950597978332170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_22
+      rect:
+        serializedVersion: 2
+        x: 1498
+        y: 2587
+        width: 9
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d68bc98489a652d00800000000000000
+      internalID: 947280498917161069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_23
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 2591
+        width: 11
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6bdb98dff52840900800000000000000
+      internalID: 649787595035360694
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_24
+      rect:
+        serializedVersion: 2
+        x: 1553
+        y: 2591
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5351bb5a242881140800000000000000
+      internalID: 4690642234666325301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_25
+      rect:
+        serializedVersion: 2
+        x: 1556
+        y: 2584
+        width: 8
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 532968f02a81bccf0800000000000000
+      internalID: -231063871555202507
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_26
+      rect:
+        serializedVersion: 2
+        x: 1570
+        y: 2591
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7900ea9eef510400800000000000000
+      internalID: 288617329533651322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_27
+      rect:
+        serializedVersion: 2
+        x: 1575
+        y: 2585
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a0bacba4189471570800000000000000
+      internalID: 8437293246555400970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_28
+      rect:
+        serializedVersion: 2
+        x: 1589
+        y: 2587
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 543069a42a1b62f10800000000000000
+      internalID: 2244676774884934469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_29
+      rect:
+        serializedVersion: 2
+        x: 1613
+        y: 2590
+        width: 13
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f458b04312bf21560800000000000000
+      internalID: 7283159667437176143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_30
+      rect:
+        serializedVersion: 2
+        x: 1651
+        y: 2591
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6528a953f5dfc34c0800000000000000
+      internalID: -4306288558309997994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_31
+      rect:
+        serializedVersion: 2
+        x: 1679
+        y: 2590
+        width: 12
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9614a037486dd2120800000000000000
+      internalID: 2390802841557680489
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_32
+      rect:
+        serializedVersion: 2
+        x: 1698
+        y: 2581
+        width: 11
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 949f5d75202c58120800000000000000
+      internalID: 2415550090473503049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_33
+      rect:
+        serializedVersion: 2
+        x: 1717
+        y: 2591
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 79eeb0cc6f7d8d970800000000000000
+      internalID: 8780004928544042647
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_34
+      rect:
+        serializedVersion: 2
+        x: 1727
+        y: 2586
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 74e15c78d4bf9df60800000000000000
+      internalID: 8059749318565109319
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_35
+      rect:
+        serializedVersion: 2
+        x: 1742
+        y: 2586
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1bde0dc76b94fc090800000000000000
+      internalID: -8012104163941880399
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_36
+      rect:
+        serializedVersion: 2
+        x: 1754
+        y: 2585
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 897f431d046052720800000000000000
+      internalID: 2820667617075066776
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_37
+      rect:
+        serializedVersion: 2
+        x: 1761
+        y: 2589
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60d6fe1986744db30800000000000000
+      internalID: 4311149257750965510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_38
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1973
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a83f2e8e874f6acc0800000000000000
+      internalID: -3700001243697843318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_39
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1968
+        width: 21
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0d6ae82dd5484360800000000000000
+      internalID: 7154044824254573836
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_40
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1960
+        width: 8
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8cbd494d4f8820a60800000000000000
+      internalID: 7638818503093705672
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_41
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1947
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a7d2cef1d2b1c5e70800000000000000
+      internalID: 9105182427259350394
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_42
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1951
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8e14529221287540800000000000000
+      internalID: 5005787418189897359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_43
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1915
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 331e6fe42e235d500800000000000000
+      internalID: 420298087797809459
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_44
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1899
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c46c5fe347014e640800000000000000
+      internalID: 5108225968803530316
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_45
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1883
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a1009e67af224e3c0800000000000000
+      internalID: -4331298482491424742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_46
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1872
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4d1e66c9b90c8d90800000000000000
+      internalID: -7094284619512668853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_47
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1841
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9d17832836e173570800000000000000
+      internalID: 8446253038891987417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_48
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1860
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b1483f998e4967770800000000000000
+      internalID: 8608231464501478427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_49
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1815
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c02dd7ba65ae7f900800000000000000
+      internalID: 718300323554120204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_50
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1810
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b00daf6d63208eb70800000000000000
+      internalID: 8928388695820259339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_51
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1806
+        width: 13
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90d460db5607aedc0800000000000000
+      internalID: -3608948569118716663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_52
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1800
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bd0f12f935630dee0800000000000000
+      internalID: -1238430164746899237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_53
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1785
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ede8a89e1fd946f60800000000000000
+      internalID: 8026714098211917534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_54
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1776
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 025753b060a689b00800000000000000
+      internalID: 835534305067627808
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_55
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1764
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7983d7a76cdee610800000000000000
+      internalID: 1652500451046951293
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_56
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1768
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3f11ecfbab917890800000000000000
+      internalID: -7462011944591876290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_57
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1778
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb34aea597e273b90800000000000000
+      internalID: -7262284775360412741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_58
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1757
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1b65badb52cbf87f0800000000000000
+      internalID: -608060554389793103
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_59
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 1762
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 38b61c931fc94f830800000000000000
+      internalID: 4104077720311393155
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_60
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1740
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0764e617883b6cba0800000000000000
+      internalID: -6068966049235188112
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_61
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1743
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 355f0aabb7ad0fd20800000000000000
+      internalID: 3310385951064257875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_62
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1735
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 016e2b23b4339f170800000000000000
+      internalID: 8212651793552958992
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_63
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1731
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb93ec907d7f10ee0800000000000000
+      internalID: -1296482714751452741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_64
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1717
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 62345e5984221ee90800000000000000
+      internalID: -6998274650809220314
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_65
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1722
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e630725a2ac4ca70800000000000000
+      internalID: 8846417851183019748
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_66
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1719
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 25de025be8d76ef00800000000000000
+      internalID: 1145741207090031954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_67
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1712
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c179baf4fc98cd20800000000000000
+      internalID: 3299059303041298885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_68
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1714
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92b432232cc841ba0800000000000000
+      internalID: -6119111227996943575
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_69
+      rect:
+        serializedVersion: 2
+        x: 2566
+        y: 1708
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 077dbf9dccc88f030800000000000000
+      internalID: 3528725119503161200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_70
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1703
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6253ff89059c3ccf0800000000000000
+      internalID: -233121407691705050
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_71
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1691
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0018ec54639b07230800000000000000
+      internalID: 3634608542038524160
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_72
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1695
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e21f90db4aaff9610800000000000000
+      internalID: 1630297175584534830
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_73
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1688
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf9e7c1fa8645d60800000000000000
+      internalID: 7878036749484466104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_74
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1683
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e2b76e7da1f5cf70800000000000000
+      internalID: 9207030740681208545
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_75
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1676
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2741c05ce0c3ad00800000000000000
+      internalID: 982841264896558892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_76
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1659
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9e9f9e96524cbb690800000000000000
+      internalID: -7585253482405692951
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_77
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1667
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 26d42a2c411fbbc40800000000000000
+      internalID: 5529278038994472290
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_78
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1643
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3606f4e3f799148d0800000000000000
+      internalID: -2863839116245639069
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_79
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 1650
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aeff0c87a3b2b9d30800000000000000
+      internalID: 4439189387837767658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_80
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1627
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5e45a546aef14320800000000000000
+      internalID: 2540591654900158045
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_81
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1640
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9838bba6017feae0800000000000000
+      internalID: -1517870275935848291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_82
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1630
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c43ff79b84a0819f0800000000000000
+      internalID: -497636451358346420
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_83
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1616
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e9dade91b6848d910800000000000000
+      internalID: 1862318070751407518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_84
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1610
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 961b1b81a3e110290800000000000000
+      internalID: -7926020634324127383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_85
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1585
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 91626d692b9b40660800000000000000
+      internalID: 7351204668461426201
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_86
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1604
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4f24fa5d3ccefcf00800000000000000
+      internalID: 1139389556595835636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_87
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1603
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54765bb5cd05406b0800000000000000
+      internalID: -5331047151538182331
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_88
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1595
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a67fa4222d60a80800000000000000
+      internalID: -8500876201886782849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_89
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1585
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 78204a3d72149fd40800000000000000
+      internalID: 5618593649431675527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_90
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1559
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 583e9b18a6911fd50800000000000000
+      internalID: 6769219660148237189
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_91
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 1569
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b44e809324038130800000000000000
+      internalID: 3567699880603174072
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_92
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1554
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2273c156234c23a40800000000000000
+      internalID: 5346551428365956898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_93
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1554
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d29172265b730d130800000000000000
+      internalID: 3589430155189623085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_94
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1544
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 093a4a8fa67f8d8c0800000000000000
+      internalID: -3974154632344329328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_95
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1529
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d9bf1b35eaaa5c910800000000000000
+      internalID: 1857078087065402269
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_96
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1520
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 13a4fac5fe4c1eb20800000000000000
+      internalID: 3162024945722018353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_97
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1508
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7725a3db5e09ee8e0800000000000000
+      internalID: -1662231896056507785
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_98
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1512
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ddee8a889c6d99770800000000000000
+      internalID: 8618155523019697885
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_99
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1522
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bc2ef642219b65920800000000000000
+      internalID: 2978771691124024011
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_100
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1501
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30b75676175e509b0800000000000000
+      internalID: -5114429526580561149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_101
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 1506
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc43aabf41689f250800000000000000
+      internalID: 5978957404990747855
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_102
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1484
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 17fcc777ad6ade070800000000000000
+      internalID: 8137343558966103921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_103
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1487
+        width: 12
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9103c989780de5f80800000000000000
+      internalID: -8115820197675519975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_104
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1479
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b7ea74fec83571fe0800000000000000
+      internalID: -1218413309405450629
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_105
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1475
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ccc7e8d93a2e80d70800000000000000
+      internalID: 9009700246905584844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_106
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1461
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: caea89bad27cc1750800000000000000
+      internalID: 6277110979613994668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_107
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1466
+        width: 9
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a11bb9830a8a60a0800000000000000
+      internalID: -6887540932309479006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_108
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1463
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7a3b2a80adad5d20800000000000000
+      internalID: 3268959809565309567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_109
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1456
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8b82e7e17d20dcbe0800000000000000
+      internalID: -1455503981617993544
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_110
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1458
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a9094dbecc33e4f0800000000000000
+      internalID: -800729450105206368
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_111
+      rect:
+        serializedVersion: 2
+        x: 2566
+        y: 1452
+        width: 11
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d8f4a7beecd1e1d0800000000000000
+      internalID: -3323132132181346095
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_112
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1447
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba1959f6c4e2e0cf0800000000000000
+      internalID: -284238820653297237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_113
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1435
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f7d5e0d4afa0c9a00800000000000000
+      internalID: 764498106897030527
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_114
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1439
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5504b09f22f44700800000000000000
+      internalID: 523809742786921822
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_115
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1432
+        width: 9
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76bacbc7dbeb533a0800000000000000
+      internalID: -6686228350710797465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_116
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1427
+        width: 13
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ad7b59e421433ba30800000000000000
+      internalID: 4229781728263518170
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_117
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1420
+        width: 13
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d61c3792ac8a04d10800000000000000
+      internalID: 2107870211841704301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_118
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1403
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 34e09d549cf32dd20800000000000000
+      internalID: 3301771610508824131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_119
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1411
+        width: 7
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 305204a16ca86a6a0800000000000000
+      internalID: -6438306033830976253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_120
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1387
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5360e528184a926e0800000000000000
+      internalID: -1861776094796052939
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_121
+      rect:
+        serializedVersion: 2
+        x: 2559
+        y: 1394
+        width: 18
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9135ad49b962407d0800000000000000
+      internalID: -2953193005989080295
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_122
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1371
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cad319710d9df02f0800000000000000
+      internalID: -1004344704108511828
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_123
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1384
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9084dc523a1ed0c30800000000000000
+      internalID: 4327362907803043849
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_124
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1374
+        width: 6
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b74b9e0d69e8551f0800000000000000
+      internalID: -1056781759147297669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_125
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1360
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a287dcc59ac2ecd50800000000000000
+      internalID: 6759389196647757866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_126
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1354
+        width: 9
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 51710b6ce2d0880f0800000000000000
+      internalID: -1114626413221112043
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_127
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1329
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4681b54e5c75f8930800000000000000
+      internalID: 4147630289282865252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_128
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1348
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a2a96e70d9ff63700800000000000000
+      internalID: 519883856915372586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_129
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1347
+        width: 8
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8163535e1d2a4c220800000000000000
+      internalID: 2505306315102172696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_130
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1339
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6cf9211aaff83fb10800000000000000
+      internalID: 2014111764971691974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_131
+      rect:
+        serializedVersion: 2
+        x: 2564
+        y: 1329
+        width: 11
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b4dcfda2199e6b350800000000000000
+      internalID: 6032265560608197963
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_132
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1303
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 500f4a60c5018e320800000000000000
+      internalID: 2587335973358858245
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_133
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 1313
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9a3c938ddb0d41450800000000000000
+      internalID: 6058696912515220393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_134
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1298
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c64a39eb3e7cf5d90800000000000000
+      internalID: -7106741905998502804
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_135
+      rect:
+        serializedVersion: 2
+        x: 2570
+        y: 1298
+        width: 7
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1d5d40ee6e435a980800000000000000
+      internalID: -8528352152915749423
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_136
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1288
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 61d2fe24bef490980800000000000000
+      internalID: -8572232543864148714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_137
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1273
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 76ca8206c3ba41390800000000000000
+      internalID: -7848459974800266137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_138
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1264
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8c148054232f1dc00800000000000000
+      internalID: 923785696308117960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_139
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1252
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5cdc78030a2813b00800000000000000
+      internalID: 806569432796614085
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_140
+      rect:
+        serializedVersion: 2
+        x: 2565
+        y: 1256
+        width: 10
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df70e1df9540c0d00800000000000000
+      internalID: 940131206758795261
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_141
+      rect:
+        serializedVersion: 2
+        x: 2567
+        y: 1266
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 365b2b76445572dd0800000000000000
+      internalID: -2510944514949859997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_142
+      rect:
+        serializedVersion: 2
+        x: 2568
+        y: 1245
+        width: 9
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: be8ddcc27f3f9f140800000000000000
+      internalID: 4754099124600428779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_143
+      rect:
+        serializedVersion: 2
+        x: 2569
+        y: 1250
+        width: 8
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 661e3ca21be72ca40800000000000000
+      internalID: 5387007403680325990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_144
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1228
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f809d59c86d96940800000000000000
+      internalID: 5289995136621152501
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_145
+      rect:
+        serializedVersion: 2
+        x: 2571
+        y: 1231
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c67d1eef834dd810800000000000000
+      internalID: 1791662512217618121
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_146
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1223
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 22e599897c38e8da0800000000000000
+      internalID: -5940665965173187038
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_147
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1205
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7cd5efb0d9aa5e610800000000000000
+      internalID: 1649912429988961735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_148
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1200
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e37ddaa32035a1ce0800000000000000
+      internalID: -1433742262324570306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_149
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1202
+        width: 8
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 624e8c5c342864a40800000000000000
+      internalID: 5352108434769110054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_150
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1191
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d6f890152b961100800000000000000
+      internalID: 78420627020117714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_151
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1179
+        width: 7
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 60cba30d328543560800000000000000
+      internalID: 7292550607460285446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_152
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1183
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d619035c929ed6e60800000000000000
+      internalID: 7957272482244759917
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_153
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1147
+        width: 15
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dbc7f0ce7749cdc10800000000000000
+      internalID: 2079700370720783549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_154
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1131
+        width: 8
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6e208fd5a351b3310800000000000000
+      internalID: 1385724650775380710
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_155
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1115
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7b398b359ede80dc0800000000000000
+      internalID: -3672423909732871241
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_156
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1104
+        width: 7
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80c3b5c5c01a9cae0800000000000000
+      internalID: -1528513524054410232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_157
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1073
+        width: 14
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: acb91f3e320df2f80800000000000000
+      internalID: -8129049949813761078
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_158
+      rect:
+        serializedVersion: 2
+        x: 370
+        y: 1092
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cdfd4fb69acbe9e30800000000000000
+      internalID: 4512251312518520796
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_159
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1047
+        width: 15
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b134ac433e83285f0800000000000000
+      internalID: -755979238950419685
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_160
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 1042
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1cc5731dfc85288f0800000000000000
+      internalID: -539771355739497279
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_161
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1032
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 87e3ab25214c2d5f0800000000000000
+      internalID: -733308206331576712
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_162
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1017
+        width: 12
+        height: 15
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d5f24b241a0ecdd70800000000000000
+      internalID: 9069370732830797661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_163
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 1008
+        width: 7
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 460228b3621978d80800000000000000
+      internalID: -8248464599112605596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_164
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 996
+        width: 16
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 54fa7c955a762f580800000000000000
+      internalID: -8794853162427633851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_165
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 972
+        width: 16
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fe1e6344d41ee8190800000000000000
+      internalID: -7958175769543908881
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_166
+      rect:
+        serializedVersion: 2
+        x: 369
+        y: 967
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52232bacd7a258f40800000000000000
+      internalID: 5730032820658778661
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_167
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 949
+        width: 10
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a8e43484251f3ad0800000000000000
+      internalID: -2720432403327424350
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_168
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 944
+        width: 11
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c0feb3e05325d4290800000000000000
+      internalID: -7904571383139799284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_169
+      rect:
+        serializedVersion: 2
+        x: 367
+        y: 936
+        width: 9
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb682a73791fdfe70800000000000000
+      internalID: 9150735649662469819
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_170
+      rect:
+        serializedVersion: 2
+        x: 1295
+        y: 227
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8999d664244267f40800000000000000
+      internalID: 5725803843316193688
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_171
+      rect:
+        serializedVersion: 2
+        x: 1300
+        y: 227
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 435d1e0be0a0d2410800000000000000
+      internalID: 1453829312923948340
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_172
+      rect:
+        serializedVersion: 2
+        x: 1304
+        y: 233
+        width: 10
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: da06e134095c8ab00800000000000000
+      internalID: 840138553896624301
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_173
+      rect:
+        serializedVersion: 2
+        x: 1310
+        y: 227
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 53c92922be242b4a0800000000000000
+      internalID: -6579122527970091979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_174
+      rect:
+        serializedVersion: 2
+        x: 1334
+        y: 227
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 92a7854740ca587f0800000000000000
+      internalID: -610893039307032023
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_175
+      rect:
+        serializedVersion: 2
+        x: 1338
+        y: 227
+        width: 14
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 362d6fc8506c7d0f0800000000000000
+      internalID: -1092186657471933853
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_176
+      rect:
+        serializedVersion: 2
+        x: 1349
+        y: 230
+        width: 12
+        height: 16
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46f62074a73e18eb0800000000000000
+      internalID: -4719240820190711964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_177
+      rect:
+        serializedVersion: 2
+        x: 1354
+        y: 227
+        width: 17
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 00e868f606d845a40800000000000000
+      internalID: 5356061302177828352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_178
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 227
+        width: 18
+        height: 17
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 715e4c68d3256d560800000000000000
+      internalID: 7338143067054335255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_179
+      rect:
+        serializedVersion: 2
+        x: 1369
+        y: 229
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: dae9ed84d61bdc430800000000000000
+      internalID: 3804892343130037933
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_180
+      rect:
+        serializedVersion: 2
+        x: 1385
+        y: 227
+        width: 6
+        height: 10
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c2a207e7cf6a59910800000000000000
+      internalID: 1843563225861335596
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_181
+      rect:
+        serializedVersion: 2
+        x: 1387
+        y: 227
+        width: 13
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 587ead86adb3c9620800000000000000
+      internalID: 2782164479056209797
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_182
+      rect:
+        serializedVersion: 2
+        x: 1399
+        y: 230
+        width: 10
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: df794bdfe614dbf30800000000000000
+      internalID: 4592899139946452989
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_183
+      rect:
+        serializedVersion: 2
+        x: 1403
+        y: 233
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 90a1c34d9bcd9cd40800000000000000
+      internalID: 5605253901927062025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_184
+      rect:
+        serializedVersion: 2
+        x: 1411
+        y: 230
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b4d183561c4e7910800000000000000
+      internalID: 1836989356787750068
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_185
+      rect:
+        serializedVersion: 2
+        x: 1436
+        y: 232
+        width: 10
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc993547e0e93bb10800000000000000
+      internalID: 1996112844773628364
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_186
+      rect:
+        serializedVersion: 2
+        x: 1442
+        y: 232
+        width: 6
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8acf94e2be60bd0b0800000000000000
+      internalID: -5702956895970919256
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_187
+      rect:
+        serializedVersion: 2
+        x: 1446
+        y: 227
+        width: 12
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 67a3827f742171020800000000000000
+      internalID: 2312337033976625782
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_188
+      rect:
+        serializedVersion: 2
+        x: 1455
+        y: 231
+        width: 10
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1c5b868f3f9c80420800000000000000
+      internalID: 2596547234860938689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_189
+      rect:
+        serializedVersion: 2
+        x: 1477
+        y: 227
+        width: 13
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81df582230f1d97f0800000000000000
+      internalID: -604292676673209064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_190
+      rect:
+        serializedVersion: 2
+        x: 1489
+        y: 227
+        width: 14
+        height: 8
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bae0627dd9b9b6970800000000000000
+      internalID: 8749257803319086763
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_191
+      rect:
+        serializedVersion: 2
+        x: 1502
+        y: 227
+        width: 12
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 586ebb8f834eca2a0800000000000000
+      internalID: -6724749210228627835
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_192
+      rect:
+        serializedVersion: 2
+        x: 1513
+        y: 229
+        width: 6
+        height: 9
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08cb2fd8e26186e10800000000000000
+      internalID: 2191025607921548416
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_193
+      rect:
+        serializedVersion: 2
+        x: 1515
+        y: 233
+        width: 16
+        height: 11
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10770e03997d34350800000000000000
+      internalID: 5999876181537617665
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_194
+      rect:
+        serializedVersion: 2
+        x: 1517
+        y: 227
+        width: 9
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e6d616f6bd0277080800000000000000
+      internalID: -9189840387787625106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_195
+      rect:
+        serializedVersion: 2
+        x: 1523
+        y: 227
+        width: 16
+        height: 12
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2b150efe1cd342700800000000000000
+      internalID: 514604160589517234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_196
+      rect:
+        serializedVersion: 2
+        x: 1538
+        y: 231
+        width: 7
+        height: 6
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 953ec0b4cc8e663c0800000000000000
+      internalID: -4366546824559008935
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_197
+      rect:
+        serializedVersion: 2
+        x: 1555
+        y: 227
+        width: 8
+        height: 13
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 246b5b48f31272b50800000000000000
+      internalID: 6568255138236315202
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_198
+      rect:
+        serializedVersion: 2
+        x: 1566
+        y: 227
+        width: 6
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70702551033a7e800800000000000000
+      internalID: 641660898835040007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_199
+      rect:
+        serializedVersion: 2
+        x: 1571
+        y: 227
+        width: 7
+        height: 7
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4120736a9888e9b70800000000000000
+      internalID: 8907707237765939732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_200
+      rect:
+        serializedVersion: 2
+        x: 1580
+        y: 227
+        width: 27
+        height: 14
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1055405cff5713bc0800000000000000
+      internalID: -3805130468768852735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Thunder Elf_Idle Substitute 2_201
+      rect:
+        serializedVersion: 2
+        x: 1599
+        y: 230
+        width: 18
+        height: 24
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20870bb38af68be10800000000000000
+      internalID: 2213641985199208450
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Thunder Elf_Idle Substitute 2_0: -8977088938591847955
+      Thunder Elf_Idle Substitute 2_1: -5239244711042056691
+      Thunder Elf_Idle Substitute 2_10: 3143189424241706213
+      Thunder Elf_Idle Substitute 2_100: -5114429526580561149
+      Thunder Elf_Idle Substitute 2_101: 5978957404990747855
+      Thunder Elf_Idle Substitute 2_102: 8137343558966103921
+      Thunder Elf_Idle Substitute 2_103: -8115820197675519975
+      Thunder Elf_Idle Substitute 2_104: -1218413309405450629
+      Thunder Elf_Idle Substitute 2_105: 9009700246905584844
+      Thunder Elf_Idle Substitute 2_106: 6277110979613994668
+      Thunder Elf_Idle Substitute 2_107: -6887540932309479006
+      Thunder Elf_Idle Substitute 2_108: 3268959809565309567
+      Thunder Elf_Idle Substitute 2_109: -1455503981617993544
+      Thunder Elf_Idle Substitute 2_11: 4352261911867502523
+      Thunder Elf_Idle Substitute 2_110: -800729450105206368
+      Thunder Elf_Idle Substitute 2_111: -3323132132181346095
+      Thunder Elf_Idle Substitute 2_112: -284238820653297237
+      Thunder Elf_Idle Substitute 2_113: 764498106897030527
+      Thunder Elf_Idle Substitute 2_114: 523809742786921822
+      Thunder Elf_Idle Substitute 2_115: -6686228350710797465
+      Thunder Elf_Idle Substitute 2_116: 4229781728263518170
+      Thunder Elf_Idle Substitute 2_117: 2107870211841704301
+      Thunder Elf_Idle Substitute 2_118: 3301771610508824131
+      Thunder Elf_Idle Substitute 2_119: -6438306033830976253
+      Thunder Elf_Idle Substitute 2_12: -3443737580982750569
+      Thunder Elf_Idle Substitute 2_120: -1861776094796052939
+      Thunder Elf_Idle Substitute 2_121: -2953193005989080295
+      Thunder Elf_Idle Substitute 2_122: -1004344704108511828
+      Thunder Elf_Idle Substitute 2_123: 4327362907803043849
+      Thunder Elf_Idle Substitute 2_124: -1056781759147297669
+      Thunder Elf_Idle Substitute 2_125: 6759389196647757866
+      Thunder Elf_Idle Substitute 2_126: -1114626413221112043
+      Thunder Elf_Idle Substitute 2_127: 4147630289282865252
+      Thunder Elf_Idle Substitute 2_128: 519883856915372586
+      Thunder Elf_Idle Substitute 2_129: 2505306315102172696
+      Thunder Elf_Idle Substitute 2_13: 6601249895382857266
+      Thunder Elf_Idle Substitute 2_130: 2014111764971691974
+      Thunder Elf_Idle Substitute 2_131: 6032265560608197963
+      Thunder Elf_Idle Substitute 2_132: 2587335973358858245
+      Thunder Elf_Idle Substitute 2_133: 6058696912515220393
+      Thunder Elf_Idle Substitute 2_134: -7106741905998502804
+      Thunder Elf_Idle Substitute 2_135: -8528352152915749423
+      Thunder Elf_Idle Substitute 2_136: -8572232543864148714
+      Thunder Elf_Idle Substitute 2_137: -7848459974800266137
+      Thunder Elf_Idle Substitute 2_138: 923785696308117960
+      Thunder Elf_Idle Substitute 2_139: 806569432796614085
+      Thunder Elf_Idle Substitute 2_14: -5581152016042472846
+      Thunder Elf_Idle Substitute 2_140: 940131206758795261
+      Thunder Elf_Idle Substitute 2_141: -2510944514949859997
+      Thunder Elf_Idle Substitute 2_142: 4754099124600428779
+      Thunder Elf_Idle Substitute 2_143: 5387007403680325990
+      Thunder Elf_Idle Substitute 2_144: 5289995136621152501
+      Thunder Elf_Idle Substitute 2_145: 1791662512217618121
+      Thunder Elf_Idle Substitute 2_146: -5940665965173187038
+      Thunder Elf_Idle Substitute 2_147: 1649912429988961735
+      Thunder Elf_Idle Substitute 2_148: -1433742262324570306
+      Thunder Elf_Idle Substitute 2_149: 5352108434769110054
+      Thunder Elf_Idle Substitute 2_15: 718473772127180497
+      Thunder Elf_Idle Substitute 2_150: 78420627020117714
+      Thunder Elf_Idle Substitute 2_151: 7292550607460285446
+      Thunder Elf_Idle Substitute 2_152: 7957272482244759917
+      Thunder Elf_Idle Substitute 2_153: 2079700370720783549
+      Thunder Elf_Idle Substitute 2_154: 1385724650775380710
+      Thunder Elf_Idle Substitute 2_155: -3672423909732871241
+      Thunder Elf_Idle Substitute 2_156: -1528513524054410232
+      Thunder Elf_Idle Substitute 2_157: -8129049949813761078
+      Thunder Elf_Idle Substitute 2_158: 4512251312518520796
+      Thunder Elf_Idle Substitute 2_159: -755979238950419685
+      Thunder Elf_Idle Substitute 2_16: -7475670575070605530
+      Thunder Elf_Idle Substitute 2_160: -539771355739497279
+      Thunder Elf_Idle Substitute 2_161: -733308206331576712
+      Thunder Elf_Idle Substitute 2_162: 9069370732830797661
+      Thunder Elf_Idle Substitute 2_163: -8248464599112605596
+      Thunder Elf_Idle Substitute 2_164: -8794853162427633851
+      Thunder Elf_Idle Substitute 2_165: -7958175769543908881
+      Thunder Elf_Idle Substitute 2_166: 5730032820658778661
+      Thunder Elf_Idle Substitute 2_167: -2720432403327424350
+      Thunder Elf_Idle Substitute 2_168: -7904571383139799284
+      Thunder Elf_Idle Substitute 2_169: 9150735649662469819
+      Thunder Elf_Idle Substitute 2_17: 1650740801056224664
+      Thunder Elf_Idle Substitute 2_170: 5725803843316193688
+      Thunder Elf_Idle Substitute 2_171: 1453829312923948340
+      Thunder Elf_Idle Substitute 2_172: 840138553896624301
+      Thunder Elf_Idle Substitute 2_173: -6579122527970091979
+      Thunder Elf_Idle Substitute 2_174: -610893039307032023
+      Thunder Elf_Idle Substitute 2_175: -1092186657471933853
+      Thunder Elf_Idle Substitute 2_176: -4719240820190711964
+      Thunder Elf_Idle Substitute 2_177: 5356061302177828352
+      Thunder Elf_Idle Substitute 2_178: 7338143067054335255
+      Thunder Elf_Idle Substitute 2_179: 3804892343130037933
+      Thunder Elf_Idle Substitute 2_18: 7140555969996278624
+      Thunder Elf_Idle Substitute 2_180: 1843563225861335596
+      Thunder Elf_Idle Substitute 2_181: 2782164479056209797
+      Thunder Elf_Idle Substitute 2_182: 4592899139946452989
+      Thunder Elf_Idle Substitute 2_183: 5605253901927062025
+      Thunder Elf_Idle Substitute 2_184: 1836989356787750068
+      Thunder Elf_Idle Substitute 2_185: 1996112844773628364
+      Thunder Elf_Idle Substitute 2_186: -5702956895970919256
+      Thunder Elf_Idle Substitute 2_187: 2312337033976625782
+      Thunder Elf_Idle Substitute 2_188: 2596547234860938689
+      Thunder Elf_Idle Substitute 2_189: -604292676673209064
+      Thunder Elf_Idle Substitute 2_19: 897216595381933646
+      Thunder Elf_Idle Substitute 2_190: 8749257803319086763
+      Thunder Elf_Idle Substitute 2_191: -6724749210228627835
+      Thunder Elf_Idle Substitute 2_192: 2191025607921548416
+      Thunder Elf_Idle Substitute 2_193: 5999876181537617665
+      Thunder Elf_Idle Substitute 2_194: -9189840387787625106
+      Thunder Elf_Idle Substitute 2_195: 514604160589517234
+      Thunder Elf_Idle Substitute 2_196: -4366546824559008935
+      Thunder Elf_Idle Substitute 2_197: 6568255138236315202
+      Thunder Elf_Idle Substitute 2_198: 641660898835040007
+      Thunder Elf_Idle Substitute 2_199: 8907707237765939732
+      Thunder Elf_Idle Substitute 2_2: -8095079016957462150
+      Thunder Elf_Idle Substitute 2_20: -1750192585274276598
+      Thunder Elf_Idle Substitute 2_200: -3805130468768852735
+      Thunder Elf_Idle Substitute 2_201: 2213641985199208450
+      Thunder Elf_Idle Substitute 2_21: 12950597978332170
+      Thunder Elf_Idle Substitute 2_22: 947280498917161069
+      Thunder Elf_Idle Substitute 2_23: 649787595035360694
+      Thunder Elf_Idle Substitute 2_24: 4690642234666325301
+      Thunder Elf_Idle Substitute 2_25: -231063871555202507
+      Thunder Elf_Idle Substitute 2_26: 288617329533651322
+      Thunder Elf_Idle Substitute 2_27: 8437293246555400970
+      Thunder Elf_Idle Substitute 2_28: 2244676774884934469
+      Thunder Elf_Idle Substitute 2_29: 7283159667437176143
+      Thunder Elf_Idle Substitute 2_3: -1261210031076420356
+      Thunder Elf_Idle Substitute 2_30: -4306288558309997994
+      Thunder Elf_Idle Substitute 2_31: 2390802841557680489
+      Thunder Elf_Idle Substitute 2_32: 2415550090473503049
+      Thunder Elf_Idle Substitute 2_33: 8780004928544042647
+      Thunder Elf_Idle Substitute 2_34: 8059749318565109319
+      Thunder Elf_Idle Substitute 2_35: -8012104163941880399
+      Thunder Elf_Idle Substitute 2_36: 2820667617075066776
+      Thunder Elf_Idle Substitute 2_37: 4311149257750965510
+      Thunder Elf_Idle Substitute 2_38: -3700001243697843318
+      Thunder Elf_Idle Substitute 2_39: 7154044824254573836
+      Thunder Elf_Idle Substitute 2_4: 2839307732620064094
+      Thunder Elf_Idle Substitute 2_40: 7638818503093705672
+      Thunder Elf_Idle Substitute 2_41: 9105182427259350394
+      Thunder Elf_Idle Substitute 2_42: 5005787418189897359
+      Thunder Elf_Idle Substitute 2_43: 420298087797809459
+      Thunder Elf_Idle Substitute 2_44: 5108225968803530316
+      Thunder Elf_Idle Substitute 2_45: -4331298482491424742
+      Thunder Elf_Idle Substitute 2_46: -7094284619512668853
+      Thunder Elf_Idle Substitute 2_47: 8446253038891987417
+      Thunder Elf_Idle Substitute 2_48: 8608231464501478427
+      Thunder Elf_Idle Substitute 2_49: 718300323554120204
+      Thunder Elf_Idle Substitute 2_5: 2510779320790136356
+      Thunder Elf_Idle Substitute 2_50: 8928388695820259339
+      Thunder Elf_Idle Substitute 2_51: -3608948569118716663
+      Thunder Elf_Idle Substitute 2_52: -1238430164746899237
+      Thunder Elf_Idle Substitute 2_53: 8026714098211917534
+      Thunder Elf_Idle Substitute 2_54: 835534305067627808
+      Thunder Elf_Idle Substitute 2_55: 1652500451046951293
+      Thunder Elf_Idle Substitute 2_56: -7462011944591876290
+      Thunder Elf_Idle Substitute 2_57: -7262284775360412741
+      Thunder Elf_Idle Substitute 2_58: -608060554389793103
+      Thunder Elf_Idle Substitute 2_59: 4104077720311393155
+      Thunder Elf_Idle Substitute 2_6: -3913668409868979749
+      Thunder Elf_Idle Substitute 2_60: -6068966049235188112
+      Thunder Elf_Idle Substitute 2_61: 3310385951064257875
+      Thunder Elf_Idle Substitute 2_62: 8212651793552958992
+      Thunder Elf_Idle Substitute 2_63: -1296482714751452741
+      Thunder Elf_Idle Substitute 2_64: -6998274650809220314
+      Thunder Elf_Idle Substitute 2_65: 8846417851183019748
+      Thunder Elf_Idle Substitute 2_66: 1145741207090031954
+      Thunder Elf_Idle Substitute 2_67: 3299059303041298885
+      Thunder Elf_Idle Substitute 2_68: -6119111227996943575
+      Thunder Elf_Idle Substitute 2_69: 3528725119503161200
+      Thunder Elf_Idle Substitute 2_7: 7607610902605738532
+      Thunder Elf_Idle Substitute 2_70: -233121407691705050
+      Thunder Elf_Idle Substitute 2_71: 3634608542038524160
+      Thunder Elf_Idle Substitute 2_72: 1630297175584534830
+      Thunder Elf_Idle Substitute 2_73: 7878036749484466104
+      Thunder Elf_Idle Substitute 2_74: 9207030740681208545
+      Thunder Elf_Idle Substitute 2_75: 982841264896558892
+      Thunder Elf_Idle Substitute 2_76: -7585253482405692951
+      Thunder Elf_Idle Substitute 2_77: 5529278038994472290
+      Thunder Elf_Idle Substitute 2_78: -2863839116245639069
+      Thunder Elf_Idle Substitute 2_79: 4439189387837767658
+      Thunder Elf_Idle Substitute 2_8: -8231031150675416458
+      Thunder Elf_Idle Substitute 2_80: 2540591654900158045
+      Thunder Elf_Idle Substitute 2_81: -1517870275935848291
+      Thunder Elf_Idle Substitute 2_82: -497636451358346420
+      Thunder Elf_Idle Substitute 2_83: 1862318070751407518
+      Thunder Elf_Idle Substitute 2_84: -7926020634324127383
+      Thunder Elf_Idle Substitute 2_85: 7351204668461426201
+      Thunder Elf_Idle Substitute 2_86: 1139389556595835636
+      Thunder Elf_Idle Substitute 2_87: -5331047151538182331
+      Thunder Elf_Idle Substitute 2_88: -8500876201886782849
+      Thunder Elf_Idle Substitute 2_89: 5618593649431675527
+      Thunder Elf_Idle Substitute 2_9: 2607839529204420936
+      Thunder Elf_Idle Substitute 2_90: 6769219660148237189
+      Thunder Elf_Idle Substitute 2_91: 3567699880603174072
+      Thunder Elf_Idle Substitute 2_92: 5346551428365956898
+      Thunder Elf_Idle Substitute 2_93: 3589430155189623085
+      Thunder Elf_Idle Substitute 2_94: -3974154632344329328
+      Thunder Elf_Idle Substitute 2_95: 1857078087065402269
+      Thunder Elf_Idle Substitute 2_96: 3162024945722018353
+      Thunder Elf_Idle Substitute 2_97: -1662231896056507785
+      Thunder Elf_Idle Substitute 2_98: 8618155523019697885
+      Thunder Elf_Idle Substitute 2_99: 2978771691124024011
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
