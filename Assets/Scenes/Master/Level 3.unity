@@ -433,7 +433,7 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
---- !u!1 &561863593
+--- !u!1 &893052180
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -441,8 +441,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 561863595}
-  - component: {fileID: 561863594}
+  - component: {fileID: 893052181}
+  - component: {fileID: 893052183}
+  - component: {fileID: 893052182}
   m_Layer: 0
   m_Name: Aura
   m_TagString: Untagged
@@ -450,14 +451,51 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!212 &561863594
+--- !u!4 &893052181
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893052180}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -2.4896088, y: 1.6223373, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1020338511}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &893052182
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 893052180}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 694dcad68d2c66d43aa89775fd2cdd66, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!212 &893052183
 SpriteRenderer:
   serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561863593}
+  m_GameObject: {fileID: 893052180}
   m_Enabled: 1
   m_CastShadows: 0
   m_ReceiveShadows: 0
@@ -499,32 +537,17 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.98742133, g: 0.6028021, b: 0.27635372, a: 1}
+  m_Sprite: {fileID: -5638846101516042294, guid: 6c6c6982f8b5c524e9b63741f817d406, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 11.01, y: 12.8}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_SpriteSortPoint: 0
   m_BlendShapeWeights: []
---- !u!4 &561863595
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 561863593}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.4681, z: 5}
-  m_LocalScale: {x: 2, y: 1.8638, z: 2}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1020338511}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1020338505
 GameObject:
   m_ObjectHideFlags: 0
@@ -700,7 +723,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 561863595}
+  - {fileID: 893052181}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1020338512
@@ -716,19 +739,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::FlailController
   maxHP: 100
-  baseDamage: 10
+  baseDamage: 20
   opponent: []
-  strikeDistance: 1.2
+  strikeDistance: 3
   dashSpeed: 25
   returnSpeed: 15
   attackWindUpTime: 0.1
   hitStopTime: 0.05
-  anim: {fileID: 0}
+  anim: {fileID: 1020338508}
+  spriteRenderer: {fileID: 1020338510}
+  hitFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.15
   destroyOnDeath: 1
   destroyDelay: 2
   isAttacking: 0
   maxDamage: 80
-  comboAura: {fileID: 561863593}
+  comboAura: {fileID: 893052180}
   comboFirstBonus: 5
   comboRepeatBonus: 1
   parryRequiredTaps: 8
@@ -793,6 +819,9 @@ MonoBehaviour:
   attackWindUpTime: 0.1
   hitStopTime: 0.05
   anim: {fileID: 1301465661}
+  spriteRenderer: {fileID: 1301465664}
+  hitFlashColor: {r: 1, g: 0, b: 0, a: 1}
+  flashDuration: 0.15
   destroyOnDeath: 1
   destroyDelay: 2
   isAttacking: 0
@@ -800,7 +829,7 @@ MonoBehaviour:
   maxAttackInterval: 6
   missChance: 0.2
   specialDamageMultiplier: 2
-  fireballPrefab: {fileID: 4495289405447007054, guid: e1720260a91d35447b8100fbd533baea, type: 3}
+  fireballPrefab: {fileID: 6606089823796937281, guid: 9e46c9d616a77fd4f96b774b34354dcb, type: 3}
   shootPoint: {fileID: 2029807366}
 --- !u!95 &1301465661
 Animator:
@@ -1123,7 +1152,7 @@ Transform:
   m_GameObject: {fileID: 2029807365}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.54, y: -2.33, z: 0}
+  m_LocalPosition: {x: -4.14, y: 2.19, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

@@ -100,7 +100,7 @@ public abstract class PlayerFighterBase : FighterBase
         parryTapCount = 0;
         parryTargetKey = letterKeys[UnityEngine.Random.Range(0, letterKeys.Length)];
 
-        anim.Play(animParry);
+        PlayAnim(animParry);
         OnParryUpdated?.Invoke(parryTargetKey.ToString(), 0f);
     }
 
@@ -112,7 +112,7 @@ public abstract class PlayerFighterBase : FighterBase
 
         // Cek jika pemain gagal, animasi animHitSpecial akan tertimpa di fungsi TakeSpecialDamage
         // Tapi jika berhasil, kembali ke Idle
-        if (successResult) anim.Play(animIdle);
+        if (successResult) PlayAnim(animIdle);
 
         OnParryEnded?.Invoke();
     }
@@ -124,20 +124,6 @@ public abstract class PlayerFighterBase : FighterBase
     {
         base.TakeDamage(damage);
         OnHpChanged?.Invoke(currHP, maxHP);
-    }
-
-    public void TakeSpecialDamage(int damage)
-    {
-        if (isDead) return;
-
-        ApplyDamage(damage);
-
-        OnHpChanged?.Invoke(currHP, maxHP); // Picu event HP berubah
-
-        if (!isDead)
-        {
-            anim.Play(animHitSpecial);
-        }
     }
 
     protected override void Die()
