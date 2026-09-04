@@ -101,6 +101,7 @@ public abstract class EnemyFighterBase : FighterBase
     {
         isAttacking = true;
         anim.Play(animSpecialAttack);
+        OnSpecialAttackStarted();
 
         // === FASE 1: WIND-UP ===
         // Tunggu sampai tangan musuh terangkat di tengah animasi (misal 0.4 detik)
@@ -142,12 +143,29 @@ public abstract class EnemyFighterBase : FighterBase
 
         if (!parried)
         {
+            OnSpecialAttackLanded(playerTarget);
             int specialDamage = Mathf.RoundToInt(currDamage * specialDamageMultiplier);
             playerTarget.TakeSpecialDamage(specialDamage);
+        }
+        else
+        {
+            OnSpecialAttackParried(playerTarget);
         }
 
         anim.Play(animIdle);
         isAttacking = false;
+    }
+
+    protected virtual void OnSpecialAttackStarted()
+    {
+    }
+
+    protected virtual void OnSpecialAttackLanded(PlayerFighterBase playerTarget)
+    {
+    }
+
+    protected virtual void OnSpecialAttackParried(PlayerFighterBase playerTarget)
+    {
     }
 
     protected override void Die()

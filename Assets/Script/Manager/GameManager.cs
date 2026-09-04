@@ -128,7 +128,8 @@ public class GameManager : MonoBehaviour
         // 2. Beri tahu MainMenuManager agar langsung membuka panel Level Selection
         MainMenuManager.openLevelSelectOnLoad = true;
 
-        // 3. Muat scene Main Menu
+        PlayMainMenuBGM();
+        PlayTransitionSfx();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -137,6 +138,8 @@ public class GameManager : MonoBehaviour
     {
         ResetStateForNewScene();
         MainMenuManager.openLevelSelectOnLoad = openLevelSelection;
+        PlayMainMenuBGM();
+        PlayTransitionSfx();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -151,6 +154,28 @@ public class GameManager : MonoBehaviour
             DataManager.Instance.SetLastPlayedLevel(levelIndex);
         }
 
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.Instance.PlayBattleBGM(levelIndex);
+        }
+
+        PlayTransitionSfx();
         SceneManager.LoadScene(sceneName);
+    }
+
+    private void PlayMainMenuBGM()
+    {
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.Instance.PlayBGM(AudioSystem.Instance.bgm_MainMenu);
+        }
+    }
+
+    private void PlayTransitionSfx()
+    {
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_AwanTransisi);
+        }
     }
 }

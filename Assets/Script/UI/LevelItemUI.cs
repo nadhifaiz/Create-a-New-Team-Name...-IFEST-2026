@@ -71,6 +71,10 @@ public class LevelItemUI : MonoBehaviour
 
     private void OnLevelClicked()
     {
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_CharacterSelected);
+        }
 
         if (GameManager.Instance != null)
         {

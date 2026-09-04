@@ -135,7 +135,10 @@ public class TutorialManagerUI : MonoBehaviour
 
     private void PlaySFX()
     {
-        // Logic SFX
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_HitPlay);
+        }
     }
 }
 

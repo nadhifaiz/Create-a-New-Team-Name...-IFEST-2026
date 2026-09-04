@@ -27,7 +27,7 @@ MonoBehaviour:
   <AudioAsset>k__BackingField: {fileID: 11400000, guid: c959a6ab08b88b34ca400d5d5b99f6d5, type: 2}
   <AudioType>k__BackingField: 1
   <MasterVolume>k__BackingField: 1
-  <Loop>k__BackingField: 0
+  <Loop>k__BackingField: 1
   <SeamlessLoop>k__BackingField: 0
   <TransitionTime>k__BackingField: 0
   <SpatialSetting>k__BackingField: {fileID: 0}
