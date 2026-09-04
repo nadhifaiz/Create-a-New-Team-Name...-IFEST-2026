@@ -100,24 +100,24 @@ public abstract class EnemyFighterBase : FighterBase
     public IEnumerator ExecuteCinematicSpecialAttack(PlayerFighterBase playerTarget)
     {
         isAttacking = true;
-        anim.Play(animSpecialAttack);
+        PlayAnim(animSpecialAttack); // Pakai PlayAnim agar ada crossfade
 
-        // === FASE 1: WIND-UP ===
-        // Tunggu sampai tangan musuh terangkat di tengah animasi (misal 0.4 detik)
-        // Sesuaikan angka ini dengan momen tepat sebelum impact animasi kamu
-        yield return new WaitForSeconds(0.4f);
+        // Wind-up awal sebelum QTE muncul
+        yield return new WaitForSeconds(0.35f);
 
-        // === FASE 2: SLOW MOTION QTE ===
-        Time.timeScale = 0.05f; // Melambat sangat drastis
-        Time.fixedDeltaTime = 0.02f * Time.timeScale; // Sesuaikan fisika Unity agar tidak glitch
+        // === FASE SLOW MOTION ===
+        // Buat animasi musuh tetap bergerak dengan updateMode unscaled agar tidak macet
+        if (anim != null) anim.updateMode = AnimatorUpdateMode.UnscaledTime;
 
-        float qteDurationRealtime = 5f; // Waktu yang diberikan: 5 detik asli
+        Time.timeScale = 0.05f;
+        Time.fixedDeltaTime = 0.02f * Time.timeScale;
+
+        float qteDurationRealtime = 5f;
         playerTarget.BeginParryChallenge(qteDurationRealtime);
 
         float timer = 0f;
         bool parried = false;
 
-        // Loop mengecek input parry tanpa terpengaruh efek slow motion (unscaledDeltaTime)
         while (timer < qteDurationRealtime)
         {
             timer += Time.unscaledDeltaTime;
@@ -125,28 +125,28 @@ public abstract class EnemyFighterBase : FighterBase
             if (playerTarget.HasFinishedParry)
             {
                 parried = playerTarget.IsParrySuccess;
-                break; // Jika pemain selesai nekan sebelum 5 detik, langsung keluar dari loop slow-mo!
+                break;
             }
             yield return null;
         }
 
-        // === FASE 3: KEMBALIKAN WAKTU & IMPACT ===
+        // === KEMBALIKAN WAKTU & RESOLVE ===
         Time.timeScale = 1f;
         Time.fixedDeltaTime = 0.02f;
+        if (anim != null) anim.updateMode = AnimatorUpdateMode.Normal;
 
-        // Tutup UI Parry
         playerTarget.ResolveParryUI(parried);
 
-        // Beri sisa waktu animasi pukulan (misal 0.2 detik)
-        yield return new WaitForSeconds(0.2f);
+        // Beri waktu animasi pukulan/ayunan mendarat
+        yield return new WaitForSeconds(0.25f);
 
         if (!parried)
         {
             int specialDamage = Mathf.RoundToInt(currDamage * specialDamageMultiplier);
-            playerTarget.TakeSpecialDamage(specialDamage);
+            playerTarget.TakeDamage(specialDamage);
         }
 
-        anim.Play(animIdle);
+        PlayAnim(animIdle);
         isAttacking = false;
     }
 

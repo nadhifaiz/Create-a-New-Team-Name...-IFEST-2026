@@ -17,17 +17,23 @@ public abstract class FighterBase : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] protected Animator anim;
+    [SerializeField] protected SpriteRenderer spriteRenderer;
+
+    [Header("Damage Flash Effect")]
+    [SerializeField] private Color hitFlashColor = Color.red;
+    [SerializeField] private float flashDuration = 0.15f;
+    private Color originalColor = Color.white;
+    private Coroutine flashCoroutine;
 
     [Header("Death")]
     [SerializeField] protected bool destroyOnDeath = false;
     [SerializeField] protected float destroyDelay = 2f;
 
-    // -- CACHE ANIMATION HASH (GLOBAL — dipakai player & enemy) --
+    // -- CACHE ANIMATION HASH (Hanya Idle, Attack, Die) --
     protected readonly int animIdle = Animator.StringToHash("Idle");
-    protected readonly int animMove = Animator.StringToHash("Move");
     protected readonly int animAttack = Animator.StringToHash("Attack");
-    protected readonly int animHit = Animator.StringToHash("Hit");
     protected readonly int animDie = Animator.StringToHash("Die");
+    protected const float crossFadeDuration = 0.1f;
 
     protected int currHP;
     protected int currDamage;
@@ -43,6 +49,7 @@ public abstract class FighterBase : MonoBehaviour
     public bool isAttacking = false;
 
     public bool IsDead => isDead;
+
     protected virtual void Start()
     {
         currHP = maxHP;
@@ -50,6 +57,10 @@ public abstract class FighterBase : MonoBehaviour
         startPosition = transform.position;
 
         if (anim == null) anim = GetComponent<Animator>();
+
+        // Ambil SpriteRenderer otomatis jika belum dicolok di Inspector
+        if (spriteRenderer == null) spriteRenderer = GetComponentInChildren<SpriteRenderer>();
+        if (spriteRenderer != null) originalColor = spriteRenderer.color;
     }
 
     public void TriggerAttack()
@@ -64,7 +75,6 @@ public abstract class FighterBase : MonoBehaviour
         {
             if (CombatFreezeSignal.IsFrozen)
             {
-                // Jika sedang fase spesial, jangan hiraukan atau simpan saja inputnya
                 attackBuffer++;
                 return;
             }
@@ -72,7 +82,6 @@ public abstract class FighterBase : MonoBehaviour
             currentTarget = AcquireTarget();
             if (currentTarget == null) return;
 
-            // Simpan referensi coroutine yang sedang berjalan
             currentAttackCoroutine = StartCoroutine(AttackFlow());
         }
     }
@@ -86,18 +95,15 @@ public abstract class FighterBase : MonoBehaviour
             if (currentAttackCoroutine != null) StopCoroutine(currentAttackCoroutine);
 
             isAttacking = false;
-            attackBuffer++; // Serangan yang terputus disimpan ke buffer untuk dibalas nanti
-
-            // Langsung teleport/kembalikan ke posisi awal
+            attackBuffer++;
             transform.position = startPosition;
         }
 
-        anim.Play(animIdle);
+        PlayAnim(animIdle);
     }
 
     // ==========================================
     // CARI TARGET TERDEKAT YANG MASIH HIDUP
-    // Dipakai buat kasus 1 vs banyak (misal 1 player vs 3 goblin)
     // ==========================================
     protected Transform AcquireTarget()
     {
@@ -108,7 +114,7 @@ public abstract class FighterBase : MonoBehaviour
 
         foreach (Transform candidate in opponent)
         {
-            if (candidate == null) continue; // misalnya udah di-Destroy
+            if (candidate == null) continue;
 
             FighterBase candidateFighter = candidate.GetComponent<FighterBase>();
             if (candidateFighter != null && candidateFighter.IsDead) continue;
@@ -125,9 +131,7 @@ public abstract class FighterBase : MonoBehaviour
     }
 
     // ==========================================
-    // ALUR SERANGAN — DEFAULT-NYA MELEE DASH
-    // Karakter projectile (Elf/Dragon/ShadowMaster) override ini
-    // dan cukup delegasikan ke ProjectileAttackFlow()
+    // ALUR SERANGAN — MELEE DASH
     // ==========================================
     protected virtual IEnumerator AttackFlow()
     {
@@ -140,12 +144,10 @@ public abstract class FighterBase : MonoBehaviour
 
         while (true)
         {
-            if (currentTarget == null) break; // target keburu mati/ilang
+            if (currentTarget == null) break;
 
-            // ==========================================
-            // STATE 1: DASH MAJU
-            // ==========================================
-            anim.Play(animMove);
+            // STATE 1: DASH MAJU (Tetap dalam pose Idle)
+            PlayAnim(animIdle);
 
             while (Vector2.Distance(transform.position, currentTarget.position) > strikeDistance + 0.1f)
             {
@@ -153,7 +155,7 @@ public abstract class FighterBase : MonoBehaviour
 
                 if (CombatFreezeSignal.IsFrozen)
                 {
-                    yield return null; // ada special attack lagi jalan -> tahan di tempat
+                    yield return null;
                     continue;
                 }
 
@@ -164,10 +166,8 @@ public abstract class FighterBase : MonoBehaviour
                 yield return null;
             }
 
-            // ==========================================
-            // STATE 2: WIND-UP & MICRO-TRACKING
-            // ==========================================
-            anim.Play(animAttack);
+            // STATE 2: ATTACK ANIMATION & WIND-UP
+            PlayAnim(animAttack);
 
             float timer = attackWindUpTime;
             while (timer > 0)
@@ -176,13 +176,12 @@ public abstract class FighterBase : MonoBehaviour
 
                 if (CombatFreezeSignal.IsFrozen)
                 {
-                    yield return null; // timer gak jalan selama freeze
+                    yield return null;
                     continue;
                 }
 
                 timer -= Time.deltaTime;
 
-                // Terus menempel mengikuti pergerakan musuh
                 Vector2 dir = (currentTarget.position - transform.position).normalized;
                 Vector2 microTarget = (Vector2)currentTarget.position - (dir * strikeDistance);
                 transform.position = Vector2.MoveTowards(transform.position, microTarget, (dashSpeed * 0.5f) * Time.deltaTime);
@@ -190,26 +189,20 @@ public abstract class FighterBase : MonoBehaviour
                 yield return null;
             }
 
-            // ==========================================
             // STATE 3: IMPACT & HIT-STOP
-            // ==========================================
             OnHitImpact();
             yield return new WaitForSeconds(hitStopTime);
 
-            // ==========================================
             // STATE 4: CEK BUFFER (CHAIN ATTACK)
-            // ==========================================
             if (attackBuffer > 0)
             {
                 attackBuffer--;
-                continue; // Langsung hajar lagi (target yang sama)
+                continue;
             }
 
-            // ==========================================
-            // STATE 5: MUNDUR KE POSISI AWAL
-            // ==========================================
+            // STATE 5: MUNDUR KE POSISI AWAL (Kembali pose Idle)
             bool returnInterrupted = false;
-            anim.Play(animMove);
+            PlayAnim(animIdle);
 
             while (Vector2.Distance(transform.position, startPosition) > 0.05f)
             {
@@ -221,7 +214,6 @@ public abstract class FighterBase : MonoBehaviour
                     continue;
                 }
 
-                // Ngerem mendadak jika tiba-tiba ada input baru
                 if (attackBuffer > 0)
                 {
                     attackBuffer--;
@@ -233,22 +225,19 @@ public abstract class FighterBase : MonoBehaviour
                 yield return null;
             }
 
-            // Putar balik untuk menyerang lagi
             if (returnInterrupted) continue;
 
             break;
         }
 
-        // ==========================================
         // STATE 6: RESET
-        // ==========================================
         transform.position = startPosition;
         isAttacking = false;
-        anim.Play(animIdle);
+        PlayAnim(animIdle);
     }
 
     // ==========================================
-    // ALUR SERANGAN PROJECTILE (REUSABLE)
+    // ALUR SERANGAN PROJECTILE
     // ==========================================
     protected IEnumerator ProjectileAttackFlow()
     {
@@ -258,17 +247,14 @@ public abstract class FighterBase : MonoBehaviour
         {
             if (currentTarget == null) break;
 
-            // STATE 1: WIND-UP
-            anim.Play(animAttack);
+            PlayAnim(animAttack);
             yield return new WaitForSeconds(attackWindUpTime);
 
             while (CombatFreezeSignal.IsFrozen) yield return null;
 
-            // STATE 2: TEMBAK (delegasi ke ApplyImpactEffect via OnHitImpact)
             OnHitImpact();
             yield return new WaitForSeconds(hitStopTime);
 
-            // STATE 3: CEK BUFFER
             if (attackBuffer > 0)
             {
                 attackBuffer--;
@@ -278,23 +264,15 @@ public abstract class FighterBase : MonoBehaviour
             break;
         }
 
-        // STATE 4: RESET
         isAttacking = false;
-        anim.Play(animIdle);
+        PlayAnim(animIdle);
     }
 
-    // ==========================================
-    // IMPACT — dipanggil di titik "kena" tiap AttackFlow
-    // Enemy override ini buat nyisipin cek miss-chance
-    // ==========================================
     protected virtual void OnHitImpact()
     {
         ApplyImpactEffect();
     }
 
-    // ==========================================
-    // EFEK SERANGAN — beda per tipe serangan (melee/projectile)
-    // ==========================================
     protected virtual void ApplyImpactEffect()
     {
         if (currentTarget != null)
@@ -305,7 +283,7 @@ public abstract class FighterBase : MonoBehaviour
     }
 
     // ==========================================
-    // TERKENA DAMAGE NORMAL (GLOBAL — dipakai player & enemy)
+    // TERKENA DAMAGE & FLASH EFFECT
     // ==========================================
     public virtual void TakeDamage(int damage)
     {
@@ -315,12 +293,22 @@ public abstract class FighterBase : MonoBehaviour
 
         if (!isDead)
         {
-            anim.Play(animHit);
+            // Flash merah sekejap tanpa merusak animasi karakter
+            if (flashCoroutine != null) StopCoroutine(flashCoroutine);
+            flashCoroutine = StartCoroutine(DamageFlashRoutine());
         }
     }
 
-    // Dipisah dari TakeDamage biar bisa dipakai ulang sama varian damage lain
-    // (misal TakeSpecialDamage di PlayerFighterBase) tanpa duplikat logic HP.
+    private IEnumerator DamageFlashRoutine()
+    {
+        if (spriteRenderer != null)
+        {
+            spriteRenderer.color = hitFlashColor;
+            yield return new WaitForSeconds(flashDuration);
+            spriteRenderer.color = originalColor;
+        }
+    }
+
     protected void ApplyDamage(int damage)
     {
         currHP -= damage;
@@ -337,12 +325,24 @@ public abstract class FighterBase : MonoBehaviour
     {
         isDead = true;
         StopAllCoroutines();
-        anim.Play(animDie);
+
+        // Kembalikan warna normal saat gugur
+        if (spriteRenderer != null) spriteRenderer.color = originalColor;
+
+        PlayAnim(animDie);
         Debug.Log($"[{name}] MATI");
 
         if (destroyOnDeath)
         {
             Destroy(gameObject, destroyDelay);
+        }
+    }
+
+    protected void PlayAnim(int animHash)
+    {
+        if (anim != null)
+        {
+            anim.CrossFade(animHash, crossFadeDuration);
         }
     }
 }
