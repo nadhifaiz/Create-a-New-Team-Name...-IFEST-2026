@@ -35,6 +35,15 @@ public abstract class EnemyFighterBase : FighterBase
         }
     }
 
+    private void OnDestroy()
+    {
+        // Hapus musuh ini dari List milik GameManager saat musuh dihancurkan
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.activeEnemies.Remove(this);
+        }
+    }
+
     private IEnumerator AIRoutine()
     {
         while (!isDead)
@@ -47,7 +56,6 @@ public abstract class EnemyFighterBase : FighterBase
 
             float missRoll = UnityEngine.Random.value;
             nextAttackIsMiss = missRoll < missChance;
-            Debug.Log($"[{name}] roll miss = {missRoll:F2} (ambang missChance = {missChance}) -> {(nextAttackIsMiss ? "AKAN MELESET" : "AKAN KENA")}");
 
             TriggerAttack();
         }
@@ -57,7 +65,6 @@ public abstract class EnemyFighterBase : FighterBase
     {
         if (nextAttackIsMiss)
         {
-            Debug.Log($"[{name}] serangan MELESET");
             OnAttackMissed?.Invoke();
             nextAttackIsMiss = false;
             return;
@@ -78,6 +85,7 @@ public abstract class EnemyFighterBase : FighterBase
         base.TakeDamage(damage);
 
         int damageTaken = oldHP - currHP;
+        Debug.Log($"[{name}] menerima damage {damageTaken}, HP sekarang {currHP}/{maxHP}");
 
         // Laporkan damage yang masuk ke Sutradara (Team Manager)
         if (damageTaken > 0 && EnemyTeamManager.Instance != null)

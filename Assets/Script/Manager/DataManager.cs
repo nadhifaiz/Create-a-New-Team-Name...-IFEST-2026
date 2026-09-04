@@ -1,7 +1,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-// 1. Struktur Data untuk satu level
 [System.Serializable]
 public class LevelStats
 {
@@ -9,13 +8,16 @@ public class LevelStats
     public bool isUnlocked;
     public int bestWPM;
     public float bestAccuracy;
-    public float bestTime; // Waktu tercepat penyelesaian
+    public float bestTime;
 }
 
-// 2. Wrapper (Bungkusan) untuk disimpan ke JSON
 [System.Serializable]
-public class SaveDataWrapper
+public class GameData
 {
+    public float bgmVolume = 0.5f;
+    public float sfxVolume = 0.5f;
+    public bool hasCompletedTutorial = false;
+    public int lastPlayedLevelIndex = 1;
     public List<LevelStats> levelDataList = new List<LevelStats>();
 }
 
@@ -24,7 +26,7 @@ public class DataManager : MonoBehaviour
     public static DataManager Instance { get; private set; }
 
     private const string SAVE_KEY = "GameProgressionData";
-    private SaveDataWrapper saveData = new SaveDataWrapper();
+    private GameData saveData = new GameData();
 
     private void Awake()
     {
@@ -32,7 +34,7 @@ public class DataManager : MonoBehaviour
         {
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            LoadData(); // Muat data saat game baru dibuka
+            LoadData();
         }
         else
         {
@@ -48,13 +50,11 @@ public class DataManager : MonoBehaviour
         if (PlayerPrefs.HasKey(SAVE_KEY))
         {
             string json = PlayerPrefs.GetString(SAVE_KEY);
-            saveData = JsonUtility.FromJson<SaveDataWrapper>(json);
+            saveData = JsonUtility.FromJson<GameData>(json);
         }
         else
         {
-            // Jika belum ada save data sama sekali (pemain baru), 
-            // buat data kosong dan buka otomatis Level 1 (Index 0 atau 1, tergantung maumu)
-            saveData = new SaveDataWrapper();
+            saveData = new GameData();
             UnlockLevel(1);
         }
     }
@@ -67,17 +67,43 @@ public class DataManager : MonoBehaviour
     }
 
     // ==========================================
-    // FUNGSI UNTUK DIPANGGIL OLEH GAME MANAGER / UI
+    // PENGATURAN VOLUME
     // ==========================================
+    public float GetBGMVolume() => saveData.bgmVolume;
+    public float GetSFXVolume() => saveData.sfxVolume;
 
-    // Mengecek apakah suatu level boleh dimainkan
+    public void SetBGMVolume(float val)
+    {
+        saveData.bgmVolume = val;
+        SaveToDisk();
+    }
+
+    public void SetSFXVolume(float val)
+    {
+        saveData.sfxVolume = val;
+        SaveToDisk();
+    }
+
+    // ==========================================
+    // STATUS TUTORIAL
+    // ==========================================
+    public bool HasCompletedTutorial() => saveData.hasCompletedTutorial;
+
+    public void CompleteTutorial()
+    {
+        saveData.hasCompletedTutorial = true;
+        SaveToDisk();
+    }
+
+    // ==========================================
+    // STATISTIK LEVEL
+    // ==========================================
     public bool IsLevelUnlocked(int levelIndex)
     {
         LevelStats stats = GetLevelStats(levelIndex);
         return stats != null && stats.isUnlocked;
     }
 
-    // Membuka level baru
     public void UnlockLevel(int levelIndex)
     {
         LevelStats stats = GetOrCreateLevelStats(levelIndex);
@@ -85,36 +111,24 @@ public class DataManager : MonoBehaviour
         SaveToDisk();
     }
 
-    // Mengambil data statistik untuk ditampilkan di UI Menu Level
     public LevelStats GetLevelStats(int levelIndex)
     {
         return saveData.levelDataList.Find(l => l.levelIndex == levelIndex);
     }
 
-    // Menyimpan rekor kemenangan (Dipanggil GameManager saat Level Complete)
     public void SaveLevelResult(int levelIndex, int wpm, float accuracy, float time)
     {
         LevelStats stats = GetOrCreateLevelStats(levelIndex);
-        stats.isUnlocked = true; // Pastikan level ini statusnya terbuka
+        stats.isUnlocked = true;
 
-        // Simpan hanya jika skornya lebih baik (atau simpan langsung jika ini pertama kali)
-        // Logika WPM tertinggi:
         if (wpm > stats.bestWPM) stats.bestWPM = wpm;
-
-        // Logika Akurasi tertinggi:
         if (accuracy > stats.bestAccuracy) stats.bestAccuracy = accuracy;
-
-        // Logika Waktu tercepat (jika bestTime masih 0, berarti belum pernah main)
         if (stats.bestTime == 0 || time < stats.bestTime) stats.bestTime = time;
-
-        // Otomatis buka level selanjutnya!
         UnlockLevel(levelIndex + 1);
 
         SaveToDisk();
-        Debug.Log($"Data Level {levelIndex} Tersimpan! WPM: {wpm}, Acc: {accuracy}%, Waktu: {time}s");
     }
 
-    // Helper untuk mencari data level. Jika belum ada, buatkan baru.
     private LevelStats GetOrCreateLevelStats(int levelIndex)
     {
         LevelStats stats = GetLevelStats(levelIndex);
@@ -124,5 +138,36 @@ public class DataManager : MonoBehaviour
             saveData.levelDataList.Add(stats);
         }
         return stats;
+    }
+
+    // ==========================================
+    // LEVEL TERAKHIR YANG DIMAINKAN
+    // ==========================================
+    public int GetLastPlayedLevel() => saveData.lastPlayedLevelIndex;
+
+    public void SetLastPlayedLevel(int levelIndex)
+    {
+        saveData.lastPlayedLevelIndex = levelIndex;
+        SaveToDisk();
+    }
+
+    // ==========================================
+    // LOGIKA RESET / HAPUS DATA
+    // ==========================================
+    [ContextMenu("Reset All Data")] // Bisa diklik kanan langsung dari Inspector buat testing!
+    public void DeleteSaveData()
+    {
+        // 1. Hapus key data dari PlayerPrefs
+        if (PlayerPrefs.HasKey(SAVE_KEY))
+        {
+            PlayerPrefs.DeleteKey(SAVE_KEY);
+            PlayerPrefs.Save();
+        }
+
+        // 2. Kembalikan data in-memory ke nilai awal/default
+        saveData = new GameData();
+        UnlockLevel(1); // Level 1 wajib terbuka dari awal
+
+        Debug.Log("Seluruh data save progress berhasil dihapus & di-reset!");
     }
 }

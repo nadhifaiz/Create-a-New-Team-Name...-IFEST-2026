@@ -144,7 +144,6 @@ public abstract class PlayerFighterBase : FighterBase
     {
         base.Die();
         if (comboAura != null) comboAura.SetActive(false);
-        Debug.Log("Player Mati!");
 
         // Tambahkan baris ini untuk memicu layar kalah
         if (GameManager.Instance != null)
@@ -174,15 +173,12 @@ public abstract class PlayerFighterBase : FighterBase
             {
                 IncreaseDamage(comboRepeatBonus);
             }
-
-            Debug.Log($"[{name}] combo x{comboCount} -> damage {currDamage}");
         }
         else
         {
             comboCount = 0;
             if (comboAura != null) comboAura.SetActive(false);
             currDamage = baseDamage;
-            Debug.Log($"[{name}] combo hangus -> damage kembali ke {currDamage}");
         }
 
         OnComboChanged?.Invoke(comboCount); // Picu event Combo
