@@ -51,12 +51,17 @@ public class DataManager : MonoBehaviour
         {
             string json = PlayerPrefs.GetString(SAVE_KEY);
             saveData = JsonUtility.FromJson<GameData>(json);
+            if (saveData == null)
+            {
+                saveData = new GameData();
+            }
         }
         else
         {
             saveData = new GameData();
-            UnlockLevel(1);
         }
+
+        UnlockLevel(1);
     }
 
     private void SaveToDisk()
@@ -125,16 +130,7 @@ public class DataManager : MonoBehaviour
         if (accuracy > stats.bestAccuracy) stats.bestAccuracy = accuracy;
         if (stats.bestTime == 0 || time < stats.bestTime) stats.bestTime = time;
 
-        int nextLevelIndex = levelIndex + 1;
-        LevelStats nextStats = GetLevelStats(nextLevelIndex);
-        bool wasNextUnlocked = nextStats != null && nextStats.isUnlocked;
-        UnlockLevel(nextLevelIndex);
-
-        if (!wasNextUnlocked && AudioSystem.Instance != null)
-        {
-            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_UnlockACharacter);
-        }
-
+        UnlockLevel(levelIndex + 1);
         SaveToDisk();
     }
 

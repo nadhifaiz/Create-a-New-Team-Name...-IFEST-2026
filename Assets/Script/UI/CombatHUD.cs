@@ -26,6 +26,25 @@ public class CombatHUD : MonoBehaviour
     [SerializeField] private GameObject missTextPrefab;
     [SerializeField] private RectTransform missTextSpawnPoint;
 
+    private void Awake()
+    {
+        if (player == null)
+        {
+            player = FindAnyObjectByType<PlayerFighterBase>();
+        }
+
+        if (enemies == null || enemies.Length == 0 || enemies[0] == null)
+        {
+            enemies = FindObjectsByType<EnemyFighterBase>();
+        }
+
+        HideParry();
+        if (comboText != null)
+        {
+            comboText.text = "+0";
+        }
+    }
+
     private void OnEnable()
     {
         if (player != null)
@@ -37,7 +56,6 @@ public class CombatHUD : MonoBehaviour
             player.OnParryEnded += HideParry;
         }
 
-        // Langsung tembak ke nama class tanpa "Instance" dan tanpa if null
         EnemyTeamManager.OnTotalHpChanged += UpdateTotalEnemyHP;
 
         if (enemies != null)

@@ -71,6 +71,7 @@ public class GameManager : MonoBehaviour
     private void TriggerLevelComplete()
     {
         if (isGameOver) return;
+
         isGameOver = true;
         isPaused = true;
         Time.timeScale = 0f;
@@ -120,17 +121,19 @@ public class GameManager : MonoBehaviour
     // Dipanggil saat pemain selesai level dan memilih 'Next Level'
     public void LoadNextLevel()
     {
-        ResetStateForNewScene();
+        int nextLevelIndex = currentLevelIndex + 1;
+        string nextSceneName = "Level " + nextLevelIndex;
 
-        // 1. Naikkan level index untuk catatan level selanjutnya
-        currentLevelIndex++;
+        if (nextLevelIndex > 3)
+        {
+            ResetStateForNewScene();
+            MainMenuManager.openLevelSelectOnLoad = true;
+            PrepareReturnToMainMenu();
+            SceneManager.LoadScene("MainMenu");
+            return;
+        }
 
-        // 2. Beri tahu MainMenuManager agar langsung membuka panel Level Selection
-        MainMenuManager.openLevelSelectOnLoad = true;
-
-        PlayMainMenuBGM();
-        PlayTransitionSfx();
-        SceneManager.LoadScene("MainMenu");
+        StartLevel(nextLevelIndex, nextSceneName);
     }
 
     // Dipanggil saat pemain menekan tombol 'Back to Main Menu' biasa
@@ -138,8 +141,7 @@ public class GameManager : MonoBehaviour
     {
         ResetStateForNewScene();
         MainMenuManager.openLevelSelectOnLoad = openLevelSelection;
-        PlayMainMenuBGM();
-        PlayTransitionSfx();
+        PrepareReturnToMainMenu();
         SceneManager.LoadScene("MainMenu");
     }
 
@@ -163,12 +165,16 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    private void PlayMainMenuBGM()
+    private void PrepareReturnToMainMenu()
     {
-        if (AudioSystem.Instance != null)
+        if (AudioSystem.Instance == null)
         {
-            AudioSystem.Instance.PlayBGM(AudioSystem.Instance.bgm_MainMenu);
+            return;
         }
+
+        // SFX combat (hantu/api/goblin) jangan ikut ke menu
+        AudioSystem.Instance.StopSfx();
+        AudioSystem.Instance.PlayBGM(AudioSystem.Instance.bgm_MainMenu);
     }
 
     private void PlayTransitionSfx()

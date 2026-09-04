@@ -155,8 +155,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -345}
-  m_SizeDelta: {x: 1509.9452, y: 201.9476}
+  m_AnchoredPosition: {x: 0, y: -294.32404}
+  m_SizeDelta: {x: 1509.9452, y: 303.2996}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &461019234
 MonoBehaviour:
@@ -258,19 +258,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 709724290}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: 
-        m_MethodName: 
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: 
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &709724290
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -362,7 +350,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 0, y: 32}
   m_SizeDelta: {x: 1016.6602, y: 150.5338}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1011553952
@@ -712,19 +700,26 @@ MonoBehaviour:
   mainMenuSceneName: MainMenu
   lines:
   - sceneImage: {fileID: 8494072862332520115, guid: 10758cc4ed7d18f47878b105d181d8b2, type: 3}
-    narrativeText: haloo selamat pagi ini adalah scene pertama..... humm aku gataw
-      ini ngapain.
+    narrativeText: Long ago, beneath the shadow of the sacred mountain, life was
+      peaceful. The races of Humans, Elves, and Flails lived side-by-side, filled
+      with laughter and happiness.
   - sceneImage: {fileID: -734111492523843588, guid: 889c5a84c5629ae438a32a00bc59032d, type: 3}
-    narrativeText: halo selamat pagi juga... huahahahahaha aku akan menjarah kalian
-      semua awokawokaowkaowk....
+    narrativeText: Yet, serenity was broken. Sandalous Darkhold, a ruthless sorcerer
+      from the Black Realm, emerged with his dragon and goblin horde, driven by a
+      thirst for total conquest.
   - sceneImage: {fileID: 6593644520832393178, guid: 0d102b9574ce60242a7a55ec126940c4, type: 3}
-    narrativeText: arghhh.... TOLOOOOONGGG Help me boy boboiboyyyy..... takutnyooooo....
-      huaaaaaaaaaa tuloooooong
+    narrativeText: A great panic spread as the enemy advanced. Screams of terror
+      filled the air, and the once-peaceful lands were consumed by fear.
   - sceneImage: {fileID: -7425059239043272899, guid: 8774ea90fe0a8094da0ef0b42ffe6186, type: 3}
-    narrativeText: Tenanglah wahai rakyatku.... incesss akan menurunkan 3 orang sinting
-      untuk melindungi kalian. mari hijaukan dan hidupkan dunia...
+    narrativeText: From the castle balcony, Queen Eleanor the Pure watched the destruction
+      below. Overcome with deep sorrow and worry for her people, she raised her hands
+      in anguished prayer for a savior.
   - sceneImage: {fileID: 1025458001121254214, guid: 27f5a2179703efb4d890ba066606422c, type: 3}
-    narrativeText: uuu aaa uu aa sini monster jahat aku akan melucuti pakaianmu....
+    narrativeText: 'In answer to her plea, Queen Eleanor summoned her three greatest
+      champions: Edmund, the Fire Knight; Leif, the Eternal Elf Mage; and Voj, the
+      Frost Giant Flail. Three powers, one destiny: to defeat the darkness.
+
+'
   backgroundDisplay: {fileID: 1572149768}
   narrativeBodyText: {fileID: 1011553953}
   clickIndicator: {fileID: 1878689194}
@@ -967,7 +962,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -145}
+  m_AnchoredPosition: {x: 0, y: -194}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1660057539 &9223372036854775807

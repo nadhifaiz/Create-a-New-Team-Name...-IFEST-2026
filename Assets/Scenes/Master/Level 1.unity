@@ -1554,10 +1554,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Canvas
       objectReference: {fileID: 0}
-    - target: {fileID: 2458694053484641696, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
-      propertyPath: settingsPanel
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 2490987352714543520, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
       propertyPath: m_SizeDelta.x
       value: 487.5674
@@ -1590,10 +1586,6 @@ PrefabInstance:
       propertyPath: combatBridge
       value: 
       objectReference: {fileID: 2123338427}
-    - target: {fileID: 6185989508267759946, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
-      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 6918429303662151952, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
       propertyPath: m_Pivot.x
       value: 0

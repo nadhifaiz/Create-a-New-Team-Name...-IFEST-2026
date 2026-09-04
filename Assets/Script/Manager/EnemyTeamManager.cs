@@ -31,6 +31,11 @@ public class EnemyTeamManager : MonoBehaviour
         // Tunggu 1 frame agar semua musuh selesai mendaftarkan dirinya ke GameManager
         yield return null;
 
+        if (player == null)
+        {
+            player = FindAnyObjectByType<PlayerFighterBase>();
+        }
+
         thresholdFired = new bool[hpThresholds.Length];
 
         TotalMaxHP = 0;

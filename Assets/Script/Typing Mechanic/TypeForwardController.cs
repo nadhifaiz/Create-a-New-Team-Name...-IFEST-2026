@@ -41,6 +41,7 @@ namespace TypeForward
         private void Awake()
         {
             if (view == null) view = GetComponent<TypingView>();
+            if (combatBridge == null) combatBridge = FindAnyObjectByType<TypingCombatBridge>();
             _input = new LegacyInputProvider();
         }
 

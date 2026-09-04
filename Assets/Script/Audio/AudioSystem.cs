@@ -115,6 +115,11 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
         currentBgm = default;
     }
 
+    public void StopSfx()
+    {
+        BroAudio.Stop(BroAudioType.SFX);
+    }
+
     public void SetBGMVolume(float value)
     {
         BroAudio.SetVolume(BroAudioType.Music, value);
