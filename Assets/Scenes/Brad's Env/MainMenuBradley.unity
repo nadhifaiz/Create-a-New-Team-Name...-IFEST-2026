@@ -561,7 +561,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::AudioSystem
   dontDestroyOnLoad: 0
   bgm_MainMenu:
-    _entity: {fileID: 0}
+    _entity: {fileID: 11400000, guid: 5fdbd013e5783cc4b9681f5af5f35055, type: 2}
     ID: 0
     <DebugObject>k__BackingField: {fileID: 180226942}
   bgm_BattleBGM1:
@@ -577,7 +577,7 @@ MonoBehaviour:
     ID: 0
     <DebugObject>k__BackingField: {fileID: 180226942}
   sfx_HitPlay:
-    _entity: {fileID: 0}
+    _entity: {fileID: 11400000, guid: 797cb1ee5fae4ab40a3f321fb71c754e, type: 2}
     ID: 0
     <DebugObject>k__BackingField: {fileID: 180226942}
   sfx_AwanTransisi:
@@ -1097,7 +1097,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::MainMenuManager
   gameSceneName: TestingScene2
-  buttonClickSFX:
+  bgm_MainMenu:
     _entity: {fileID: 0}
     ID: 0
     <DebugObject>k__BackingField: {fileID: 305702196}
@@ -1154,7 +1154,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 685.8932, y: -137}
+  m_AnchoredPosition: {x: -5, y: -102}
   m_SizeDelta: {x: 357.1858, y: 108.7056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &342287056
@@ -3063,7 +3063,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 685.8932, y: 15.8058}
+  m_AnchoredPosition: {x: -5, y: 50.8058}
   m_SizeDelta: {x: 357.1858, y: 108.7056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1010750475
@@ -3668,8 +3668,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: -736404851287125076, guid: 0eceeac80a2a4ff45af16b7dc04060bc, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -4272,7 +4272,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 685.8932, y: -446}
+  m_AnchoredPosition: {x: -5, y: -411}
   m_SizeDelta: {x: 357.1858, y: 108.7056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1729004249
@@ -4829,7 +4829,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 685.8932, y: -297}
+  m_AnchoredPosition: {x: -5, y: -262}
   m_SizeDelta: {x: 357.1858, y: 108.7056}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1887032163
