@@ -11,7 +11,7 @@ public class MainMenuManager : MonoBehaviour
 
     [Header("BroAudio - Sound yang dipakai di Main Menu")]
     [Tooltip("SFX yang diputar saat tombol di-klik (Play/Quit/dll)")]
-    [SerializeField] SoundID buttonClickSFX;
+    [SerializeField] SoundID sfx_HitPlay;
 
     [Header("Volume Sliders")]
     [Tooltip("Slider untuk volume musik (BGM)")]
@@ -53,30 +53,32 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
+        AudioSystem.Instance.PlayAudio(sfx_HitPlay);
         AudioSystem.Instance.StopBGM();
         SceneManager.LoadScene(gameSceneName);
     }
 
     public void QuitGame()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
+        AudioSystem.Instance.PlayAudio(sfx_HitPlay);
         Debug.Log("Quit game");
         Application.Quit();
     }
 
     public void PlayButtonClickSFX()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
+        AudioSystem.Instance.PlayAudio(sfx_HitPlay);
     }
 
     public void OpenPopUp(GameObject gameobject)
     {
+        AudioSystem.Instance.PlayAudio(sfx_HitPlay);
         gameobject.SetActive(true);
     }
 
     public void ClosePopup(GameObject gameobject)
     {
+        AudioSystem.Instance.PlayAudio(sfx_HitPlay);
         gameobject.SetActive(false);
     }
 }
