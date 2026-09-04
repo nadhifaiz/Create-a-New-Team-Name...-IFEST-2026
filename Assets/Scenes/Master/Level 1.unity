@@ -1529,6 +1529,26 @@ PrefabInstance:
       propertyPath: 'enemies.Array.data[2]'
       value: 
       objectReference: {fileID: 1368538958}
+    - target: {fileID: 943856980003976195, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 527.3887
+      objectReference: {fileID: 0}
+    - target: {fileID: 943856980003976195, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 527.3887
+      objectReference: {fileID: 0}
+    - target: {fileID: 943856980003976195, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 43.198334
+      objectReference: {fileID: 0}
+    - target: {fileID: 943856980003976195, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 130.25433
+      objectReference: {fileID: 0}
+    - target: {fileID: 1626845279746479950, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1975301729059614723, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
       propertyPath: m_Name
       value: Canvas
@@ -1537,6 +1557,34 @@ PrefabInstance:
       propertyPath: settingsPanel
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2490987352714543520, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 487.5674
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490987352714543520, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 542.9297
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490987352714543520, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 4.7777004
+      objectReference: {fileID: 0}
+    - target: {fileID: 2490987352714543520, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 122.103905
+      objectReference: {fileID: 0}
+    - target: {fileID: 3845155919959014501, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 6557213224081940135, guid: c49a15f90e2c0f745b10f5de78687243, type: 3}
+    - target: {fileID: 4163858357729003761, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4696153616279976479, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -5532508804771115655, guid: 76143f19463da6f42afaf5f358622324, type: 3}
     - target: {fileID: 5454155738941557745, guid: 26940a466ba1a364daf47774c9fb0b44, type: 3}
       propertyPath: combatBridge
       value: 
