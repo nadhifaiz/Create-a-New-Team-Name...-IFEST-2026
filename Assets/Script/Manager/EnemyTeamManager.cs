@@ -18,7 +18,7 @@ public class EnemyTeamManager : MonoBehaviour
     public int TotalMaxHP { get; private set; }
     public int TotalCurrentHP { get; private set; }
 
-    public event Action<int, int> OnTotalHpChanged;
+    public static event Action<int, int> OnTotalHpChanged;
 
     private void Awake()
     {
@@ -42,6 +42,8 @@ public class EnemyTeamManager : MonoBehaviour
             {
                 TotalMaxHP += enemy.MaxHP;
             }
+
+            Debug.Log($"Total Enemy Max HP: {TotalMaxHP}");
         }
 
         TotalCurrentHP = TotalMaxHP;
@@ -52,6 +54,7 @@ public class EnemyTeamManager : MonoBehaviour
     {
         TotalCurrentHP = Mathf.Max(0, TotalCurrentHP - damageAmount);
         OnTotalHpChanged?.Invoke(TotalCurrentHP, TotalMaxHP);
+        Debug.Log($"Total Enemy HP: {TotalCurrentHP}/{TotalMaxHP} (Damage Dilaporkan: {damageAmount})");
         CheckThresholds();
     }
 

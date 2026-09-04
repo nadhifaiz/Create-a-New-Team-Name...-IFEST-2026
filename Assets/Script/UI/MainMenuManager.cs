@@ -1,82 +1,123 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
-using Ami.BroAudio;
+using Ami.BroAudio; //[cite: 1]
 
 public class MainMenuManager : MonoBehaviour
 {
-    [Header("Scene")]
-    [Tooltip("Nama scene yang mau dibuka saat tombol Play ditekan")]
-    public string gameSceneName = "SampleScene";
+    public static bool cameFromCutscene = false;
+    public static bool openLevelSelectOnLoad = false;
 
-    [Header("BroAudio - Sound yang dipakai di Main Menu")]
-    [Tooltip("SFX yang diputar saat tombol di-klik (Play/Quit/dll)")]
-    [SerializeField] SoundID buttonClickSFX;
+    [Header("Dynamic Background")]
+    [SerializeField] private Image mainMenuBackgroundImage;
+    [SerializeField] private Sprite[] levelBackgrounds;
 
-    [Header("Volume Sliders")]
-    [Tooltip("Slider untuk volume musik (BGM)")]
-    public Slider musicVolumeSlider;
+    [Header("Scene Navigation")]
+    [SerializeField] private string cutsceneSceneName = "Cutscene";
 
-    [Tooltip("Slider untuk volume sound effect (SFX)")]
-    public Slider sfxVolumeSlider;
+    [Header("Panels")]
+    [SerializeField] private GameObject mainPanel;
+    [SerializeField] private GameObject tutorialPanel;
+    [SerializeField] private GameObject levelSelectPanel;
 
-    void Start()
+    [Header("BroAudio")]
+    [SerializeField] private SoundID buttonClickSFX; //[cite: 1]
+
+
+    private void Start()
     {
-        AudioSystem.Instance.PlayAudio(AudioSystem.Instance.bgm_MainMenu);
+        UpdateMainMenuBackground();
 
-        if (musicVolumeSlider != null)
+        // Jika datang dari cutscene (alur tutorial)
+        if (cameFromCutscene)
         {
-            musicVolumeSlider.value = PlayerPrefs.GetFloat("MusicVolume", AudioSystem.Instance.defaultBGM);
-            OnMusicSliderChanged(musicVolumeSlider.value);
-            musicVolumeSlider.onValueChanged.AddListener(OnMusicSliderChanged);
+            cameFromCutscene = false;
+            bool tutorialDone = DataManager.Instance != null && DataManager.Instance.HasCompletedTutorial();
+
+            if (!tutorialDone) ShowTutorialPanel();
+            else ShowLevelSelection();
+        }
+        // Jika datang dari tombol Next Level di in-game
+        else if (openLevelSelectOnLoad)
+        {
+            openLevelSelectOnLoad = false;
+            ShowLevelSelection();
+        }
+        else
+        {
+            ShowMainPanel();
         }
 
-        if (sfxVolumeSlider != null)
+        if (AudioSystem.Instance != null)
         {
-            sfxVolumeSlider.value = PlayerPrefs.GetFloat("SFXVolume", AudioSystem.Instance.defaultSFX);
-            OnSFXSliderChanged(sfxVolumeSlider.value);
-            sfxVolumeSlider.onValueChanged.AddListener(OnSFXSliderChanged);
+            AudioSystem.Instance.PlayAudio(AudioSystem.Instance.bgm_MainMenu);
         }
     }
 
-    public void OnMusicSliderChanged(float value)
+    private void UpdateMainMenuBackground()
     {
-        GameEvents.onValueChangeBGM?.Invoke(value);
-        PlayerPrefs.SetFloat("MusicVolume", value);
-    }
+        if (mainMenuBackgroundImage == null || levelBackgrounds == null || levelBackgrounds.Length == 0) return;
 
-    public void OnSFXSliderChanged(float value)
-    {
-        GameEvents.onValueChangeSFX?.Invoke(value);
-        PlayerPrefs.SetFloat("SFXVolume", value);
+        int lastLevel = 1;
+        if (DataManager.Instance != null)
+        {
+            lastLevel = DataManager.Instance.GetLastPlayedLevel();
+        }
+
+        // Konversi levelIndex (1, 2, 3) ke array index (0, 1, 2)
+        int bgIndex = Mathf.Clamp(lastLevel - 1, 0, levelBackgrounds.Length - 1);
+        mainMenuBackgroundImage.sprite = levelBackgrounds[bgIndex];
     }
 
     public void PlayGame()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
-        AudioSystem.Instance.StopBGM();
-        SceneManager.LoadScene(gameSceneName);
+        PlayButtonClickSFX(); //[cite: 1]
+        if (AudioSystem.Instance != null) AudioSystem.Instance.StopBGM(); //[cite: 1, 3]
+        SceneManager.LoadScene(cutsceneSceneName); //[cite: 1]
+    }
+
+    public void OnFinishTutorial()
+    {
+        PlayButtonClickSFX(); //[cite: 1]
+        if (DataManager.Instance != null) DataManager.Instance.CompleteTutorial();
+        ShowLevelSelection();
+    }
+
+    public void ShowTutorialPanel()
+    {
+        if (mainPanel != null) mainPanel.SetActive(false);
+        if (tutorialPanel != null) tutorialPanel.SetActive(true);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
+        if (mainMenuBackgroundImage != null) mainMenuBackgroundImage.gameObject.SetActive(true);
+    }
+
+    public void ShowLevelSelection()
+    {
+        if (mainPanel != null) mainPanel.SetActive(false);
+        if (tutorialPanel != null) tutorialPanel.SetActive(false);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(true);
+        if (mainMenuBackgroundImage != null) mainMenuBackgroundImage.gameObject.SetActive(true);
+    }
+
+    public void ShowMainPanel()
+    {
+        if (mainPanel != null) mainPanel.SetActive(true);
+        if (tutorialPanel != null) tutorialPanel.SetActive(false);
+        if (levelSelectPanel != null) levelSelectPanel.SetActive(false);
+        if (mainMenuBackgroundImage != null) mainMenuBackgroundImage.gameObject.SetActive(false);
     }
 
     public void QuitGame()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
-        Debug.Log("Quit game");
-        Application.Quit();
+        PlayButtonClickSFX(); //[cite: 1]
+        Application.Quit(); //[cite: 1]
     }
 
     public void PlayButtonClickSFX()
     {
-        AudioSystem.Instance.PlayAudio(buttonClickSFX);
+        if (AudioSystem.Instance != null) AudioSystem.Instance.PlayAudio(buttonClickSFX); //[cite: 1, 3]
     }
 
-    public void OpenPopUp(GameObject gameobject)
-    {
-        gameobject.SetActive(true);
-    }
-
-    public void ClosePopup(GameObject gameobject)
-    {
-        gameobject.SetActive(false);
-    }
+    public void OpenPopUp(GameObject popup) { if (popup != null) popup.SetActive(true); } //[cite: 1]
+    public void ClosePopup(GameObject popup) { if (popup != null) popup.SetActive(false); } //[cite: 1]
 }

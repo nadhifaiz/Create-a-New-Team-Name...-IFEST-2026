@@ -117,27 +117,40 @@ public class GameManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
+    // Dipanggil saat pemain selesai level dan memilih 'Next Level'
     public void LoadNextLevel()
     {
         ResetStateForNewScene();
+
+        // 1. Naikkan level index untuk catatan level selanjutnya
         currentLevelIndex++;
 
-        int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+        // 2. Beri tahu MainMenuManager agar langsung membuka panel Level Selection
+        MainMenuManager.openLevelSelectOnLoad = true;
 
-        if (nextSceneIndex < SceneManager.sceneCountInBuildSettings)
-        {
-            SceneManager.LoadScene(nextSceneIndex);
-        }
-        else
-        {
-            Debug.LogWarning("Tidak ada scene selanjutnya! Kembali ke Main Menu.");
-            LoadMainMenu();
-        }
+        // 3. Muat scene Main Menu
+        SceneManager.LoadScene("MainMenu");
     }
 
-    public void LoadMainMenu()
+    // Dipanggil saat pemain menekan tombol 'Back to Main Menu' biasa
+    public void LoadMainMenu(bool openLevelSelection = false)
     {
         ResetStateForNewScene();
-        SceneManager.LoadScene(0);
+        MainMenuManager.openLevelSelectOnLoad = openLevelSelection;
+        SceneManager.LoadScene("MainMenu");
+    }
+
+    public void StartLevel(int levelIndex, string sceneName)
+    {
+        ResetStateForNewScene();
+        currentLevelIndex = levelIndex;
+
+        // Simpan level terakhir yang dimainkan
+        if (DataManager.Instance != null)
+        {
+            DataManager.Instance.SetLastPlayedLevel(levelIndex);
+        }
+
+        SceneManager.LoadScene(sceneName);
     }
 }

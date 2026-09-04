@@ -37,12 +37,9 @@ public class CombatHUD : MonoBehaviour
             player.OnParryEnded += HideParry;
         }
 
-        if (EnemyTeamManager.Instance != null)
-        {
-            EnemyTeamManager.Instance.OnTotalHpChanged += UpdateTotalEnemyHP;
-        }
+        // Langsung tembak ke nama class tanpa "Instance" dan tanpa if null
+        EnemyTeamManager.OnTotalHpChanged += UpdateTotalEnemyHP;
 
-        // Pendaftaran teks miss untuk musuh tetap via array musuh
         if (enemies != null)
         {
             foreach (var enemy in enemies)
@@ -63,10 +60,8 @@ public class CombatHUD : MonoBehaviour
             player.OnParryEnded -= HideParry;
         }
 
-        if (EnemyTeamManager.Instance != null)
-        {
-            EnemyTeamManager.Instance.OnTotalHpChanged -= UpdateTotalEnemyHP;
-        }
+        // Unsubscribe langsung ke class
+        EnemyTeamManager.OnTotalHpChanged -= UpdateTotalEnemyHP;
 
         if (enemies != null)
         {
@@ -79,7 +74,7 @@ public class CombatHUD : MonoBehaviour
 
     private IEnumerator Start()
     {
-        yield return null; // Tunggu 1 frame agar sistem inisialisasi selesai
+        yield return null; // Tunggu 1 frame
 
         if (player != null)
         {
@@ -89,10 +84,11 @@ public class CombatHUD : MonoBehaviour
             HideParry();
         }
 
-        // HAPUS looping update musuh di sini!
-        // Kamu tidak perlu inisialisasi total bar musuh secara manual di sini, 
-        // karena EnemyTeamManager secara otomatis akan memicu event "OnTotalHpChanged" 
-        // di script-nya sendiri saat game mulai, dan HUD ini akan otomatis menangkapnya.
+        // Tarik nilai awal musuh jika sudah selesai kalkulasi
+        if (EnemyTeamManager.Instance != null && EnemyTeamManager.Instance.TotalMaxHP > 0)
+        {
+            UpdateTotalEnemyHP(EnemyTeamManager.Instance.TotalCurrentHP, EnemyTeamManager.Instance.TotalMaxHP);
+        }
     }
 
     private void UpdateHP(int currentHp, int maxHp)
@@ -128,6 +124,7 @@ public class CombatHUD : MonoBehaviour
             float progress = Mathf.Clamp01((float)currentTotal / maxTotal);
             totalEnemyHPBar.fillAmount = progress;
         }
+        Debug.Log($"Total Enemy HP Updated: {currentTotal}/{maxTotal}");
     }
 
     private void ShowAndRefreshParry(string targetKey, float progress)
