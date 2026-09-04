@@ -124,7 +124,16 @@ public class DataManager : MonoBehaviour
         if (wpm > stats.bestWPM) stats.bestWPM = wpm;
         if (accuracy > stats.bestAccuracy) stats.bestAccuracy = accuracy;
         if (stats.bestTime == 0 || time < stats.bestTime) stats.bestTime = time;
-        UnlockLevel(levelIndex + 1);
+
+        int nextLevelIndex = levelIndex + 1;
+        LevelStats nextStats = GetLevelStats(nextLevelIndex);
+        bool wasNextUnlocked = nextStats != null && nextStats.isUnlocked;
+        UnlockLevel(nextLevelIndex);
+
+        if (!wasNextUnlocked && AudioSystem.Instance != null)
+        {
+            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_UnlockACharacter);
+        }
 
         SaveToDisk();
     }

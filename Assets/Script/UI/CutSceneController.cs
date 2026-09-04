@@ -5,22 +5,22 @@ using TMPro;
 using UnityEngine.SceneManagement;
 using UnityEngine.InputSystem;
 
-public class CutsceneController : MonoBehaviour
+public class CutSceneController : MonoBehaviour
 {
     [Header("Scene Navigation")]
     [Tooltip("Nama scene Main Menu yang mau dituju")]
     [SerializeField] private string mainMenuSceneName = "MainMenu";
 
     [Header("Cutscene Sequence")]
-    [SerializeField] private CutsceneLine[] lines;
+    [SerializeField] private CutsceneLineData[] lines;
 
     [Header("UI Components")]
     [SerializeField] private Image backgroundDisplay;
     [SerializeField] private TMP_Text narrativeBodyText;
-    [SerializeField] private GameObject clickIndicator; // Ikon panah tanda siap klik lanjut
+    [SerializeField] private GameObject clickIndicator;
 
     [Header("Buttons")]
-    [SerializeField] private Button screenClickButton; // Tombol transparan full-screen
+    [SerializeField] private Button screenClickButton;
 
     [Header("Typewriter Settings")]
     [SerializeField] private float typingSpeed = 0.035f;
@@ -33,13 +33,13 @@ public class CutsceneController : MonoBehaviour
     {
         if (screenClickButton != null) screenClickButton.onClick.AddListener(OnAdvanceInput);
 
+        // Hapus PlayAudio() di sini agar BGM dari Main Menu tetap mengalun mulus tanpa restart
+
         currentLineIndex = 0;
         DisplayCurrentLine();
     }
-
     private void Update()
     {
-        // Support tombol spasi atau enter di keyboard
         if (Keyboard.current != null && (Keyboard.current.spaceKey.wasPressedThisFrame || Keyboard.current.enterKey.wasPressedThisFrame))
         {
             OnAdvanceInput();
@@ -48,7 +48,6 @@ public class CutsceneController : MonoBehaviour
 
     public void OnAdvanceInput()
     {
-        // 1. Kalau teks sedang mengetik -> Klik langsung menampilkan teks lengkap
         if (isTyping)
         {
             StopCoroutine(typingCoroutine);
@@ -57,8 +56,11 @@ public class CutsceneController : MonoBehaviour
             if (clickIndicator != null) clickIndicator.SetActive(true);
             return;
         }
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.Instance.PlayAudio(AudioSystem.Instance.sfx_HitPlay);
+        }
 
-        // 2. Kalau teks sudah lengkap -> Klik maju ke slide/kalimat berikutnya
         currentLineIndex++;
 
         if (currentLineIndex < lines.Length)
@@ -70,12 +72,10 @@ public class CutsceneController : MonoBehaviour
             FinishCutscene();
         }
     }
-
     private void DisplayCurrentLine()
     {
-        CutsceneLine line = lines[currentLineIndex];
+        CutsceneLineData line = lines[currentLineIndex];
 
-        // Ganti ilustrasi/background jika ada
         if (backgroundDisplay != null && line.sceneImage != null)
         {
             backgroundDisplay.sprite = line.sceneImage;
@@ -83,7 +83,6 @@ public class CutsceneController : MonoBehaviour
 
         if (clickIndicator != null) clickIndicator.SetActive(false);
 
-        // Putar efek ketik teks narasi
         if (typingCoroutine != null) StopCoroutine(typingCoroutine);
         typingCoroutine = StartCoroutine(TypewriterRoutine(line.narrativeText));
     }
@@ -110,8 +109,9 @@ public class CutsceneController : MonoBehaviour
     }
 }
 
+// Struct/Class internal untuk menampung data cutscene tanpa membuat file terpisah
 [System.Serializable]
-public class CutsceneLine
+public struct CutsceneLineData
 {
     [Tooltip("Gambar latar/ilustrasi untuk baris ini (opsional)")]
     public Sprite sceneImage;

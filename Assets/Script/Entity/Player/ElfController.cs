@@ -1,9 +1,6 @@
 using System.Collections;
 using UnityEngine;
 
-// Elf — input/combo dari PlayerFighterBase, tapi cara serangnya projectile
-// (lightning), jadi override AttackFlow + ApplyImpactEffect.
-// Set comboFirstBonus = 5, comboRepeatBonus = 5 di Inspector (flat tiap combo).
 public class ElfController : PlayerFighterBase
 {
     [Header("Elf Specifics")]
@@ -22,7 +19,20 @@ public class ElfController : PlayerFighterBase
             GameObject petir = Instantiate(lightningPrefab, castPoint.position, Quaternion.identity);
 
             ProjectileController controller = petir.GetComponent<ProjectileController>();
-            if (controller != null) controller.SetTarget(currentTarget, currDamage);
+            if (controller != null)
+            {
+                controller.SetTarget(currentTarget, currDamage);
+            }
         }
+    }
+
+    public override void BeginParryChallenge(float duration)
+    {
+        if (AudioSystem.Instance != null)
+        {
+            PlaySfx(AudioSystem.Instance.sfx_PenyihirBuatPerisai);
+        }
+
+        base.BeginParryChallenge(duration);
     }
 }

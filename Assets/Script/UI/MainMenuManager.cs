@@ -20,8 +20,8 @@ public class MainMenuManager : MonoBehaviour
     [SerializeField] private GameObject tutorialPanel;
     [SerializeField] private GameObject levelSelectPanel;
 
-    [Header("BroAudio")]
-    [SerializeField] private SoundID buttonClickSFX; //[cite: 1]
+    [Header("Main Menu BGM")]
+    [SerializeField] private SoundID bgm_MainMenu; //[cite: 1]
 
 
     private void Start()
@@ -50,7 +50,7 @@ public class MainMenuManager : MonoBehaviour
 
         if (AudioSystem.Instance != null)
         {
-            AudioSystem.Instance.PlayAudio(AudioSystem.Instance.bgm_MainMenu);
+            AudioSystem.Instance.PlayBGM(AudioSystem.Instance.bgm_MainMenu);
         }
     }
 
@@ -71,9 +71,9 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayGame()
     {
-        PlayButtonClickSFX(); //[cite: 1]
-        if (AudioSystem.Instance != null) AudioSystem.Instance.StopBGM(); //[cite: 1, 3]
-        SceneManager.LoadScene(cutsceneSceneName); //[cite: 1]
+        PlayButtonClickSFX();
+        // Hapus StopBGM() agar audio tidak mati saat pindah ke Cutscene
+        SceneManager.LoadScene(cutsceneSceneName);
     }
 
     public void OnFinishTutorial()
@@ -115,9 +115,27 @@ public class MainMenuManager : MonoBehaviour
 
     public void PlayButtonClickSFX()
     {
-        if (AudioSystem.Instance != null) AudioSystem.Instance.PlayAudio(buttonClickSFX); //[cite: 1, 3]
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.PlaySfx(AudioSystem.Instance.sfx_HitPlay);
+        }
     }
 
-    public void OpenPopUp(GameObject popup) { if (popup != null) popup.SetActive(true); } //[cite: 1]
-    public void ClosePopup(GameObject popup) { if (popup != null) popup.SetActive(false); } //[cite: 1]
+    public void OpenPopUp(GameObject popup)
+    {
+        PlayButtonClickSFX();
+        if (popup != null)
+        {
+            popup.SetActive(true);
+        }
+    }
+
+    public void ClosePopup(GameObject popup)
+    {
+        PlayButtonClickSFX();
+        if (popup != null)
+        {
+            popup.SetActive(false);
+        }
+    }
 }

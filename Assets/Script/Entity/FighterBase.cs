@@ -1,4 +1,5 @@
 using System.Collections;
+using Ami.BroAudio;
 using UnityEngine;
 
 public abstract class FighterBase : MonoBehaviour
@@ -168,6 +169,7 @@ public abstract class FighterBase : MonoBehaviour
             // STATE 2: WIND-UP & MICRO-TRACKING
             // ==========================================
             anim.Play(animAttack);
+            OnAttackStarted();
 
             float timer = attackWindUpTime;
             while (timer > 0)
@@ -260,6 +262,7 @@ public abstract class FighterBase : MonoBehaviour
 
             // STATE 1: WIND-UP
             anim.Play(animAttack);
+            OnAttackStarted();
             yield return new WaitForSeconds(attackWindUpTime);
 
             while (CombatFreezeSignal.IsFrozen) yield return null;
@@ -287,9 +290,18 @@ public abstract class FighterBase : MonoBehaviour
     // IMPACT — dipanggil di titik "kena" tiap AttackFlow
     // Enemy override ini buat nyisipin cek miss-chance
     // ==========================================
+    protected virtual void OnAttackStarted()
+    {
+    }
+
     protected virtual void OnHitImpact()
     {
         ApplyImpactEffect();
+    }
+
+    protected void PlaySfx(SoundID sound)
+    {
+        AudioSystem.PlaySfx(sound);
     }
 
     // ==========================================
