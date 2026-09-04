@@ -53,9 +53,20 @@ namespace TypeForward
 
         private void Update()
         {
-            if (_transitioning) return;
-            if (GameManager.Instance.isGameOver || GameManager.Instance.isPaused) return;
-            if (combatBridge != null && combatBridge.IsPaused) return;
+            if (_transitioning)
+            {
+                return;
+            }
+
+            if (GameManager.Instance != null && (GameManager.Instance.isGameOver || GameManager.Instance.isPaused))
+            {
+                return;
+            }
+
+            if (combatBridge != null && combatBridge.IsPaused)
+            {
+                return;
+            }
 
             // Timer hanya berjalan saat pemain sedang aktif mengetik di fase normal
             if (_isSessionActive)

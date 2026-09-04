@@ -90,7 +90,7 @@ public abstract class PlayerFighterBase : FighterBase
     // ==========================================
 
     // TRANSISI 1: Idle normal -> Parry.
-    public void BeginParryChallenge(float duration)
+    public virtual void BeginParryChallenge(float duration)
     {
         if (isDead) return;
 

@@ -8,11 +8,26 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Faiz's Env/TestingScene1.unity
     guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Brad's Env/MainMenuBradley.unity
     guid: 6291623a82a86e942a7d206373ed3fcc
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Brad's Env/TestingScene2.unity
     guid: ac9b56c95c142d14e950917bf1cc8fb0
+  - enabled: 1
+    path: Assets/Scenes/Master/MainMenu.unity
+    guid: 96b6b82e638803f4cb99ca80086e006a
+  - enabled: 1
+    path: Assets/Scenes/Master/CutScene.unity
+    guid: 368780e3463e2d443b080a01af2b116b
+  - enabled: 1
+    path: Assets/Scenes/Master/Level 1.unity
+    guid: 2652985aa6fb8604aa017a6da055f837
+  - enabled: 1
+    path: Assets/Scenes/Master/Level 2.unity
+    guid: 5c7b85e81c7efd9479255ca21c442389
+  - enabled: 1
+    path: Assets/Scenes/Master/Level 3.unity
+    guid: b1ed516b4f8d06742a2c022261e76eef
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}

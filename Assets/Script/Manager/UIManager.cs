@@ -65,6 +65,7 @@ public class UIManager : MonoBehaviour
 
     private void HandlePause(bool isPaused)
     {
+        PlayButtonClickSFX();
         if (pausePanel != null) pausePanel.SetActive(isPaused);
     }
 
@@ -116,32 +117,49 @@ public class UIManager : MonoBehaviour
 
     public void Button_ResumeGame()
     {
-        if (GameManager.Instance != null) GameManager.Instance.TogglePause();
-        Debug.Log("Resume Game button clicked.");
+        PlayButtonClickSFX();
+
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.TogglePause();
+        }
     }
 
     public void Button_RestartLevel()
     {
+        PlayButtonClickSFX();
         if (GameManager.Instance != null) GameManager.Instance.RestartLevel();
     }
 
     public void Button_NextLevel()
     {
+        PlayButtonClickSFX();
         if (GameManager.Instance != null) GameManager.Instance.LoadNextLevel();
     }
 
     public void Button_MainMenu()
     {
+        PlayButtonClickSFX();
         if (GameManager.Instance != null) GameManager.Instance.LoadMainMenu();
     }
 
     public void Button_OpenSettings()
     {
+        PlayButtonClickSFX();
         if (settingsPanel != null) settingsPanel.SetActive(true);
     }
 
     public void Button_CloseSettings()
     {
+        PlayButtonClickSFX();
         if (settingsPanel != null) settingsPanel.SetActive(false);
+    }
+
+    public void PlayButtonClickSFX()
+    {
+        if (AudioSystem.Instance != null)
+        {
+            AudioSystem.Instance.PlayAudio(AudioSystem.Instance.sfx_HitPlay);
+        }
     }
 }

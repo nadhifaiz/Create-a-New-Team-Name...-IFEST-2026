@@ -10,7 +10,6 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
     public SoundID bgm_BattleBGM2;
     public SoundID bgm_BattleBGM3;
 
-
     [Header("SFX")]
     public SoundID sfx_HitPlay;
     public SoundID sfx_AwanTransisi;
@@ -30,14 +29,21 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
     public SoundID sfx_HantuMakanPlayer;
     public SoundID sfx_IceShield;
 
-
-
     [Range(0f, 1f)] public float defaultBGM = 0.5f;
     [Range(0f, 1f)] public float defaultSFX = 0.5f;
+
+    private SoundID currentBgm;
 
     protected override void Awake()
     {
         base.Awake();
+
+        if (Instance != this)
+        {
+            return;
+        }
+
+        DontDestroyOnLoad(gameObject);
         ApplyDefaultVolume();
     }
 
@@ -64,9 +70,49 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
         BroAudio.Play(audio);
     }
 
+    public static void PlaySfx(SoundID sound)
+    {
+        if (Instance == null || sound.Equals(SoundID.Invalid))
+        {
+            return;
+        }
+
+        Instance.PlayAudio(sound);
+    }
+
+    public void PlayBGM(SoundID bgm)
+    {
+        if (bgm.Equals(SoundID.Invalid))
+        {
+            return;
+        }
+
+        if (bgm.Equals(currentBgm))
+        {
+            return;
+        }
+
+        BroAudio.Play(bgm);
+        currentBgm = bgm;
+    }
+
+    public void PlayBattleBGM(int levelIndex)
+    {
+        SoundID battleBgm = levelIndex switch
+        {
+            1 => bgm_BattleBGM1,
+            2 => bgm_BattleBGM2,
+            3 => bgm_BattleBGM3,
+            _ => bgm_BattleBGM1
+        };
+
+        PlayBGM(battleBgm);
+    }
+
     public void StopBGM()
     {
         BroAudio.Stop(BroAudioType.Music);
+        currentBgm = default;
     }
 
     public void SetBGMVolume(float value)
@@ -79,6 +125,7 @@ public class AudioSystem : SingletonMonoBehaviour<AudioSystem>
         BroAudio.SetVolume(BroAudioType.SFX, value);
     }
 }
+
 public static partial class GameEvents
 {
     public static Action<float> onValueChangeBGM;
