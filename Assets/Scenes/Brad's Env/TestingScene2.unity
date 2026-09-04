@@ -7962,7 +7962,6 @@ MonoBehaviour:
     _entity: {fileID: 11400000, guid: 0e10fcaaeb5da6f459293a1090cf2381, type: 2}
     ID: 0
     <DebugObject>k__BackingField: {fileID: 2113274617}
-  defaultMaster: 0.5
   defaultBGM: 0.5
   defaultSFX: 0.5
 --- !u!4 &2113274619
